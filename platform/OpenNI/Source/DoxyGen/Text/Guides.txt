@@ -1,8 +1,0 @@
-/**
-@page guides Guides for OpenNI Development
-
-- @subpage modules_root
-
-*/
-
-
