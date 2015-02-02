@@ -1,0 +1,33 @@
+Depth Enhanced Monocular Odometry (Demo) is a monocular visual odometry method assisted by depth maps, and optionally an IMU. The program contains three major nodes. The "featureTracking" node extracts and tracks Harris corners by Kanade Lucas Tomasi (KLT) tracker provided in the OpenCV library. The "visualOdometry" node takes the tracked features and estimates frame to frame motion. Features associated with depth (either from the depth map or triangulated from previously estimated camera motion) are used to solve the 6DOF motion, and features without depth help solve orientation. The "bundleAdjust" node refines the estimated motion with bundle adjustment. It processes sequences of images using Incremental Smoothing and Mapping (iSAM) open source library. 
+
+The program is tested on ROS Indigo, on a laptop computer with 2.5 GHz quad cores and 6 Gib memory. This version uses an RGBD camera.
+
+Wiki Webpage: http://wiki.ros.org/demo_rgbd
+
+A slimmed down version of the program (without the bundle adjustment) is available for running on embedded systems
+
+GitHub Code: https://github.com/jizhang-cmu/demo_rgbd_slimmed.git
+
+Also, another version of the program that uses a camera and a 3D lidar is available at
+
+Wiki Webpage: http://wiki.ros.org/demo_lidar
+
+GitHub Code: https://github.com/jizhang-cmu/demo_lidar.git
+
+How to use:
+
+1) Install additional packages by "sudo apt-get install libsuitesparse-dev libeigen3-dev libsdl1.2-dev". These packages are required by iSAM library for the bundle adjustment.
+
+2) Download the program file to a ROS directory, unpack the file and rename the folder to “demo_rgbd” (GitHub may add "-xxx" to the end of the folder name). Use “catkin_make” to build the program, then “roslaunch demo_rgbd.launch”. The launch file should start the program and rviz.
+
+3) Download datasets from the following website. Make sure the data files are for the RGBD camera (not camera and lidar) version. Play the data files with “rosbag play data_file_name.bag”. Note that if a slow computer is used, users can try to play the data files at a lower speed, e.g. “rosbag play data_file_name.bag -r 0.5” plays the data file at half speed.
+
+Datasets can be downloaded at: http://www.frc.ri.cmu.edu/~jizhang03/projects.htm
+
+Notes: 
+  
+Camera intrinsic parameters (K matrices for rgb and depth images) are defined in the "src/cameraParameters.h" file. The program does not use "/camera_info" messages in the data files. The current parameters are set at the default values for Xtion sensors.
+
+The current program uses “/camera/rgb/image_rect” and “/camera/depth_registered/image” messages published by the “openni_camera” driver. Users can also remap from other messages such as “/camera/rgb/image” (for rgb images) and “/camera/depth/image” (for depth images). However, if using “/camera/depth/image”, pleases remember to change “kDepth” (K matrix for depth images) in the “cameraParameters.h” file to those in the “/camera/depth/camera_info” messages.
+
+It is possible to accelerate feature tracking with a GPU. To do this, simply replace the "src/featureTracking.cpp" file with the "src/featureTracking_ocl.cpp" file and recompile. We use OpenCL to communicate with the GPU. Users first need to install OpenCL in a version no earlier than 1.1 with full profile, then install OpenCV using CMake with flag WITH_OPENCL=ON.

@@ -1,0 +1,1 @@
+@%0\..\..\..\BuildJava.py "%1" "%0\.." ..\..\..\..\..\Samples\UserTracker.java\org\openni\Samples\UserTracker org.openni.Samples.UserTracker org.openni.jar org.openni.Samples.UserTracker.UserTrackerApplication
