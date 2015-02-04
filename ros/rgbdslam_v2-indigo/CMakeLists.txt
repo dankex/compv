@@ -16,7 +16,9 @@ endif ("${ROS_PARALLEL_JOBS}" EQUAL "")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-SET(CMAKE_CXX_FLAGS "-O3 -fPIC -std=c++0x")
+#c++0x might cause crash
+#SET(CMAKE_CXX_FLAGS "-O3 -fPIC -std=c++0x")
+SET(CMAKE_CXX_FLAGS "-O3 -fPIC")
 #For annotated profiling with perf: 
 #SET(CMAKE_CXX_FLAGS "-ggdb -O3 -fPIC -std=c++0x")
 
