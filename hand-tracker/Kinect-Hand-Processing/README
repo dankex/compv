@@ -1,0 +1,15 @@
+This code tracks the fingertips of the user. Both hands are tracked, and the user is free to move about the scene.
+
+The program uses OpenCV to process the hands (specifically: thresholding, convex hull, contours, and convexity defects)
+
+To compile this project you will need the following dependencies installed:
+
+OpenNI 1.5+ (this code does autocalibration)
+NITE
+SensorKinect (if using Kinect)
+OpenCV 2+
+CMake
+
+Here's a video showing the code running: http://www.youtube.com/watch?v=NeHX5jzHFM4
+
+Thanks!
