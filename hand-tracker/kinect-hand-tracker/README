@@ -1,0 +1,30 @@
+instruction to install on mac os x 10.6
+http://c4c.posterous.com/installing-openni-kinect-drivers-and-nite-on
+
+1) Install required libaries:
+   sudo port install libtool
+   sudo port install libusb-devel +universal
+   -> install lib jpeg and png "http://ethan.tira-thompson.org/Mac_OS_X_Ports.html"
+2) Install OpenNI binaries for mac os x
+   download and extract package for mac: "http://www.openni.org/downloadfiles/openni-binaries/20-latest-unstable"
+   sudo ./install.sh
+3) Install Kinect Drivers for mac os x
+   -> download and extract "https://github.com/roxlu/SensorKinect" as "SensorKinect" 
+   cd SensorKinect/Platform/Linux-x86/Build
+   make
+   cd ../CreateRedist
+   ./RedistMaker
+   cd ../Redist
+   sudo ./install.sh
+4) Install NITE
+   -> download and extract package for mac "http://www.openni.org/downloadfiles/12-openni-compliant-middleware-binaries" as "Nite"
+   cd Nite/Hands_1_3_1/Data
+   remove 2 ";" to allow multiple hands tracking
+   sudo sh install.sh
+   enter key: 0KOIk2JeIBYClPWVnMoRKn5cdY4=
+5) Replace XML files in OpenNI/Samples/Config/ and NITE/Samples/Config with files in KinectXMLs
+
+instruction to install on window
+http://www.studentguru.gr/blogs/vangos/archive/2011/01/20/how-to-successfully-install-kinect-windows-openni-nite.aspx
+
+for linux, install: sudo apt-get install libmono-winforms*
