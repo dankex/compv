@@ -1,0 +1,12 @@
+build_rpi_sd_card.sh
+
+	Image is built. But not booting.
+
+rpi2-build-image.sh
+
+	Not working. Missing package.
+        Try to run on target?
+
+binaries:
+        Can be flashed with command
+        sudo bmaptool copy --bmap 2015-03-02-ubuntu-trusty.bmap 2015-03-02-ubuntu-trusty.img /dev/sdc 
