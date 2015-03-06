@@ -8,13 +8,16 @@
 #ifndef HERCULES_H_
 #define HERCULES_H_
 
+#include <string>
+#include "Keyboard.h"
 #include "libserial/SerialStream.h"
 
-using namespace LibSerial ;
+using namespace std;
+using namespace LibSerial;
 
 class Hercules {
 public:
-	Hercules();
+	Hercules(const string &port);
 	virtual ~Hercules();
 	int run();
 
@@ -23,15 +26,17 @@ protected:
 	bool loop();
 
 private:
+	SerialPort mSerial;
+	Keyboard mKeyboard;
+
 	char mForward;
 	char mLeftTurn;
 	char mRightTurn;
 
-	SerialStream mSerialStream;
-
 	void do_forward();
 	void do_left_turn();
 	void do_right_turn();
+	void do_set_speed(char num);
 };
 
 #endif /* HERCULES_H_ */

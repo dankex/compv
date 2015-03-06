@@ -6,8 +6,9 @@
  */
 
 #include <iostream>
+#include <string>
+#include <stdio.h>
 #include "Hercules.h"
-#include "getch.h"
 
 using namespace std;
 
@@ -18,9 +19,12 @@ using namespace std;
 #define CMD_FORWARD "M1,"
 #define CMD_LEFT_TURN "M3,"
 #define CMD_RIGHT_TURN "M4,"
+#define CMD_SET_SPEED "S"
+#define CMD_ENDCMD	","
 
-Hercules::Hercules()
-  : mForward(KEY_DEFAULT_FORWARD)
+Hercules::Hercules(const string &port)
+  : mSerial(port)
+  , mForward(KEY_DEFAULT_FORWARD)
   , mLeftTurn(KEY_DEFAULT_LEFT_TURN)
   , mRightTurn(KEY_DEFAULT_RIGHT_TURN)
 {
@@ -39,42 +43,53 @@ int Hercules::run() {
 }
 
 void Hercules::setup() {
-	mSerialStream.Open("/dev/ttyUSB0");
-	mSerialStream.SetBaudRate(SerialStreamBuf::BAUD_19200);
-	mSerialStream.SetCharSize( SerialStreamBuf::CHAR_SIZE_8 );
-	mSerialStream.SetNumOfStopBits(1);
-	mSerialStream.SetParity(SerialStreamBuf::PARITY_ODD);
-	mSerialStream.SetFlowControl( SerialStreamBuf::FLOW_CONTROL_NONE ) ;
-
-	while (mSerialStream.IsDataAvailable()) {
-	}
+	mSerial.Open(SerialPort::BAUD_19200,
+			SerialPort::CHAR_SIZE_8,
+			SerialPort::PARITY_DEFAULT,
+			SerialPort::STOP_BITS_DEFAULT,
+			SerialPort::FLOW_CONTROL_DEFAULT);
 }
 
 bool Hercules::loop() {
-	char ch;
+	// Print serial port
+	while (mSerial.IsDataAvailable()) {
+		char newChar = mSerial.ReadByte(10000);
+		cout << newChar;
+	}
 
-	ch = getch();
+	if (mKeyboard.isHit()) {
+		char ch = mKeyboard.getChar();
 
-	cout << "new char: " << ch << " (" << (int) ch << ")" << endl;
+		cout << "[" << ch << "] (" << (int) ch << ")" << endl;
 
-	if (ch == mForward)
-		do_forward();
-	else if (ch == mLeftTurn)
-		do_left_turn();
-	else if (ch == mRightTurn)
-		do_right_turn();
+		if (ch == mForward)
+			do_forward();
+		else if (ch == mLeftTurn)
+			do_left_turn();
+		else if (ch == mRightTurn)
+			do_right_turn();
+		else if (ch >= '0' && ch <= '9') {
+			do_set_speed(ch);
+		}
+	}
 
 	return true;
 }
 
 void Hercules::do_forward() {
-	mSerialStream << CMD_FORWARD;
+	mSerial.Write(CMD_FORWARD);
 }
 
 void Hercules::do_left_turn() {
-	mSerialStream << CMD_LEFT_TURN;
+	mSerial.Write(CMD_LEFT_TURN);
 }
 
 void Hercules::do_right_turn() {
-	mSerialStream << CMD_RIGHT_TURN;
+	mSerial.Write(CMD_RIGHT_TURN);
+}
+
+void Hercules::do_set_speed(char num) {
+	mSerial.Write(CMD_SET_SPEED);
+	mSerial.WriteByte(num);
+	mSerial.Write(CMD_ENDCMD);
 }
