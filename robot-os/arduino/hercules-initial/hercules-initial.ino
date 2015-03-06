@@ -149,22 +149,21 @@ void motorReverse()
 
 void motorTurnLeft()
 {
-  digitalWrite(PINM1R,LOW);
-  digitalWrite(PINM1F,HIGH);
-  digitalWrite(PINM2F,HIGH);
-  digitalWrite(PINM2R,LOW);
+  digitalWrite(PINM1R,HIGH);
+  digitalWrite(PINM1F,LOW);
+  digitalWrite(PINM2F,LOW);
+  digitalWrite(PINM2R,HIGH);
   digitalWrite(PINCS,HIGH);
 }
 
 
 void motorTurnRight()
 {
-  digitalWrite(PINM1R,HIGH);
-  digitalWrite(PINM1F,LOW);
-  digitalWrite(PINM2F,LOW);
-  digitalWrite(PINM2R,HIGH);
+  digitalWrite(PINM1R,LOW);
+  digitalWrite(PINM1F,HIGH);
+  digitalWrite(PINM2F,HIGH);
+  digitalWrite(PINM2R,LOW);
   digitalWrite(PINCS,HIGH);
-
 }
 
 // **** MESSAGE HANDLING ******************************************************************************
