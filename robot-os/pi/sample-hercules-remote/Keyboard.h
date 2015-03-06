@@ -15,6 +15,7 @@ public:
 
 	bool isHit();
 	int getChar(bool &esc);
+	void clear();
 };
 
 #endif /* KEYBOARD_H_ */

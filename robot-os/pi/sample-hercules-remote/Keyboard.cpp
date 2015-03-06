@@ -42,3 +42,9 @@ int Keyboard::getChar(bool &esc) {
 
 	return third;
 }
+
+void Keyboard::clear() {
+	while (isHit()) {
+		getChar();
+	}
+}

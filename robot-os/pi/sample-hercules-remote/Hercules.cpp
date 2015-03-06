@@ -75,6 +75,9 @@ bool Hercules::loop() {
 					do_right_turn();
 				else if (ch >= '0' && ch <= '9') {
 					do_set_speed(ch);
+				} else {
+					// error case
+					mKeyboard.clear();
 				}
 			} else {
 				// Remote left
@@ -86,11 +89,15 @@ bool Hercules::loop() {
 				else if (ch == 54) {
 					do_set_speed('5');
 					do_right_turn();
+				} else {
+					// error case
+					mKeyboard.clear();
 				}
 			}
 		}
 	} catch (runtime_error e) {
 		// ignore
+		mKeyboard.clear();
 	}
 	return true;
 }
