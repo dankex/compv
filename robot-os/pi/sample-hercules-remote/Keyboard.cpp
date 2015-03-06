@@ -45,6 +45,7 @@ int Keyboard::getChar(bool &esc) {
 
 void Keyboard::clear() {
 	while (isHit()) {
-		getChar();
+                bool dummy;
+		getChar(dummy);
 	}
 }
