@@ -14,7 +14,7 @@ public:
 	virtual ~Keyboard();
 
 	bool isHit();
-	char getChar();
+	int getChar(bool &esc);
 };
 
 #endif /* KEYBOARD_H_ */

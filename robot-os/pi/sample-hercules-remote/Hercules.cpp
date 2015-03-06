@@ -58,18 +58,33 @@ bool Hercules::loop() {
 	}
 
 	if (mKeyboard.isHit()) {
-		char ch = mKeyboard.getChar();
+		bool esc;
+		int ch = mKeyboard.getChar(esc);
 
-		cout << "[" << ch << "] (" << (int) ch << ")" << endl;
+		cout << "[" << ch << ":" << esc << "] ("
+				<< (int) ch << ")" << endl;
 
-		if (ch == mForward)
-			do_forward();
-		else if (ch == mLeftTurn)
-			do_left_turn();
-		else if (ch == mRightTurn)
-			do_right_turn();
-		else if (ch >= '0' && ch <= '9') {
-			do_set_speed(ch);
+		if (!esc) {
+			if (ch == mForward || ch == 'b')
+				do_forward();
+			else if (ch == mLeftTurn)
+				do_left_turn();
+			else if (ch == mRightTurn)
+				do_right_turn();
+			else if (ch >= '0' && ch <= '9') {
+				do_set_speed(ch);
+			}
+		} else {
+			// Remote left
+			if (ch == 53) {
+				do_set_speed('5');
+				do_left_turn();
+			}
+			// Remote right
+			else if (ch == 54) {
+				do_set_speed('5');
+				do_right_turn();
+			}
 		}
 	}
 

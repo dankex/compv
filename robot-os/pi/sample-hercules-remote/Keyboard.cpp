@@ -8,6 +8,8 @@
 #include "Keyboard.h"
 #include <ncurses.h>
 
+#define KEY_ESC 27
+
 Keyboard::Keyboard() {
 	initscr();
 	cbreak();
@@ -27,6 +29,16 @@ bool Keyboard::isHit() {
 	}
 }
 
-char Keyboard::getChar() {
-	return getch();
+int Keyboard::getChar(bool &esc) {
+	esc = false;
+	char first = getch();
+	if (first != KEY_ESC)
+		return first;
+
+	esc = true;
+	int second = getch();
+	int third = getch();
+	int fourth = getch();
+
+	return third;
 }
