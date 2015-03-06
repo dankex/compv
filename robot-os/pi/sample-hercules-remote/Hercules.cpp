@@ -51,43 +51,47 @@ void Hercules::setup() {
 }
 
 bool Hercules::loop() {
-	// Print serial port
-	while (mSerial.IsDataAvailable()) {
-		char newChar = mSerial.ReadByte(10000);
-		cout << newChar;
-	}
+	try {
+		// Print serial port
+		while (mSerial.IsDataAvailable()) {
+			char newChar = mSerial.ReadByte(10000);
+			cout << newChar;
+		}
 
-	if (mKeyboard.isHit()) {
-		bool esc;
-		int ch = mKeyboard.getChar(esc);
+		// Process keyboard commands
+		if (mKeyboard.isHit()) {
+			bool esc;
+			int ch = mKeyboard.getChar(esc);
 
-		cout << "[" << ch << ":" << esc << "] ("
-				<< (int) ch << ")" << endl;
+			cout << "[" << ch << ":" << esc << "] ("
+					<< (int) ch << ")" << endl;
 
-		if (!esc) {
-			if (ch == mForward || ch == 'b')
-				do_forward();
-			else if (ch == mLeftTurn)
-				do_left_turn();
-			else if (ch == mRightTurn)
-				do_right_turn();
-			else if (ch >= '0' && ch <= '9') {
-				do_set_speed(ch);
-			}
-		} else {
-			// Remote left
-			if (ch == 53) {
-				do_set_speed('5');
-				do_left_turn();
-			}
-			// Remote right
-			else if (ch == 54) {
-				do_set_speed('5');
-				do_right_turn();
+			if (!esc) {
+				if (ch == mForward || ch == 'b')
+					do_forward();
+				else if (ch == mLeftTurn)
+					do_left_turn();
+				else if (ch == mRightTurn)
+					do_right_turn();
+				else if (ch >= '0' && ch <= '9') {
+					do_set_speed(ch);
+				}
+			} else {
+				// Remote left
+				if (ch == 53) {
+					do_set_speed('5');
+					do_left_turn();
+				}
+				// Remote right
+				else if (ch == 54) {
+					do_set_speed('5');
+					do_right_turn();
+				}
 			}
 		}
+	} catch (runtime_error e) {
+		// ignore
 	}
-
 	return true;
 }
 
