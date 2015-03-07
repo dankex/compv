@@ -34,6 +34,7 @@ private:
 	char mRightTurn;
 
 	bool mPrinted;
+	int  mSpeed;
 
 	void do_forward();
 	void do_left_turn();

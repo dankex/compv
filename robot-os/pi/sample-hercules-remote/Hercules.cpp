@@ -20,7 +20,9 @@ using namespace std;
 #define CMD_FORWARD "M1,"
 #define CMD_LEFT_TURN "M3,"
 #define CMD_RIGHT_TURN "M4,"
-#define CMD_SET_SPEED "S%c,"
+#define CMD_SET_SPEED "S%d,"
+
+#define DEFAULT_SPEED 5
 
 Hercules::Hercules(const string &port)
   : mSerial(port)
@@ -86,12 +88,10 @@ bool Hercules::loop() {
 			} else {
 				// Remote left
 				if (ch == 53) {
-					do_set_speed('5');
 					do_left_turn();
 				}
 				// Remote right
 				else if (ch == 54) {
-					do_set_speed('5');
 					do_right_turn();
 				} else {
 					// error case
@@ -111,21 +111,26 @@ bool Hercules::loop() {
 }
 
 void Hercules::do_forward() {
-	cout << "forward" << endl;
+	if (mSpeed < 9) {
+		mSpeed++;
+		do_set_speed(mSpeed);
+	}
 	mSerial.Write(CMD_FORWARD);
 }
 
 void Hercules::do_left_turn() {
-	cout << "left" << endl;
+	mSpeed = DEFAULT_SPEED;
+	do_set_speed(mSpeed);
 	mSerial.Write(CMD_LEFT_TURN);
 }
 
 void Hercules::do_right_turn() {
-	cout << "right" << endl;
+	mSpeed = DEFAULT_SPEED;
+	do_set_speed(mSpeed);
 	mSerial.Write(CMD_RIGHT_TURN);
 }
 
-void Hercules::do_set_speed(char num) {
+void Hercules::do_set_speed(int num) {
 	char buf[10];
 	snprintf(buf, sizeof(buf), CMD_SET_SPEED, num);
 	mSerial.Write(buf);
