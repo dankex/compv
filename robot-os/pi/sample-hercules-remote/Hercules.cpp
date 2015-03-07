@@ -20,8 +20,7 @@ using namespace std;
 #define CMD_FORWARD "M1,"
 #define CMD_LEFT_TURN "M3,"
 #define CMD_RIGHT_TURN "M4,"
-#define CMD_SET_SPEED "S"
-#define CMD_ENDCMD	","
+#define CMD_SET_SPEED "S%c,"
 
 Hercules::Hercules(const string &port)
   : mSerial(port)
@@ -37,7 +36,7 @@ Hercules::~Hercules() {
 
 int Hercules::run() {
 	setup();
-	while (1) {
+	while (true) {
 		if (!loop())
 			break;
 	}
@@ -127,8 +126,7 @@ void Hercules::do_right_turn() {
 }
 
 void Hercules::do_set_speed(char num) {
-	cout << "speed " << num << endl;
-	mSerial.Write(CMD_SET_SPEED);
-	mSerial.WriteByte(num);
-	mSerial.Write(CMD_ENDCMD);
+	char buf[10];
+	snprintf(buf, sizeof(buf), CMD_SET_SPEED, num);
+	mSerial.Write(buf);
 }
