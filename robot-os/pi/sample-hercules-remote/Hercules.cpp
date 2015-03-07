@@ -28,6 +28,7 @@ Hercules::Hercules(const string &port)
   , mForward(KEY_DEFAULT_FORWARD)
   , mLeftTurn(KEY_DEFAULT_LEFT_TURN)
   , mRightTurn(KEY_DEFAULT_RIGHT_TURN)
+  , mPrinted(false)
 {
 }
 
@@ -54,9 +55,12 @@ void Hercules::setup() {
 bool Hercules::loop() {
 	try {
 		// Print serial port
-		while (mSerial.IsDataAvailable()) {
-			char newChar = mSerial.ReadByte(10000);
-			cout << newChar;
+		if (!mPrinted) {
+			while (mSerial.IsDataAvailable()) {
+				char newChar = mSerial.ReadByte(100);
+				cout << newChar;
+			}
+			mPrinted = true;
 		}
 
 		// Process keyboard commands
