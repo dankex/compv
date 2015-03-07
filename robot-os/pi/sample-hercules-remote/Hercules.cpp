@@ -112,18 +112,22 @@ bool Hercules::loop() {
 }
 
 void Hercules::do_forward() {
+	cout << "forward" << endl;
 	mSerial.Write(CMD_FORWARD);
 }
 
 void Hercules::do_left_turn() {
+	cout << "left" << endl;
 	mSerial.Write(CMD_LEFT_TURN);
 }
 
 void Hercules::do_right_turn() {
+	cout << "right" << endl;
 	mSerial.Write(CMD_RIGHT_TURN);
 }
 
 void Hercules::do_set_speed(char num) {
+	cout << "speed " << num << endl;
 	mSerial.Write(CMD_SET_SPEED);
 	mSerial.WriteByte(num);
 	mSerial.Write(CMD_ENDCMD);
