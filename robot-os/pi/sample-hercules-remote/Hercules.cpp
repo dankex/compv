@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <unistd.h>
 #include "Hercules.h"
 
 using namespace std;
@@ -94,8 +95,12 @@ bool Hercules::loop() {
 					mKeyboard.clear();
 				}
 			}
+		} else {
+			// no keyboard hit
+			usleep(100 * 1000);
 		}
-	} catch (runtime_error e) {
+	} catch (exception e) {
+		cout << e.what() << endl;
 		// ignore
 		mKeyboard.clear();
 	}
