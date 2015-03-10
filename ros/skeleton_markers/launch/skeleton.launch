@@ -1,0 +1,19 @@
+<launch>
+  <arg name="fixed_frame" default="openni_depth_frame" />
+
+  <arg name="debug" default="False" />
+  <arg name="launch_prefix" default="xterm -e gdb --args" />
+    
+  <group if="$(arg debug)">
+    <node launch-prefix="$(arg launch_prefix)" pkg="skeleton_markers" name="skeleton_tracker" type="skeleton_tracker" output="screen"	>
+      <param name="fixed_frame" value="$(arg fixed_frame)" />
+      <param name="load_filepath" value="$(find skeleton_markers)/params/SamplesConfig.xml" />
+    </node>
+  </group>
+  <group unless="$(arg debug)">
+    <node name="skeleton_tracker" pkg="skeleton_markers" type="skeleton_tracker">
+      <param name="fixed_frame" value="$(arg fixed_frame)" />
+      <param name="load_filepath" value="$(find skeleton_markers)/params/SamplesConfig.xml" />
+    </node>
+  </group>
+</launch>

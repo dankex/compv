@@ -1,0 +1,12 @@
+<launch>
+
+  <node pkg="openni_tracker" name="openni_tracker" type="openni_tracker" output="screen">
+	    <param name="fixed_frame" value="openni_depth_frame" />
+  </node>
+  
+  <node pkg="skeleton_markers" name="markers_from_tf" type="markers_from_tf.py" output="screen">
+    <rosparam file="$(find skeleton_markers)/params/marker_params.yaml" command="load" />
+  </node>
+  
+</launch>
+

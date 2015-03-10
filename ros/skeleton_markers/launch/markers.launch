@@ -1,0 +1,12 @@
+<launch>
+  <arg name="fixed_frame" default="openni_depth_frame" />
+  
+  <include file="$(find skeleton_markers)/launch/skeleton.launch">
+     <arg name="fixed_frame" value="$(arg fixed_frame)" />
+  </include>
+
+  <node pkg="skeleton_markers" name="skeleton_markers" type="markers_from_skeleton_msg.py" output="screen">
+    <rosparam file="$(find skeleton_markers)/params/marker_params.yaml" command="load" />
+    <param name="fixed_frame" value="$(arg fixed_frame)" />
+  </node>
+</launch>

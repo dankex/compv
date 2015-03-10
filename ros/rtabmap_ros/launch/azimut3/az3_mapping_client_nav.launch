@@ -1,0 +1,24 @@
+
+<launch>
+
+  <!-- Choose visualization -->
+  <arg name="rviz" default="true" />
+  <arg name="rtabmapviz" default="false" />
+  
+  <group ns="rtabmap">  
+  <!-- Visualisation RTAB-Map -->
+  <node if="$(arg rtabmapviz)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
+      <param name="queue_size" type="int" value="10"/>
+      <param name="frame_id" type="string" value="base_footprint"/>
+      <remap from="odom" to="/base_controller/odom"/>
+  </node>
+  </group>
+    
+  <!-- Visualisation RVIZ -->
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find rtabmap_ros)/launch/azimut3/config/azimut3_nav.rviz"/>
+    
+  <!-- use a relay on this machine, same for images -->
+  <node if="$(arg rviz)" name="mapData_relay" type="relay" pkg="topic_tools" args="/rtabmap/mapData /rtabmap/mapData_relay">
+    <param name="lazy" type="bool" value="true"/>
+  </node>
+</launch>

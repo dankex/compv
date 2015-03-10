@@ -1,0 +1,38 @@
+# The fixed reference frame
+fixed_frame: 'openni_depth_frame'
+
+# Update rate
+rate: 20
+
+# Height and width of markers in meters
+scale: 0.07
+
+# Duration of markers in RViz; 0 is forever
+lifetime: 0
+
+# Marker namespace
+ns: 'skeleton_markers'
+
+# Marker id
+id: 0
+
+# Marker color
+color: { 'r': 0.0, 'g': 1.0, 'b': 0.0, 'a': 1.0 }
+
+skeleton_frames: [
+head,
+neck,
+torso,
+left_shoulder,
+left_elbow,
+left_hand,
+left_hip,
+left_knee,
+left_foot,
+right_shoulder,
+right_elbow,
+right_hand,
+right_hip,
+right_knee,
+right_foot
+]

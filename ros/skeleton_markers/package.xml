@@ -1,0 +1,42 @@
+<package>
+  <name>skeleton_markers</name>
+  <version>0.4.1</version>
+  <description>
+   Skeleton Markers: Publish a list of joint markers 
+   for viewing in RViz.
+  </description>
+
+  <maintainer email="patrick@pirobot.org">Patrick Goebel</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/skeleton_markers</url>
+  <url type="https://github.com/pirobot/skeleton_markers/issues"></url>
+  <author email="patrick@pirobot.org">Patrick Goebel</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>tf</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>openni_camera</build_depend>
+  <build_depend>openni_tracker</build_depend>
+  <build_depend>glut</build_depend>
+  <build_depend>libxmu-dev</build_depend>
+  <build_depend>libxi-dev</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>roscpp</build_depend>
+
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>visualization_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>openni_camera</run_depend>
+  <run_depend>openni_tracker</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>roscpp</run_depend>
+
+</package>
