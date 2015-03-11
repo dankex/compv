@@ -39,7 +39,7 @@ private:
 	void do_forward();
 	void do_left_turn();
 	void do_right_turn();
-	void do_set_speed(char num);
+	void do_set_speed(int num);
 };
 
 #endif /* HERCULES_H_ */
