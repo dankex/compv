@@ -1,0 +1,9 @@
+Now modify the license in the files: Sample-Scene.xml, Sample-Tracking.xml, and Sample-User.xml.
+
+Modify
+<License vendor="PrimeSense" key=""/>
+
+to
+<License vendor="PrimeSense" key="0KOIk2JeIBYClPWVnMoRKn5cdY4="/>
+
+
