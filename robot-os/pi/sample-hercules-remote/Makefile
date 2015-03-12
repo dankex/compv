@@ -22,4 +22,4 @@ debug-sample-hercules-remote: $(SRC)
 	g++ -o $@ $(SRC) $(LDFLAGS) -g
 
 clean:
-	rm -rf sample-hercules-remote debug-sample-hercules-remote
+	rm -rf *~ sample-hercules-remote debug-sample-hercules-remote
