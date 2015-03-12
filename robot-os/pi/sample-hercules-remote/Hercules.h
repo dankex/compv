@@ -33,7 +33,6 @@ private:
 	char mLeftTurn;
 	char mRightTurn;
 
-	bool mPrinted;
 	int  mSpeed;
 
 	void do_forward();
