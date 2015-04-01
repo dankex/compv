@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+  <name>hercules_base</name>
+  <version>0.0.1</version>
+  <description>Hercules robot driver</description>
+  <maintainer email="danke.xie@gmail.com">Danke Xie</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>controller_manager</build_depend>
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>hercules_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>roslint</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>controller_manager</run_depend>
+  <run_depend>diagnostic_updater</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+  <run_depend>diagnostic_aggregator</run_depend>
+  <run_depend>diff_drive_controller</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>hercules_control</run_depend>
+  <run_depend>hercules_msgs</run_depend>
+  <run_depend>hercules_description</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>topic_tools</run_depend>
+
+  <export></export>
+</package>
