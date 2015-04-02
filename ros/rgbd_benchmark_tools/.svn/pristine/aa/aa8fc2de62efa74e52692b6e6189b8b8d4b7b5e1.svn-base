@@ -1,0 +1,24 @@
+<package>
+  <description brief="rgbd_benchmark_tools">
+
+     rgbd_benchmark_tools
+
+  </description>
+  <author>Juergen Sturm</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/rgbd_benchmark_tools</url>
+
+  <depend package="openni_camera"/>
+  <depend package="rospy"/>
+  <depend package="rosbag"/>
+  <depend package="cv_bridge"/>
+  <depend package="opencv2"/>
+  <depend package="tf"/>
+  <depend package="sensor_msgs"/>
+  <depend package="visualization_msgs"/>
+  <depend package="geometry_msgs"/>
+  
+</package>
+
+

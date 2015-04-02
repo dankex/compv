@@ -7,37 +7,33 @@ find_package(Boost REQUIRED COMPONENTS chrono)
 
 catkin_package(
     INCLUDE_DIRS include
-#    LIBRARIES horizon_legacy
+    LIBRARIES libserial
     CATKIN_DEPENDS diagnostic_updater hardware_interface hercules_msgs roscpp sensor_msgs
     DEPENDS Boost
 )
 
 include_directories(include ${Boost_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
 
-#add_library(horizon_legacy
-#  src/horizon_legacy/crc.cpp
-#  src/horizon_legacy/Logger.cpp
-#  src/horizon_legacy/Message.cpp
-#  src/horizon_legacy/Message_data.cpp
-#  src/horizon_legacy/Message_request.cpp
-#  src/horizon_legacy/Message_cmd.cpp
-#  src/horizon_legacy/Transport.cpp
-#  src/horizon_legacy/Number.cpp
-#  src/horizon_legacy/linux_serial.cpp
-#  )
+add_library(libserial
+   src/libserial/PosixSignalDispatcher.cpp
+   src/libserial/SerialPort.cpp
+   src/libserial/SerialStreamBuf.cc
+   src/libserial/SerialStream.cc
+)
 
 add_executable(hercules_node
   src/hercules_base.cpp
   src/hercules_hardware.cpp
 #  src/hercules_diagnostics.cpp
+  src/Hercules.cpp
   src/hercules_wilson_wrapper.cpp)
-target_link_libraries(hercules_node ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(hercules_node libserial ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_dependencies(hercules_node hercules_msgs_gencpp)
 
 roslint_cpp(
   src/hercules_base.cpp
   src/hercules_hardware.cpp
-  src/hercules_diagnostics.cpp
+#  src/hercules_diagnostics.cpp
   include/hercules_base/hercules_diagnostics.h
   include/hercules_base/hercules_hardware.h
 )
