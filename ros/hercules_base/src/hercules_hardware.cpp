@@ -190,14 +190,12 @@ namespace hercules_base
   */
   void HerculesHardware::writeCommandsToHardware()
   {
-	/*
     double diff_speed_left = angularToLinear(joints_[LEFT].velocity_command);
     double diff_speed_right = angularToLinear(joints_[RIGHT].velocity_command);
 
     limitDifferentialSpeed(diff_speed_left, diff_speed_right);
 
-    horizon_legacy::controlSpeed(diff_speed_left, diff_speed_right, max_accel_, max_accel_);
-    */
+    hercules_wilson::controlSpeed(diff_speed_left, diff_speed_right, max_accel_, max_accel_);
   }
 
   /**

@@ -93,11 +93,14 @@ int main(int argc, char *argv[])
       &hercules_queue);
   ros::Timer control_loop = nh.createTimer(control_timer);
 
+  // Temporarily disable diagnostic
+  /*
   ros::TimerOptions diagnostic_timer(
       ros::Duration(1 / diagnostic_frequency),
       boost::bind(diagnosticLoop, boost::ref(hercules)),
       &hercules_queue);
   ros::Timer diagnostic_loop = nh.createTimer(diagnostic_timer);
+  */
 
   hercules_spinner.start();
 
