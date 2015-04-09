@@ -23,16 +23,16 @@ OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTE
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<robot name="husky_decorations" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="hercules_decorations" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="husky_decorate">
+  <xacro:macro name="hercules_decorate">
 
     <!-- Spawn Husky chassis -->
     <link name="top_chassis_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://husky_description/meshes/top_chassis.dae" />
+          <mesh filename="package://hercules_description/meshes/top_chassis.dae" />
         </geometry>
       </visual>
     </link>
@@ -47,7 +47,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <link name="user_rail_link">
       <visual>
         <geometry>
-          <mesh filename="package://husky_description/meshes/user_rail.dae" />
+          <mesh filename="package://hercules_description/meshes/user_rail.dae" />
         </geometry>
       </visual>
     </link>
@@ -63,7 +63,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <link name="front_bumper_link">
       <visual>
         <geometry>
-          <mesh filename="package://husky_description/meshes/bumper.dae" />
+          <mesh filename="package://hercules_description/meshes/bumper.dae" />
         </geometry>
       </visual>
     </link>
@@ -79,7 +79,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <link name="rear_bumper_link">
       <visual>
         <geometry>
-          <mesh filename="package://husky_description/meshes/bumper.dae" />
+          <mesh filename="package://hercules_description/meshes/bumper.dae" />
         </geometry>
       </visual>
     </link>
@@ -96,13 +96,13 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://husky_description/meshes/top_plate.dae" />
+          <mesh filename="package://hercules_description/meshes/top_plate.dae" />
         </geometry>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://husky_description/meshes/top_plate.dae" />
+          <mesh filename="package://hercules_description/meshes/top_plate.dae" />
         </geometry>
       </collision>
       <collision>

@@ -37,7 +37,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}"/>
         <geometry>
-          <mesh filename="package://husky_description/meshes/accessories/kinect.dae" />
+          <mesh filename="package://hercules_description/meshes/accessories/kinect.dae" />
         </geometry>
       </visual>
       <collision>

@@ -34,8 +34,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <!-- Should be less than sensor range -->
     <param name="goal_aliasing" value="2.0"/>
     
-    <rosparam file="$(find husky_navigation)/config/costmap_common.yaml" command="load" ns="explore_costmap" />
-    <rosparam file="$(find husky_navigation)/config/costmap_exploration.yaml" command="load" ns="explore_costmap" />
+    <rosparam file="$(find hercules_navigation)/config/costmap_common.yaml" command="load" ns="explore_costmap" />
+    <rosparam file="$(find hercules_navigation)/config/costmap_exploration.yaml" command="load" ns="explore_costmap" />
 
   </node>
 

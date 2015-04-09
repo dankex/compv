@@ -47,7 +47,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://husky_description/meshes/accessories/sick_lms100.dae" />
+          <mesh filename="package://hercules_description/meshes/accessories/sick_lms100.dae" />
         </geometry>
       </visual>
       <collision>

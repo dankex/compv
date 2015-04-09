@@ -18,7 +18,7 @@ hercules_velocity_controller:
   # no need to publish a TF based on encoders alone.
   enable_odom_tf: false
 
-  # Hercules hardware provides wheel velocities
+  # Husky hardware provides wheel velocities
   estimate_velocity_from_position: false
 
   # Wheel separation and radius multipliers

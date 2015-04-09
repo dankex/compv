@@ -26,13 +26,13 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 <launch>
 
   <!-- Run the map server -->
-  <arg name="map_file" default="$(find husky_navigation)/maps/playpen_map.yaml"/>
+  <arg name="map_file" default="$(find hercules_navigation)/maps/playpen_map.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!--- Run AMCL -->
-  <include file="$(find husky_navigation)/launch/amcl.launch" />
+  <include file="$(find hercules_navigation)/launch/amcl.launch" />
 
   <!--- Run Move Base -->
-  <include file="$(find husky_navigation)/launch/move_base.launch" />
+  <include file="$(find hercules_navigation)/launch/move_base.launch" />
 
 </launch>
