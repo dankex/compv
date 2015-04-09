@@ -33,6 +33,7 @@ void Hercules::reconnect() {
 void Hercules::connect(const string &port) {
 	mPort = port;
 	mSerialPtr = new SerialPort(port);
+	reconnect();
 }
 
 void Hercules::configureLimits(double max_speed, double max_accel) {
