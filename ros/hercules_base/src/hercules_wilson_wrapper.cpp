@@ -30,6 +30,7 @@
 */
 
 #include <ros/ros.h>
+#include <ros/console.h>
 #include "Hercules.h"
 
 namespace
@@ -62,9 +63,12 @@ namespace hercules_wilson
 
   void configureLimits(double max_speed, double max_accel) {
 	  gHercules.configureLimits(max_speed, max_accel);
+          ROS_DEBUG("configureLimits max_speed=%lf, max_accel=%lf", max_speed, max_accel);
   }
 
   void controlSpeed(double speed_left, double speed_right, double accel_left, double accel_right){
+    ROS_DEBUG("controlSpeed speed_left=%lf, speed_right=%lf", speed_left, speed_right);
+    ROS_DEBUG("controlspeed accel_left=%lf, accel_right=%lf", accel_left, accel_right);
 	  gHercules.controlSpeed(speed_left, speed_right, accel_left, accel_right);
   }
 }

@@ -24,7 +24,7 @@ private:
 	SerialPort *mSerialPtr;
 
 protected:
-	void sendDriveCmd(int left, int right);
+	void sendDriveCmd(int left, int right, int dirL, int dirR);
 	int speedToLevel(double speed);
 };
 

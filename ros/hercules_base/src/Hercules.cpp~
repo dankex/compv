@@ -10,8 +10,7 @@
 
 using namespace std;
 
-//#define CMD_DRIVE "D%c%c"
-#define CMD_DRIVE "D%d,%d,%d,%d,"
+#define CMD_DRIVE "D%c%c"
 
 #define MAX_LEVEL	100
 #define MAX_SPEED	10.0		// 10 m/s
@@ -55,18 +54,18 @@ void Hercules::controlSpeed(double speed_left, double speed_right,
 	int lspeed = speedToLevel(speed_left);
 	int rspeed = speedToLevel(speed_right);
         ROS_DEBUG("Hercules int lspeed=%d, rspeed=%d", lspeed, rspeed);
-	sendDriveCmd(lspeed, signL, rspeed, signR);
+	sendDriveCmd(lspeed | signL, rspeed | signR);
 }
 
-void Hercules::sendDriveCmd(int leftSpeed, int leftDir, int rightSpeed, int rightDir) {
-	char buf[20];
-	snprintf(buf, sizeof(buf), CMD_DRIVE, leftSpeed, rightSpeed, leftDir, rightDir);
+void Hercules::sendDriveCmd(int leftSpeed, int rightSpeed) {
+	char buf[10];
+	snprintf(buf, sizeof(buf), CMD_DRIVE, leftSpeed, rightSpeed);
+        ROS_DEBUG("Hercules Ddd:%c%d%d", buf[0], buf[1], buf[2]);
 	mSerialPtr->Write(buf);
-        ROS_DEBUG("Hercules string buf:%s \n", buf);
 }
 
 int Hercules::speedToLevel(double speed) {
-        int level = speed * MAX_LEVEL;
+        int level = speed * MAX_LEVEL / MAX_SPEED;
         if (level >=100 ) level = 99;
         return level;
 }
