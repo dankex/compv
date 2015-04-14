@@ -46,6 +46,7 @@
 volatile int leftFeedback = 0;
 volatile int rightFeedback = 0;
 volatile int motorSpeed = 0;
+char received[7];
 
 void setup()
 {
@@ -191,7 +192,7 @@ void processCmdB(int valueByte) {
       Serial.println();
 }
 
-void processCmdD(int leftSpeed, int rightSpeed) {
+void processCmdD() {
       int left, right;
 
       noInterrupts();
@@ -203,33 +204,53 @@ void processCmdD(int leftSpeed, int rightSpeed) {
       interrupts();
 
       // output odometry
-      Serial.print('D');
-      Serial.print(char(','));
-      Serial.print(left, DEC);
-      Serial.print(char(','));
-      Serial.print(right, DEC);
-      Serial.println();
+//      Serial.print('D');
+//      Serial.print(char(','));
+//      Serial.print(left, DEC);
+//      Serial.print(char(','));
+//      Serial.print(right, DEC);
+//      Serial.println();
 
       // drive the wheels
-      int speedL = leftSpeed & 0x7F;
-      int dirL = !!(left & 0x80);
-      int speedR = rightSpeed & 0x7F;
-      int dirR = !!(right & 0x80);
+      int speedL = 0;
+      int dirL = 0;
+      int speedR = 0;
+      int dirR = 0;
+      speedL = Serial.parseInt();
+      speedR = Serial.parseInt();
+      dirL = Serial.parseInt();
+      dirR = Serial.parseInt();
+/*      
+      if (data[1]>47 && data[1]<58) {
+          speedL = (data[1]-48) * 10;
+      }        
+      if (data[2]>47 && data[2]<58)
+          speedL += data[2]-48;
 
+      if (data[3]>47 && data[3]<58) {
+          speedR = (data[3]-48) * 10;
+      }        
+      if (data[4]>47 && data[4]<58)
+          speedR += data[4]-48;
+          
+      if (data[5]>47 && data[5]<58)
+          dirL = data[5]-48;
+      if (data[6]>47 && data[6]<58)
+          dirR = data[6]-48;
+*/          
+//      speedL = 20;
+//      speedR = 10;
       MOTOR.setSpeedDir1(speedL, dirL ? DIRR : DIRF);
       MOTOR.setSpeedDir2(speedR, dirR ? DIRR : DIRF);
 }
-
 void processSerialData()
 {
-  if (Serial.available() < 3) {
-    // no data
-    return;
-  }
+  while (Serial.available()>0) {
 
-  int commandByte = Serial.read();
-  int second      = Serial.read();
-  int third       = Serial.read();
+  received[0] = Serial.read();
+  if (received[0] != 'D')
+      continue;
+  int commandByte = received[0];
 
   // A message has 3 bytes
 
@@ -242,16 +263,19 @@ void processSerialData()
   //   the third byte is the right speed 0 - 99
 
   if (commandByte=='D') {
-    processCmdD(second, third);
-  } else if (commandByte=='M' && (third==10 || third==44)) { // M
+        processCmdD();
+  } 
+ /*
+  else if (commandByte=='M' && (third==10 || third==44)) { // M
     processCmdM(second);
   } else if (commandByte=='S' && (third==10 || third==44)) { // S
     processCmdS(second);
   } else if (commandByte=='B' && (third==10 || third==44)) { // B
     processCmdB(second);
   }
-
+*/
   delay(25); // this delay can be tweaked or omitted to adjust accuracy. keep it low!
+  }
 }
 
 /**** SENSOR HANDLING ****/
