@@ -12,8 +12,4 @@ namespace HelloWorld {
   int main( int argc, char** argv );
 }
 
-namespace HandGestureSVM {
-  int main( int argc, char** argv );
-}
-
 #endif /* SUBPROGRAMS_HPP_ */

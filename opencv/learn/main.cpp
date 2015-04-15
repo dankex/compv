@@ -11,7 +11,6 @@ struct Subprogram {
 };
 
 Subprogram gPrograms[] = {
-		{"Hand Gesture SVM", HandGestureSVM::main},
 		{"Hello World", HelloWorld::main}
 };
 
