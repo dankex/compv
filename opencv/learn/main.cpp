@@ -11,7 +11,9 @@ struct Subprogram {
 };
 
 Subprogram gPrograms[] = {
-		{"Hello World", HelloWorld::main}
+		{"Hello World", HelloWorld::main},
+		{"Polynomial Fit", PolynomialFit::main},
+		{"CVGraphics", CVGraphics::main}
 };
 
 int main(int argc, char **argv) {

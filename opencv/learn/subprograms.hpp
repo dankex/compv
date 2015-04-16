@@ -12,4 +12,12 @@ namespace HelloWorld {
   int main( int argc, char** argv );
 }
 
+namespace PolynomialFit {
+  int main(int argc, char** argv);
+}
+
+namespace CVGraphics {
+  int main(int argc, char** argv);
+}
+
 #endif /* SUBPROGRAMS_HPP_ */
