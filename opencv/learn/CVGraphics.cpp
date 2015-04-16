@@ -6,16 +6,20 @@
  */
 
 #include "opencv2/highgui/highgui.hpp"
+#include "lib/GraphUtils.h"
 #include <string>
+#include <cmath>
+#include <iostream>
 
 using namespace cv;
 using namespace std;
 
 namespace CVGraphics {
 
-#define WIN_WIDTH		600
+#define WIN_WIDTH			600
+#define PI					3.14159f
 
-void myPolygon( Mat &img, double w )
+void myPolygon(Mat &img, double w)
 {
 	int lineType = 8;
 
@@ -50,7 +54,7 @@ void myPolygon( Mat &img, double w )
 			npt,
 			1,
 			Scalar( 255, 255, 255 ),
-			lineType );
+			lineType);
 }
 
 void showGraphics(const char *winName) {
@@ -60,6 +64,24 @@ void showGraphics(const char *winName) {
 	imshow(winName, image);
 }
 
+void showFunction(const char *winName) {
+	const int N = WIN_WIDTH;
+	float range = 4.f * PI;
+	int w = WIN_WIDTH / 2;
+
+	float *pArray = new float[N];
+	for (int i = 0; i < N; i++) {
+		pArray[i] = w / 2 + (float) w * sin(range * i / N);
+		cout << i << ":" << pArray[i] << endl;
+	}
+
+	setGraphColor(1);
+
+	showFloatGraph(winName, pArray, N, 0, NULL);
+
+	delete[] pArray;
+}
+
 int main(int argc, char **argv) {
 	const char windowName[] = "PolynomialFit";
 
@@ -67,6 +89,7 @@ int main(int argc, char **argv) {
 	cvResizeWindow( windowName, WIN_WIDTH, WIN_WIDTH);
 
 	showGraphics(windowName);
+	showFunction("Function");
 
 	cvWaitKey(0);
 	cvDestroyWindow( windowName );
@@ -75,4 +98,3 @@ int main(int argc, char **argv) {
 }
 
 }
-
