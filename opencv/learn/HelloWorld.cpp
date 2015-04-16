@@ -14,6 +14,8 @@ int main( int argc, char** argv ) {
 	cvWaitKey(0);
 	cvReleaseImage( &img );
 	cvDestroyWindow( WINDOW_NAME );
+
+	return 0;
 }
 
 }
