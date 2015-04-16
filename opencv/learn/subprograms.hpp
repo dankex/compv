@@ -20,4 +20,8 @@ namespace CVGraphics {
   int main(int argc, char** argv);
 }
 
+namespace DetectRed {
+  int main(int argc, char** argv);
+}
+
 #endif /* SUBPROGRAMS_HPP_ */
