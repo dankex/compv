@@ -67,26 +67,37 @@ void showGraphics(const char *winName) {
 void showFunction(const char *winName) {
 	const int N = WIN_WIDTH;
 	float range = 4.f * PI;
-	int w = WIN_WIDTH / 2;
+	int w = WIN_WIDTH;
 
 	float *pArray = new float[N];
 	for (int i = 0; i < N; i++) {
 		pArray[i] = w / 2 + (float) w * sin(range * i / N);
-		cout << i << ":" << pArray[i] << endl;
 	}
 
-	setGraphColor(1);
+	float *pArray2 = new float[N];
+	for (int i = 0; i < N; i++) {
+		pArray2[i] = w / 2 + (float) w * cos(range * i / N);
+	}
 
-	showFloatGraph(winName, pArray, N, 0, NULL);
+	IplImage* img = cvCreateImage(cvSize(WIN_WIDTH, WIN_WIDTH), 8, 3);
+
+	setGraphColor(0);
+	drawFloatGraph(pArray, N, img);
+
+	setGraphColor(1);
+	drawFloatGraph(pArray2, N, img);
+
+	cvShowImage(winName, img);
 
 	delete[] pArray;
+	delete[] pArray2;
 }
 
 int main(int argc, char **argv) {
 	const char windowName[] = "PolynomialFit";
 
 	cvNamedWindow( windowName, 0 );
-	cvResizeWindow( windowName, WIN_WIDTH, WIN_WIDTH);
+	cvResizeWindow( windowName, WIN_WIDTH, WIN_WIDTH );
 
 	showGraphics(windowName);
 	showFunction("Function");

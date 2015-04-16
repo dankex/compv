@@ -406,9 +406,10 @@ void showUCharGraph(const char *name, const uchar *arraySrc, int nArrayLength, i
 // Simple helper function to easily view an image, with an optional pause.
 void showImage(const IplImage *img, int delay_ms, char *name)
 {
+	char defaultName[] = "Image";
 #ifdef USE_HIGHGUI
 	if (!name)
-		name = "Image";
+		name = defaultName;
 	cvNamedWindow(name, CV_WINDOW_AUTOSIZE);
 	cvShowImage(name, img);
 	cvWaitKey(delay_ms);
