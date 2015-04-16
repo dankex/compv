@@ -101,11 +101,12 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="HandGestureSvm.cdt.managedbuild.target.gnu.exe.577365780" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>
 	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/HandGestureSvm"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.286807692;cdt.managedbuild.config.gnu.exe.release.286807692.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1507593825;cdt.managedbuild.tool.gnu.cpp.compiler.input.677211363">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
-		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1138908571;cdt.managedbuild.config.gnu.exe.debug.1138908571.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.421096484;cdt.managedbuild.tool.gnu.c.compiler.input.751319755">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
@@ -115,9 +116,8 @@
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1138908571;cdt.managedbuild.config.gnu.exe.debug.1138908571.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.944984782;cdt.managedbuild.tool.gnu.cpp.compiler.input.1547210857">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.286807692;cdt.managedbuild.config.gnu.exe.release.286807692.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1507593825;cdt.managedbuild.tool.gnu.cpp.compiler.input.677211363">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="refreshScope" versionNumber="1">
-		<resource resourceType="PROJECT" workspacePath="/HandGestureSvm"/>
-	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
