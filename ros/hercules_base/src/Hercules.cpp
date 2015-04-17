@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
@@ -12,12 +13,16 @@ using namespace std;
 
 //#define CMD_DRIVE "D%c%c"
 #define CMD_DRIVE "D%d,%d,%d,%d,"
+#define CMD_BATTERY "B,,"
 
 #define MAX_LEVEL	100
 #define MAX_SPEED	10.0		// 10 m/s
 
 Hercules::Hercules()
 {
+        mLeftEncoder = 0;
+        mRightEncoder =0;
+        countLoop = 0;
 }
 
 Hercules::~Hercules() {
@@ -37,7 +42,61 @@ void Hercules::reconnect() {
 void Hercules::connect(const string &port) {
 	mPort = port;
 	mSerialPtr = new SerialPort(port);
+        mThread = new boost::thread(boost::bind(&Hercules::reader, this));
 	reconnect();
+}
+
+void Hercules::reader() {
+    long value = 0;
+    while(1) {
+      try {
+      while(mSerialPtr->IsDataAvailable()>0) {
+        char dataName = mSerialPtr->ReadByte(100);
+        if (dataName == 'D') {
+            char delimeter = mSerialPtr->ReadByte(100);
+            if(delimeter == ',')
+              if (processData(&value) != 0) {
+                mLeftEncoder = value;
+                ROS_DEBUG("mLeftEncoder received=%ld", mLeftEncoder);
+              }
+              if (processData(&value) != 0) {
+                mRightEncoder = value;
+                ROS_DEBUG("mRightEncoder received=%ld", mRightEncoder);
+              }
+            else
+              continue;
+        } else if (dataName == 'B') {
+            char delimeter = mSerialPtr->ReadByte(100);
+            if(delimeter == ',')
+              if (processData(&value) != 0) {
+                mVoltage = value;
+                ROS_DEBUG("millivolt =%ld", mVoltage);
+              }
+            
+        }
+      }
+
+      usleep(100);
+      } catch (exception e) {
+      
+      }
+    }
+}
+
+int Hercules::processData(long *num) {
+        char digit;
+        long value = 0;
+        int i = 0;
+        digit = mSerialPtr->ReadByte(100);
+        while (digit != ',') {
+          value = value*10 + atoi(&digit);
+          digit = mSerialPtr->ReadByte(100);
+          i++;
+        }
+        if(i) *num = value;
+        return i;
+          
+
 }
 
 void Hercules::configureLimits(double max_speed, double max_accel) {
@@ -54,15 +113,25 @@ void Hercules::controlSpeed(double speed_left, double speed_right,
 
 	int lspeed = speedToLevel(speed_left);
 	int rspeed = speedToLevel(speed_right);
-        ROS_DEBUG("Hercules int lspeed=%d, rspeed=%d", lspeed, rspeed);
+//        ROS_DEBUG("Hercules int lspeed=%d, rspeed=%d", lspeed, rspeed);
 	sendDriveCmd(lspeed, signL, rspeed, signR);
+      if ((countLoop++ % 10) == 0) {
+          sendGetBatteryCmd();
+      }
 }
 
 void Hercules::sendDriveCmd(int leftSpeed, int leftDir, int rightSpeed, int rightDir) {
 	char buf[20];
 	snprintf(buf, sizeof(buf), CMD_DRIVE, leftSpeed, rightSpeed, leftDir, rightDir);
 	mSerialPtr->Write(buf);
-        ROS_DEBUG("Hercules string buf:%s \n", buf);
+        ROS_DEBUG("Hercules sendDriveCmd:%s \n", buf);
+}
+
+void Hercules::sendGetBatteryCmd() {
+	char buf[20];
+	snprintf(buf, sizeof(buf), CMD_BATTERY);
+	mSerialPtr->Write(buf);
+        ROS_DEBUG("Hercules sendGetBatteryCmd:%s \n", buf);
 }
 
 int Hercules::speedToLevel(double speed) {
