@@ -145,28 +145,28 @@ namespace hercules_base
   * Pull latest speed and travel measurements from MCU, and store in joint structure for ros_control
   */
   void HerculesHardware::updateJointsFromHardware()
-  { /*
-    horizon_legacy::Channel<clearpath::DataEncoders>::Ptr enc = horizon_legacy::Channel<clearpath::DataEncoders>::requestData(polling_timeout_);
-    if (enc)
-    {
-      for (int i = 0; i < 4; i++)
-      {
-        double new_position = linearToAngular(enc->getTravel(i % 2)) - joints_[i].position_offset;
-        double delta = new_position - joints_[i].position;
+  {
+	  hercules_wilson::Channel<DataEncoders>::Ptr enc = hercules_wilson::Channel<DataEncoders>::requestData(polling_timeout_);
+	  if (enc)
+	  {
+		  for (int i = 0; i < 4; i++)
+		  {
+			  double new_position = linearToAngular(enc->getTravel(i % 2)) - joints_[i].position_offset;
+			  double delta = new_position - joints_[i].position;
 
-        // detect encoder rollover
-        if (std::abs(delta) < 1.0)
-        {
-          joints_[i].position = new_position;
-        }
-        else
-        {
-          //  rollover has occured, swallow the measurement and update the offset
-          joints_[i].position_offset = delta;
-        }
-      }
-    }
-
+			  // detect encoder rollover
+			  if (std::abs(delta) < 1.0)
+			  {
+				  joints_[i].position = new_position;
+			  }
+			  else
+			  {
+				  //  rollover has occured, swallow the measurement and update the offset
+				  joints_[i].position_offset = delta;
+			  }
+		  }
+	  }
+	/*
     horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::Ptr speed = horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::requestData(polling_timeout_);
     if (speed)
     {

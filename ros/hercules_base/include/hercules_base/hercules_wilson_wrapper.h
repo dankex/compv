@@ -26,6 +26,31 @@ namespace hercules_wilson
   void configureLimits(double max_speed, double max_accel);
 
   void controlSpeed(double speed_left, double speed_right, double accel_left, double accel_right);
+
+  template<typename T>
+    struct Channel
+    {
+      typedef boost::shared_ptr <T> Ptr;
+      typedef boost::shared_ptr<const T> ConstPtr;
+      BOOST_STATIC_ASSERT_MSG(
+          (boost::is_base_of<Message, T>::value),
+          "T must be a descendant of Message"
+      );
+
+      static Ptr requestData(double timeout)
+      {
+        T *update = 0;
+        while(!update)
+        {
+          update = T::getUpdate(timeout);
+          if(!update){
+            reconnect();
+          }
+        }
+        return Ptr(update);
+      }
+    };
+
 } // namespace hercules_wilson
 
 #endif  // HERCULES_BASE_HERCULES_WILSON_WRAPPER_H
