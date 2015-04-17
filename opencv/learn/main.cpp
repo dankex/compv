@@ -15,6 +15,7 @@ Subprogram gPrograms[] = {
 		{"Polynomial Fit", PolynomialFit::main},
 		{"CVGraphics", CVGraphics::main},
 		{"Detect Red", DetectRed::main},
+		{"Shape Detect", ShapeDetect::main},
 };
 
 int main(int argc, char **argv) {
