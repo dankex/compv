@@ -17,6 +17,10 @@
 
 #include "boost/type_traits/is_base_of.hpp"
 
+#define CHANNEL_ODOM	0
+
+class Message;
+
 namespace hercules_wilson
 {
   void connect(std::string port);
@@ -27,30 +31,7 @@ namespace hercules_wilson
 
   void controlSpeed(double speed_left, double speed_right, double accel_left, double accel_right);
 
-  template<typename T>
-    struct Channel
-    {
-      typedef boost::shared_ptr <T> Ptr;
-      typedef boost::shared_ptr<const T> ConstPtr;
-      BOOST_STATIC_ASSERT_MSG(
-          (boost::is_base_of<Message, T>::value),
-          "T must be a descendant of Message"
-      );
-
-      static Ptr requestData(double timeout)
-      {
-        T *update = 0;
-        while(!update)
-        {
-          update = T::getUpdate(timeout);
-          if(!update){
-            reconnect();
-          }
-        }
-        return Ptr(update);
-      }
-    };
-
+  Message* requestData(int channel, double timeout);
 } // namespace hercules_wilson
 
 #endif  // HERCULES_BASE_HERCULES_WILSON_WRAPPER_H

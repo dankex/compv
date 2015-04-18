@@ -8,11 +8,20 @@
 
 #include "libserial/SerialStream.h"
 
+#include "msg/MsgPipe.h"
+#include "msg/MsgQueue.h"
+#include "msg/Message.h"
+
 using namespace std;
 using namespace LibSerial;
 
 class Hercules {
 public:
+	enum Channel {
+		ODOMETRY,
+		MAX
+	};
+
 	Hercules();
 	virtual ~Hercules();
 
@@ -22,17 +31,24 @@ public:
 	void configureLimits(double max_speed, double max_accel);
 	void controlSpeed(double speed_left, double speed_right,
 			double accel_left, double accel_right);
-        void reader();
-        int processData(long *num);
+	void reader();
+	int processData(long *num);
+
+	Message* requestData(Channel channel, double timeout);
+
 private:
 	string mPort;
 	SerialPort *mSerialPtr;
-        boost::thread* mThread;
-        long mLeftEncoder;
-        long mRightEncoder;
-        int mVoltage;
-        int countLoop;
-       
+	boost::thread* mThread;
+	long mLeftEncoder;
+	long mRightEncoder;
+	int mVoltage;
+	int countLoop;
+
+	MsgPipe mMsgPipe;
+	MsgQueue<Channel,(int)MAX> mQueue;
+
+	void enqueue(Message *msg);
 
 protected:
 	void sendDriveCmd(int left, int right, int dirL, int dirR);

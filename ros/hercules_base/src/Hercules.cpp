@@ -16,12 +16,12 @@ using namespace std;
 #define CMD_BATTERY "B,,"
 
 #define MAX_LEVEL	100
-#define MAX_SPEED	10.0		// 10 m/s
+#define MAX_SPEED	1		// 10 m/s
 
 Hercules::Hercules()
 {
 	mLeftEncoder = 0;
-	mRightEncoder =0;
+	mRightEncoder = 0;
 	countLoop = 0;
 }
 
@@ -42,15 +42,16 @@ void Hercules::reconnect() {
 void Hercules::connect(const string &port) {
 	mPort = port;
 	mSerialPtr = new SerialPort(port);
+	mMsgPipe.bind(mSerialPtr);
 	mThread = new boost::thread(boost::bind(&Hercules::reader, this));
 	reconnect();
 }
 
 void Hercules::reader() {
 	long value = 0;
-	while(1) {
-		try {
-			while(mSerialPtr->IsDataAvailable()>0) {
+	while (true) {
+		try { /*
+			while (mSerialPtr->IsDataAvailable()>0) {
 				char dataName = mSerialPtr->ReadByte(100);
 				if (dataName == 'D') {
 					char delimeter = mSerialPtr->ReadByte(100);
@@ -74,6 +75,10 @@ void Hercules::reader() {
 						}
 
 				}
+			} */
+			Message *msg = mMsgPipe.readMessage();
+			if (msg) {
+				enqueue(msg);
 			}
 
 			usleep(100);
@@ -95,8 +100,6 @@ int Hercules::processData(long *num) {
 	}
 	if(i) *num = value;
 	return i;
-
-
 }
 
 void Hercules::configureLimits(double max_speed, double max_accel) {
@@ -135,7 +138,16 @@ void Hercules::sendGetBatteryCmd() {
 }
 
 int Hercules::speedToLevel(double speed) {
-	int level = speed * MAX_LEVEL;
-	if (level >=100 ) level = 99;
+	int level = speed * MAX_LEVEL / MAX_SPEED;
+	if (level == 100)
+		level--;
 	return level;
+}
+
+Message* Hercules::requestData(Channel channel, double timeout) {
+	return mQueue.waitForMessage(channel, timeout);
+}
+
+void Hercules::enqueue(Message *msg) {
+	// TODO
 }

@@ -21,13 +21,19 @@ add_library(libserial
    src/libserial/SerialStream.cc
 )
 
+add_library(libmsg
+   src/msg/Message.cpp
+   src/msg/MsgPipe.cpp
+   src/msg/DataEncoders.cpp
+)
+
 add_executable(hercules_node
   src/hercules_base.cpp
   src/hercules_hardware.cpp
 #  src/hercules_diagnostics.cpp
   src/Hercules.cpp
   src/hercules_wilson_wrapper.cpp)
-target_link_libraries(hercules_node libserial ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(hercules_node libserial libmsg ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_dependencies(hercules_node hercules_msgs_gencpp)
 
 roslint_cpp(

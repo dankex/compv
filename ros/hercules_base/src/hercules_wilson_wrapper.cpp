@@ -31,11 +31,18 @@
 
 #include <ros/ros.h>
 #include <ros/console.h>
+#include <string>
+#include <queue>
 #include "Hercules.h"
+
+using namespace std;
 
 namespace
 {
-  std::string port_;
+  string port_;
+  Hercules::Channel channelId[] = {
+		  Hercules::ODOMETRY
+  };
 }
 
 namespace hercules_wilson
@@ -66,9 +73,13 @@ namespace hercules_wilson
           ROS_DEBUG("configureLimits max_speed=%lf, max_accel=%lf", max_speed, max_accel);
   }
 
-  void controlSpeed(double speed_left, double speed_right, double accel_left, double accel_right){
+  void controlSpeed(double speed_left, double speed_right, double accel_left, double accel_right) {
     ROS_DEBUG("controlSpeed speed_left=%lf, speed_right=%lf", speed_left, speed_right);
     ROS_DEBUG("controlspeed accel_left=%lf, accel_right=%lf", accel_left, accel_right);
 	  gHercules.controlSpeed(speed_left, speed_right, accel_left, accel_right);
+  }
+
+  Message* requestData(int channel, double timeout) {
+	  return gHercules.requestData(channelId[channel], timeout);
   }
 }

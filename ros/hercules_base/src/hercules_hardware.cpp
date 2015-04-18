@@ -31,6 +31,8 @@
 
 #include "hercules_base/hercules_hardware.h"
 #include "hercules_base/hercules_wilson_wrapper.h"
+#include "msg/DataEncoders.h"
+
 #include <boost/assign/list_of.hpp>
 
 namespace
@@ -146,7 +148,7 @@ namespace hercules_base
   */
   void HerculesHardware::updateJointsFromHardware()
   {
-	  hercules_wilson::Channel<DataEncoders>::Ptr enc = hercules_wilson::Channel<DataEncoders>::requestData(polling_timeout_);
+	  DataEncoders* enc = (DataEncoders*)hercules_wilson::requestData(CHANNEL_ODOM, polling_timeout_);
 	  if (enc)
 	  {
 		  for (int i = 0; i < 4; i++)
