@@ -149,5 +149,7 @@ Message* Hercules::requestData(Channel channel, double timeout) {
 }
 
 void Hercules::enqueue(Message *msg) {
-	// TODO
+	if (msg->isType("DataEncoders")) {
+		mQueue.enqueueMessage(ODOMETRY, msg);
+	}
 }
