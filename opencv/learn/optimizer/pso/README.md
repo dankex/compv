@@ -32,7 +32,7 @@ In order to use `pso_solve()`, you need :
 1. an objective function to be minimized (see defined type
 `pso_obj_fun_t` in pso.h),
 
-2. a `pso_result_t` object with a properly initialized (malloc'd)
+2. a `pso_results_t` object with a properly initialized (malloc'd)
 gbest buffer. This is where the best position discovered will be
 stored, along with the minimum error (stored in member `error`).
 

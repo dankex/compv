@@ -6,4 +6,4 @@ demo: pso.c demo.c
 	$(CC) -o $@ $^ $(LDFLAGS) $(CFLAGS)
 
 clean:
-	rm -rf *.o demo
+	rm -rf *.o demo *~
