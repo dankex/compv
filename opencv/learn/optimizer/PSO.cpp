@@ -28,8 +28,15 @@ double PSO::solve(vector<double> &solution) {
     // run optimization algorithm
     pso_solve(pso_obj_fun, NULL, &sol, &mSettings);
 
+    // copy solution
+    solution.clear();
+    solution.resize(mSettings.dim);
+    for (int i = 0; i < mSettings.dim; i++) {
+    	solution[i] = sol.gbest[i];
+    }
+
     // Free memory
     free(sol.gbest);
 
-	return 0;
+	return sol.error;
 }
