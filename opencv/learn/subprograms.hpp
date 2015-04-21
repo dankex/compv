@@ -28,4 +28,8 @@ namespace ShapeDetect {
   int main(int argc, char** argv);
 }
 
+namespace PSODemo {
+  int main(int argc, char** argv);
+}
+
 #endif /* SUBPROGRAMS_HPP_ */

@@ -26,7 +26,7 @@ double PSO::solve(vector<double> &solution) {
 	sol.gbest = (double*)malloc(mSettings.dim * sizeof(double));
 
     // run optimization algorithm
-    pso_solve(pso_obj_fun, NULL, &sol, &mSettings);
+    pso_solve(pso_obj_fun, this, &sol, &mSettings);
 
     // copy solution
     solution.clear();
@@ -39,4 +39,8 @@ double PSO::solve(vector<double> &solution) {
     free(sol.gbest);
 
 	return sol.error;
+}
+
+pso_settings_t* PSO::getSettings() {
+	return &mSettings;
 }

@@ -16,6 +16,7 @@ Subprogram gPrograms[] = {
 		{"CVGraphics", CVGraphics::main},
 		{"Detect Red", DetectRed::main},
 		{"Shape Detect", ShapeDetect::main},
+		{"PSO Demo", PSODemo::main},
 };
 
 int main(int argc, char **argv) {

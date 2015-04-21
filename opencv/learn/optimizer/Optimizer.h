@@ -27,7 +27,7 @@ public:
 
 	void setup(int dim, ObjFunc func);
 
-	virtual double solve(vector<double> &solution, void* settings) = 0;
+	virtual double solve(vector<double> &solution) = 0;
 
 	ObjFunc getObjFunc() { return mObjFunc; }
 
