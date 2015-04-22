@@ -20,9 +20,9 @@ double pso_sphere(double *vec, int dim) {
 	return sum;
 }
 
-const double xMin = -3, xMax = 3;
-const int polyDim = 4;
-const double target[polyDim] = {1, 2, 3, 4};
+const double xMin = -100, xMax = 100;
+const double target[] = {1, 2, 3, 4, 6};
+const int polyDim = sizeof(target) / sizeof(target[0]);
 
 double poly(double x, const double *vec, int dim) {
 	double ans = 0;
@@ -58,8 +58,8 @@ void pso_set_sphere_settings(pso_settings_t *settings) {
 // BENCHMARK FUNCTION SETTINGS
 void pso_set_polynomial_settings(pso_settings_t *settings) {
 	settings->dim = polyDim;
-	settings->x_lo = -10;
-	settings->x_hi = 10;
+	settings->x_lo = -100;
+	settings->x_hi = 100;
 	settings->goal = 1e-5;
 }
 

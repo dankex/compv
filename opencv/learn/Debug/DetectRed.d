@@ -1,0 +1,1 @@
+DetectRed.d: ../DetectRed.cpp

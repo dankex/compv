@@ -1,0 +1,1 @@
+ShapeDetect.d: ../ShapeDetect.cpp
