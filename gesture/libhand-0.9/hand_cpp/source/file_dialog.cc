@@ -21,6 +21,8 @@
 # include <stdexcept>
 # include <string>
 
+# include <unistd.h>
+
 namespace libhand {
 
 using namespace std;
