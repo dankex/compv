@@ -21,7 +21,7 @@ ADD_DEFINITIONS(-O3)
 
 SET(BUILD_SHARED_LIBS OFF)
 
-FIND_PACKAGE(Boost REQUIRED)
+FIND_PACKAGE(Boost COMPONENTS system REQUIRED)
 FIND_PACKAGE(OpenCV REQUIRED)
 
 SET(OGRE_STATIC TRUE)
@@ -82,6 +82,12 @@ TARGET_LINK_LIBRARIES(hand_renderer
   hand_utils
   ${EXTRA_MAC_LIBS}
   ${EXTRA_LINUX_LIBS}
+  ${Boost_LIBRARIES}
+  boost_system
+  dl
+  Xt
+  Xrandr
+  Xaw
   ${OpenCV_LIBS}
   ${OGRE_LIBRARIES}
   ${OGRE_RenderSystem_GL_LIBRARIES}
@@ -107,6 +113,7 @@ message(STATUS "X11_LIBRARIES: ${X11_LIBRARIES}")
 message(STATUS "X11_Xrandr_LIB: ${X11_Xrandr_LIB}")
 message(STATUS "Cocoa_LIBRARIES: ${Cocoa_LIBRARIES}")
 message(STATUS "Carbon_LIBRARIES: ${Carbon_LIBRARIES}")
+message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
 message(STATUS "==================================================")
 
 install(TARGETS
