@@ -4,11 +4,14 @@ MATLAB_VERSIONS=$( echo \
 "2011b" \
 "2011a" \
 "2010b" \
-"2010a" )
+"2010a" \
+"2015")
 
 MATLAB_DIRPATS=$( echo \
 "/usr/local/MATLAB/R@VER@" \
-"/Applications/MATLAB_R@VER@.app" )
+"/Applications/MATLAB_R@VER@.app" \
+"/home/danke/s/Matlab"
+)
 
 # These path is relative to the source directory
 CPP_CODE_PATH="../../hand_cpp"

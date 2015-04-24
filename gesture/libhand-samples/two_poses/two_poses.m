@@ -30,7 +30,7 @@ end
 [pose2, rotation2] = load_hand_pose(pose2_file);
  
 % alpha is going to be our linear blending factor
-for alpha = [0:0.05:1]
+for alpha = [0:0.03:1]
      
     % Compute the intermediate pose as a linear interpolation
     pose_i = pose1 + (pose2 - pose1) * alpha;

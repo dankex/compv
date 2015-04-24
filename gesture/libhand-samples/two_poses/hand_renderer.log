@@ -1,414 +1,666 @@
-15:34:59: Creating resource group General
-15:34:59: Creating resource group Internal
-15:34:59: Creating resource group Autodetect
-15:34:59: SceneManagerFactory for type 'DefaultSceneManager' registered.
-15:34:59: Registering ResourceManager for type Material
-15:34:59: Registering ResourceManager for type Mesh
-15:34:59: Registering ResourceManager for type Skeleton
-15:34:59: MovableObjectFactory for type 'ParticleSystem' registered.
-15:34:59: OverlayElementFactory for type Panel registered.
-15:34:59: OverlayElementFactory for type BorderPanel registered.
-15:34:59: OverlayElementFactory for type TextArea registered.
-15:34:59: Registering ResourceManager for type Font
-15:34:59: ArchiveFactory for archive type FileSystem registered.
-15:34:59: ArchiveFactory for archive type Zip registered.
-15:34:59: ArchiveFactory for archive type EmbeddedZip registered.
-15:34:59: DDS codec registering
-15:34:59: FreeImage version: 3.15.4
-15:34:59: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-15:34:59: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
-15:34:59: Registering ResourceManager for type HighLevelGpuProgram
-15:34:59: Registering ResourceManager for type Compositor
-15:34:59: MovableObjectFactory for type 'Entity' registered.
-15:34:59: MovableObjectFactory for type 'Light' registered.
-15:34:59: MovableObjectFactory for type 'BillboardSet' registered.
-15:34:59: MovableObjectFactory for type 'ManualObject' registered.
-15:34:59: MovableObjectFactory for type 'BillboardChain' registered.
-15:34:59: MovableObjectFactory for type 'RibbonTrail' registered.
-15:34:59: *-*-* OGRE Initialising
-15:34:59: *-*-* Version 1.8.1 (Byatis)
-15:34:59: Installing plugin: GL RenderSystem
-15:34:59: OpenGL Rendering Subsystem created.
-15:35:00: Plugin successfully installed
-15:35:00: Installing plugin: Octree Scene Manager
-15:35:00: Plugin successfully installed
-15:35:00: CPU Identifier & Features
-15:35:00: -------------------------
-15:35:00:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
-15:35:00:  *      SSE: yes
-15:35:00:  *     SSE2: yes
-15:35:00:  *     SSE3: yes
-15:35:00:  *      MMX: yes
-15:35:00:  *   MMXEXT: yes
-15:35:00:  *    3DNOW: no
-15:35:00:  * 3DNOWEXT: no
-15:35:00:  *     CMOV: yes
-15:35:00:  *      TSC: yes
-15:35:00:  *      FPU: yes
-15:35:00:  *      PRO: yes
-15:35:00:  *       HT: no
-15:35:00: -------------------------
-15:35:00: ******************************
+16:03:24: Creating resource group General
+16:03:24: Creating resource group Internal
+16:03:24: Creating resource group Autodetect
+16:03:24: SceneManagerFactory for type 'DefaultSceneManager' registered.
+16:03:24: Registering ResourceManager for type Material
+16:03:24: Registering ResourceManager for type Mesh
+16:03:24: Registering ResourceManager for type Skeleton
+16:03:24: MovableObjectFactory for type 'ParticleSystem' registered.
+16:03:24: OverlayElementFactory for type Panel registered.
+16:03:24: OverlayElementFactory for type BorderPanel registered.
+16:03:24: OverlayElementFactory for type TextArea registered.
+16:03:24: Registering ResourceManager for type Font
+16:03:24: ArchiveFactory for archive type FileSystem registered.
+16:03:24: ArchiveFactory for archive type Zip registered.
+16:03:24: ArchiveFactory for archive type EmbeddedZip registered.
+16:03:24: DDS codec registering
+16:03:24: FreeImage version: 3.15.4
+16:03:24: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+16:03:24: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+16:03:24: Registering ResourceManager for type HighLevelGpuProgram
+16:03:24: Registering ResourceManager for type Compositor
+16:03:24: MovableObjectFactory for type 'Entity' registered.
+16:03:24: MovableObjectFactory for type 'Light' registered.
+16:03:24: MovableObjectFactory for type 'BillboardSet' registered.
+16:03:24: MovableObjectFactory for type 'ManualObject' registered.
+16:03:24: MovableObjectFactory for type 'BillboardChain' registered.
+16:03:24: MovableObjectFactory for type 'RibbonTrail' registered.
+16:03:24: *-*-* OGRE Initialising
+16:03:24: *-*-* Version 1.8.1 (Byatis)
+16:03:24: Installing plugin: GL RenderSystem
+16:03:24: OpenGL Rendering Subsystem created.
+16:03:25: Plugin successfully installed
+16:03:25: Installing plugin: Octree Scene Manager
+16:03:25: Plugin successfully installed
+16:03:25: CPU Identifier & Features
+16:03:25: -------------------------
+16:03:25:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+16:03:25:  *      SSE: yes
+16:03:25:  *     SSE2: yes
+16:03:25:  *     SSE3: yes
+16:03:25:  *      MMX: yes
+16:03:25:  *   MMXEXT: yes
+16:03:25:  *    3DNOW: no
+16:03:25:  * 3DNOWEXT: no
+16:03:25:  *     CMOV: yes
+16:03:25:  *      TSC: yes
+16:03:25:  *      FPU: yes
+16:03:25:  *      PRO: yes
+16:03:25:  *       HT: no
+16:03:25: -------------------------
+16:03:25: ******************************
 *** Starting GLX Subsystem ***
 ******************************
-15:35:00: Registering ResourceManager for type Texture
-15:35:00: Creating resource group HandRenderer RenderTexture Resources
-15:35:00: Initialising resource group HandRenderer RenderTexture Resources
-15:35:00: Parsing scripts for resource group HandRenderer RenderTexture Resources
-15:35:00: Finished parsing scripts for resource group HandRenderer RenderTexture Resources
-15:35:00: Creating resources for group HandRenderer RenderTexture Resources
-15:35:00: All done
-15:35:00: GLRenderSystem::_createRenderWindow "HandRenderer Window", 1x1 windowed  miscParams: macAPI=cocoa 
-15:35:00: GLXWindow::create used FBConfigID = 112
-15:35:00: GL_VERSION = 2.1 Mesa 7.2
-15:35:00: GL_VENDOR = Brian Paul
-15:35:00: GL_RENDERER = Mesa X11
-15:35:00: GL_EXTENSIONS = GL_ARB_depth_texture GL_ARB_draw_buffers GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_half_float_pixel GL_ARB_imaging GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_shader_objects GL_ARB_shading_language_100 GL_ARB_shadow GL_ARB_shadow_ambient GL_ARB_texture_border_clamp GL_ARB_texture_compression GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_mirrored_repeat GL_ARB_texture_non_power_of_two GL_ARB_texture_rectangle GL_ARB_transpose_matrix GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_window_pos GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_logic_op GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_clip_volume_hint GL_EXT_compiled_vertex_array GL_EXT_convolution GL_EXT_copy_texture GL_EXT_depth_bounds_test GL_EXT_draw_range_elements GL_EXT_framebuffer_object GL_EXT_framebuffer_blit GL_EXT_fog_coord GL_EXT_gpu_program_parameters GL_EXT_histogram GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_pixels GL_EXT_paletted_texture GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_specular_color GL_EXT_shadow_funcs GL_EXT_shared_texture_palette GL_EXT_stencil_wrap GL_EXT_subtexture GL_EXT_texture GL_EXT_texture3D GL_EXT_texture_edge_clamp GL_EXT_texture_env_add GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_vertex_array GL_APPLE_packed_pixels GL_APPLE_vertex_array_object GL_ATI_blend_equation_separate GL_ATI_texture_env_combine3 GL_ATI_texture_mirror_once GL_ATI_fragment_shader GL_ATI_separate_stencil GL_IBM_multimode_draw_arrays GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_INGR_blend_func_separate GL_MESA_pack_invert GL_MESA_program_debug GL_MESA_resize_buffers GL_MESA_texture_array GL_MESA_ycbcr_texture GL_MESA_window_pos GL_NV_blend_square GL_NV_fragment_program GL_NV_light_max_exponent GL_NV_point_sprite GL_NV_texture_rectangle GL_NV_texgen_reflection GL_NV_vertex_program GL_NV_vertex_program1_1 GL_OES_read_format GL_SGI_color_matrix GL_SGI_color_table GL_SGI_texture_color_table GL_SGIS_generate_mipmap GL_SGIS_texture_border_clamp GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SGIX_shadow_ambient GL_SUN_multi_draw_arrays
-15:35:00: Supported GLX extensions: GLX_MESA_copy_sub_buffer GLX_MESA_pixmap_colormap GLX_MESA_release_buffers GLX_ARB_get_proc_address GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_SGIX_fbconfig GLX_SGIX_pbuffer 
-15:35:00: ***************************
-15:35:00: *** GL Renderer Started ***
-15:35:00: ***************************
-15:35:00: Registering ResourceManager for type GpuProgram
-15:35:00: GLSL support detected
-15:35:00: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
-15:35:00: FBO PF_UNKNOWN depth/stencil support: D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_B5G6R5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_A2R10G10B10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_A2B10G10R10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
-15:35:00: [GL] : Valid FBO targets PF_UNKNOWN PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_X8R8G8B8 PF_X8B8G8R8 PF_SHORT_RGBA PF_R3G3B2 PF_SHORT_RGB 
-15:35:00: RenderSystem capabilities
-15:35:00: -------------------------
-15:35:00: RenderSystem Name: OpenGL Rendering Subsystem
-15:35:00: GPU Vendor: unknown
-15:35:00: Device Name: Mesa X11
-15:35:00: Driver Version: 2.1.0.0
-15:35:00:  * Fixed function pipeline: yes
-15:35:00:  * Hardware generation of mipmaps: yes
-15:35:00:  * Texture blending: yes
-15:35:00:  * Anisotropic texture filtering: no
-15:35:00:  * Dot product texture operation: yes
-15:35:00:  * Cube mapping: yes
-15:35:00:  * Hardware stencil buffer: no
-15:35:00:  * Hardware vertex / index buffers: yes
-15:35:00:  * Vertex programs: yes
-15:35:00:  * Number of floating-point constants for vertex programs: 128
-15:35:00:  * Number of integer constants for vertex programs: 0
-15:35:00:  * Number of boolean constants for vertex programs: 0
-15:35:00:  * Fragment programs: yes
-15:35:00:  * Number of floating-point constants for fragment programs: 128
-15:35:00:  * Number of integer constants for fragment programs: 0
-15:35:00:  * Number of boolean constants for fragment programs: 0
-15:35:00:  * Geometry programs: no
-15:35:00:  * Number of floating-point constants for geometry programs: 0
-15:35:00:  * Number of integer constants for geometry programs: 0
-15:35:00:  * Number of boolean constants for geometry programs: 0
-15:35:00:  * Supported Shader Profiles: arbfp1 arbvp1 glsl ps_1_1 ps_1_2 ps_1_3 ps_1_4
-15:35:00:  * Texture Compression: yes
-15:35:00:    - DXT: no
-15:35:00:    - VTC: no
-15:35:00:    - PVRTC: no
-15:35:00:  * Scissor Rectangle: yes
-15:35:00:  * Hardware Occlusion Query: yes
-15:35:00:  * User clip planes: yes
-15:35:00:  * VET_UBYTE4 vertex element type: yes
-15:35:00:  * Infinite far plane projection: yes
-15:35:00:  * Hardware render-to-texture: yes
-15:35:00:  * Floating point textures: no
-15:35:00:  * Non-power-of-two textures: yes
-15:35:00:  * Volume textures: yes
-15:35:00:  * Multiple Render Targets: 4
-15:35:00:    - With different bit depths: yes
-15:35:00:  * Point Sprites: yes
-15:35:00:  * Extended point parameters: yes
-15:35:00:  * Max Point Size: 60
-15:35:00:  * Vertex texture fetch: yes
-15:35:00:  * Number of world matrices: 0
-15:35:00:  * Number of texture units: 8
-15:35:00:  * Stencil buffer depth: 0
-15:35:00:  * Number of vertex blend matrices: 0
-15:35:00:    - Max vertex textures: 8
-15:35:00:    - Vertex textures shared: yes
-15:35:00:  * Render to Vertex Buffer : no
-15:35:00:  * GL 1.5 without VBO workaround: no
-15:35:00:  * Frame Buffer objects: yes
-15:35:00:  * Frame Buffer objects (ARB extension): no
-15:35:00:  * Frame Buffer objects (ATI extension): no
-15:35:00:  * PBuffer support: yes
-15:35:00:  * GL 1.5 without HW-occlusion workaround: no
-15:35:00:  * Separate shader objects: no
-15:35:00: DefaultWorkQueue('Root') initialising on thread 7f68df3a8700.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6768f68700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f683101b700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6768767700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6767f66700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6767765700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6765f62700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6766763700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6766f64700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6764f60700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675ffff700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6765761700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675effd700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675f7fe700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675e7fc700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675dffb700 starting.
-15:35:00: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675d7fa700 starting.
-15:35:00: Particle Renderer Type 'billboard' registered
-15:35:00: SceneManagerFactory for type 'OctreeSceneManager' registered.
-15:35:18: Creating resource group HandRenderer Scene Resources
-15:35:18: Added resource location '/home/danke/p/compv/gesture/libhand-0.9/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:35:18: Initialising resource group HandRenderer Scene Resources
-15:35:18: Parsing scripts for resource group HandRenderer Scene Resources
-15:35:18: Parsing script skin.material
-15:35:18: Parsing script blackness.material
-15:35:18: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:35:18: Creating resources for group HandRenderer Scene Resources
-15:35:18: All done
-15:35:18: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:35:18: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:35:19: Finished loading resource group HandRenderer Scene Resources
-15:35:19: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:35:19: Mesh: Loading hand.mesh.
-15:35:19: Skeleton: Loading hand.skeleton
-15:35:19: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:35:19: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:36:54: Destroying resource group HandRenderer Scene Resources
-15:36:54: Unloading resource group HandRenderer Scene Resources
-15:36:54: Finished unloading resource group HandRenderer Scene Resources
-15:36:54: Creating resource group HandRenderer Scene Resources
-15:36:54: Added resource location '/home/danke/p/compv/gesture/libhand-samples/two-poses/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:36:54: Initialising resource group HandRenderer Scene Resources
-15:36:54: Parsing scripts for resource group HandRenderer Scene Resources
-15:36:54: Parsing script skin.material
-15:36:54: Parsing script blackness.material
-15:36:54: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:36:54: Creating resources for group HandRenderer Scene Resources
-15:36:54: All done
-15:36:54: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:36:54: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:36:54: Finished loading resource group HandRenderer Scene Resources
-15:36:54: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:36:54: Mesh: Loading hand.mesh.
-15:36:54: Skeleton: Loading hand.skeleton
-15:36:54: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:36:54: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:38:02: Destroying resource group HandRenderer Scene Resources
-15:38:02: Unloading resource group HandRenderer Scene Resources
-15:38:02: Finished unloading resource group HandRenderer Scene Resources
-15:38:02: Creating resource group HandRenderer Scene Resources
-15:38:02: Added resource location '/home/danke/p/compv/gesture/libhand-samples/two-poses/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:38:02: Initialising resource group HandRenderer Scene Resources
-15:38:02: Parsing scripts for resource group HandRenderer Scene Resources
-15:38:02: Parsing script skin.material
-15:38:02: Parsing script blackness.material
-15:38:02: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:38:02: Creating resources for group HandRenderer Scene Resources
-15:38:02: All done
-15:38:02: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:38:03: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:38:03: Finished loading resource group HandRenderer Scene Resources
-15:38:03: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:38:03: Mesh: Loading hand.mesh.
-15:38:03: Skeleton: Loading hand.skeleton
-15:38:03: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:38:03: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:39:33: Destroying resource group HandRenderer Scene Resources
-15:39:33: Unloading resource group HandRenderer Scene Resources
-15:39:33: Finished unloading resource group HandRenderer Scene Resources
-15:39:33: Creating resource group HandRenderer Scene Resources
-15:39:33: Added resource location '/home/danke/p/compv/gesture/libhand-samples/two-poses/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:39:33: Initialising resource group HandRenderer Scene Resources
-15:39:33: Parsing scripts for resource group HandRenderer Scene Resources
-15:39:33: Parsing script skin.material
-15:39:33: Parsing script blackness.material
-15:39:33: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:39:33: Creating resources for group HandRenderer Scene Resources
-15:39:33: All done
-15:39:33: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:39:33: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:39:33: Finished loading resource group HandRenderer Scene Resources
-15:39:33: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:39:33: Mesh: Loading hand.mesh.
-15:39:33: Skeleton: Loading hand.skeleton
-15:39:33: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:39:33: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:39:52: Destroying resource group HandRenderer Scene Resources
-15:39:52: Unloading resource group HandRenderer Scene Resources
-15:39:52: Finished unloading resource group HandRenderer Scene Resources
-15:39:52: Creating resource group HandRenderer Scene Resources
-15:39:52: Added resource location '/home/danke/p/compv/gesture/libhand-samples/two-poses/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:39:52: Initialising resource group HandRenderer Scene Resources
-15:39:52: Parsing scripts for resource group HandRenderer Scene Resources
-15:39:52: Parsing script skin.material
-15:39:52: Parsing script blackness.material
-15:39:52: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:39:52: Creating resources for group HandRenderer Scene Resources
-15:39:52: All done
-15:39:52: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:39:52: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:39:52: Finished loading resource group HandRenderer Scene Resources
-15:39:52: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:39:52: Mesh: Loading hand.mesh.
-15:39:52: Skeleton: Loading hand.skeleton
-15:39:52: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:39:52: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:40:21: Destroying resource group HandRenderer Scene Resources
-15:40:21: Unloading resource group HandRenderer Scene Resources
-15:40:21: Finished unloading resource group HandRenderer Scene Resources
-15:40:21: Creating resource group HandRenderer Scene Resources
-15:40:21: Added resource location '/home/danke/p/compv/gesture/libhand-samples/two-poses/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:40:21: Initialising resource group HandRenderer Scene Resources
-15:40:21: Parsing scripts for resource group HandRenderer Scene Resources
-15:40:21: Parsing script skin.material
-15:40:21: Parsing script blackness.material
-15:40:21: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:40:21: Creating resources for group HandRenderer Scene Resources
-15:40:21: All done
-15:40:21: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:40:21: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:40:21: Finished loading resource group HandRenderer Scene Resources
-15:40:21: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:40:21: Mesh: Loading hand.mesh.
-15:40:21: Skeleton: Loading hand.skeleton
-15:40:21: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:40:21: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:41:59: Destroying resource group HandRenderer Scene Resources
-15:41:59: Unloading resource group HandRenderer Scene Resources
-15:41:59: Finished unloading resource group HandRenderer Scene Resources
-15:41:59: Creating resource group HandRenderer Scene Resources
-15:41:59: Added resource location '/home/danke/p/compv/gesture/libhand-samples/two-poses/hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:41:59: Initialising resource group HandRenderer Scene Resources
-15:41:59: Parsing scripts for resource group HandRenderer Scene Resources
-15:41:59: Parsing script skin.material
-15:41:59: Parsing script blackness.material
-15:41:59: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:41:59: Creating resources for group HandRenderer Scene Resources
-15:41:59: All done
-15:41:59: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:42:00: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:42:00: Finished loading resource group HandRenderer Scene Resources
-15:42:00: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:42:00: Mesh: Loading hand.mesh.
-15:42:00: Skeleton: Loading hand.skeleton
-15:42:00: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:42:00: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:49:34: Destroying resource group HandRenderer Scene Resources
-15:49:34: Unloading resource group HandRenderer Scene Resources
-15:49:34: Finished unloading resource group HandRenderer Scene Resources
-15:49:34: Creating resource group HandRenderer Scene Resources
-15:49:34: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:49:34: Initialising resource group HandRenderer Scene Resources
-15:49:34: Parsing scripts for resource group HandRenderer Scene Resources
-15:49:34: Parsing script skin.material
-15:49:34: Parsing script blackness.material
-15:49:34: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:49:34: Creating resources for group HandRenderer Scene Resources
-15:49:34: All done
-15:49:34: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:49:34: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:49:34: Finished loading resource group HandRenderer Scene Resources
-15:49:34: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:49:34: Mesh: Loading hand.mesh.
-15:49:34: Skeleton: Loading hand.skeleton
-15:49:34: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:49:34: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:51:25: Destroying resource group HandRenderer Scene Resources
-15:51:25: Unloading resource group HandRenderer Scene Resources
-15:51:25: Finished unloading resource group HandRenderer Scene Resources
-15:51:25: Creating resource group HandRenderer Scene Resources
-15:51:25: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:51:25: Initialising resource group HandRenderer Scene Resources
-15:51:25: Parsing scripts for resource group HandRenderer Scene Resources
-15:51:25: Parsing script skin.material
-15:51:25: Parsing script blackness.material
-15:51:25: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:51:25: Creating resources for group HandRenderer Scene Resources
-15:51:25: All done
-15:51:25: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:51:25: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:51:25: Finished loading resource group HandRenderer Scene Resources
-15:51:25: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:51:25: Mesh: Loading hand.mesh.
-15:51:25: Skeleton: Loading hand.skeleton
-15:51:25: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:51:25: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:51:44: Destroying resource group HandRenderer Scene Resources
-15:51:44: Unloading resource group HandRenderer Scene Resources
-15:51:44: Finished unloading resource group HandRenderer Scene Resources
-15:51:44: Creating resource group HandRenderer Scene Resources
-15:51:44: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:51:44: Initialising resource group HandRenderer Scene Resources
-15:51:44: Parsing scripts for resource group HandRenderer Scene Resources
-15:51:44: Parsing script skin.material
-15:51:44: Parsing script blackness.material
-15:51:44: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:51:44: Creating resources for group HandRenderer Scene Resources
-15:51:44: All done
-15:51:44: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:51:44: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:51:44: Finished loading resource group HandRenderer Scene Resources
-15:51:44: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:51:44: Mesh: Loading hand.mesh.
-15:51:44: Skeleton: Loading hand.skeleton
-15:51:44: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:51:44: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:51:55: Destroying resource group HandRenderer Scene Resources
-15:51:55: Unloading resource group HandRenderer Scene Resources
-15:51:55: Finished unloading resource group HandRenderer Scene Resources
-15:51:55: Creating resource group HandRenderer Scene Resources
-15:51:55: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
-15:51:55: Initialising resource group HandRenderer Scene Resources
-15:51:55: Parsing scripts for resource group HandRenderer Scene Resources
-15:51:55: Parsing script skin.material
-15:51:55: Parsing script blackness.material
-15:51:55: Finished parsing scripts for resource group HandRenderer Scene Resources
-15:51:55: Creating resources for group HandRenderer Scene Resources
-15:51:55: All done
-15:51:55: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
-15:51:55: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
-15:51:55: Finished loading resource group HandRenderer Scene Resources
-15:51:55: [DotSceneLoader] Parsing dotScene file with version 1.0.1
-15:51:55: Mesh: Loading hand.mesh.
-15:51:55: Skeleton: Loading hand.skeleton
-15:51:55: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
-15:51:55: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-15:52:15: DefaultWorkQueue('Root') shutting down on thread 7f68df3a8700.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6768f68700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6767f66700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6766763700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6767765700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6765761700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675e7fc700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6766f64700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6764f60700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675ffff700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6765f62700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675effd700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675f7fe700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f6768767700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675dffb700 stopped.
-15:52:15: DefaultWorkQueue('Root')::WorkerFunc - thread 7f675d7fa700 stopped.
-15:52:15: *-*-* OGRE Shutdown
-15:52:15: Unregistering ResourceManager for type Compositor
-15:52:15: Unregistering ResourceManager for type Font
-15:52:15: Unregistering ResourceManager for type Skeleton
-15:52:15: Unregistering ResourceManager for type Mesh
-15:52:15: Unregistering ResourceManager for type HighLevelGpuProgram
-15:52:15: Unregistering ResourceManager for type GpuProgram
-15:52:15: ******************************
-*** Stopping GLX Subsystem ***
-******************************
-15:52:15: Unregistering ResourceManager for type Texture
-15:52:15: Unregistering ResourceManager for type Material
+16:03:25: Registering ResourceManager for type Texture
+16:03:25: Creating resource group HandRenderer RenderTexture Resources
+16:03:25: Initialising resource group HandRenderer RenderTexture Resources
+16:03:25: Parsing scripts for resource group HandRenderer RenderTexture Resources
+16:03:25: Finished parsing scripts for resource group HandRenderer RenderTexture Resources
+16:03:25: Creating resources for group HandRenderer RenderTexture Resources
+16:03:25: All done
+16:03:25: GLRenderSystem::_createRenderWindow "HandRenderer Window", 1x1 windowed  miscParams: macAPI=cocoa 
+16:03:25: GLXWindow::create used FBConfigID = 112
+16:03:25: GL_VERSION = 2.1 Mesa 7.2
+16:03:25: GL_VENDOR = Brian Paul
+16:03:25: GL_RENDERER = Mesa X11
+16:03:25: GL_EXTENSIONS = GL_ARB_depth_texture GL_ARB_draw_buffers GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_half_float_pixel GL_ARB_imaging GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_shader_objects GL_ARB_shading_language_100 GL_ARB_shadow GL_ARB_shadow_ambient GL_ARB_texture_border_clamp GL_ARB_texture_compression GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_mirrored_repeat GL_ARB_texture_non_power_of_two GL_ARB_texture_rectangle GL_ARB_transpose_matrix GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_window_pos GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_logic_op GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_clip_volume_hint GL_EXT_compiled_vertex_array GL_EXT_convolution GL_EXT_copy_texture GL_EXT_depth_bounds_test GL_EXT_draw_range_elements GL_EXT_framebuffer_object GL_EXT_framebuffer_blit GL_EXT_fog_coord GL_EXT_gpu_program_parameters GL_EXT_histogram GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_pixels GL_EXT_paletted_texture GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_specular_color GL_EXT_shadow_funcs GL_EXT_shared_texture_palette GL_EXT_stencil_wrap GL_EXT_subtexture GL_EXT_texture GL_EXT_texture3D GL_EXT_texture_edge_clamp GL_EXT_texture_env_add GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_vertex_array GL_APPLE_packed_pixels GL_APPLE_vertex_array_object GL_ATI_blend_equation_separate GL_ATI_texture_env_combine3 GL_ATI_texture_mirror_once GL_ATI_fragment_shader GL_ATI_separate_stencil GL_IBM_multimode_draw_arrays GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_INGR_blend_func_separate GL_MESA_pack_invert GL_MESA_program_debug GL_MESA_resize_buffers GL_MESA_texture_array GL_MESA_ycbcr_texture GL_MESA_window_pos GL_NV_blend_square GL_NV_fragment_program GL_NV_light_max_exponent GL_NV_point_sprite GL_NV_texture_rectangle GL_NV_texgen_reflection GL_NV_vertex_program GL_NV_vertex_program1_1 GL_OES_read_format GL_SGI_color_matrix GL_SGI_color_table GL_SGI_texture_color_table GL_SGIS_generate_mipmap GL_SGIS_texture_border_clamp GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SGIX_shadow_ambient GL_SUN_multi_draw_arrays
+16:03:25: Supported GLX extensions: GLX_MESA_copy_sub_buffer GLX_MESA_pixmap_colormap GLX_MESA_release_buffers GLX_ARB_get_proc_address GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_SGIX_fbconfig GLX_SGIX_pbuffer 
+16:03:25: ***************************
+16:03:25: *** GL Renderer Started ***
+16:03:25: ***************************
+16:03:25: Registering ResourceManager for type GpuProgram
+16:03:25: GLSL support detected
+16:03:25: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
+16:03:25: FBO PF_UNKNOWN depth/stencil support: D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_B5G6R5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_A2R10G10B10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_A2B10G10R10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+16:03:25: [GL] : Valid FBO targets PF_UNKNOWN PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_X8R8G8B8 PF_X8B8G8R8 PF_SHORT_RGBA PF_R3G3B2 PF_SHORT_RGB 
+16:03:25: RenderSystem capabilities
+16:03:25: -------------------------
+16:03:25: RenderSystem Name: OpenGL Rendering Subsystem
+16:03:25: GPU Vendor: unknown
+16:03:25: Device Name: Mesa X11
+16:03:25: Driver Version: 2.1.0.0
+16:03:25:  * Fixed function pipeline: yes
+16:03:25:  * Hardware generation of mipmaps: yes
+16:03:25:  * Texture blending: yes
+16:03:25:  * Anisotropic texture filtering: no
+16:03:25:  * Dot product texture operation: yes
+16:03:25:  * Cube mapping: yes
+16:03:25:  * Hardware stencil buffer: no
+16:03:25:  * Hardware vertex / index buffers: yes
+16:03:25:  * Vertex programs: yes
+16:03:25:  * Number of floating-point constants for vertex programs: 128
+16:03:25:  * Number of integer constants for vertex programs: 0
+16:03:25:  * Number of boolean constants for vertex programs: 0
+16:03:25:  * Fragment programs: yes
+16:03:25:  * Number of floating-point constants for fragment programs: 128
+16:03:25:  * Number of integer constants for fragment programs: 0
+16:03:25:  * Number of boolean constants for fragment programs: 0
+16:03:25:  * Geometry programs: no
+16:03:25:  * Number of floating-point constants for geometry programs: 0
+16:03:25:  * Number of integer constants for geometry programs: 0
+16:03:25:  * Number of boolean constants for geometry programs: 0
+16:03:25:  * Supported Shader Profiles: arbfp1 arbvp1 glsl ps_1_1 ps_1_2 ps_1_3 ps_1_4
+16:03:25:  * Texture Compression: yes
+16:03:25:    - DXT: no
+16:03:25:    - VTC: no
+16:03:25:    - PVRTC: no
+16:03:25:  * Scissor Rectangle: yes
+16:03:25:  * Hardware Occlusion Query: yes
+16:03:25:  * User clip planes: yes
+16:03:25:  * VET_UBYTE4 vertex element type: yes
+16:03:25:  * Infinite far plane projection: yes
+16:03:25:  * Hardware render-to-texture: yes
+16:03:25:  * Floating point textures: no
+16:03:25:  * Non-power-of-two textures: yes
+16:03:25:  * Volume textures: yes
+16:03:25:  * Multiple Render Targets: 4
+16:03:25:    - With different bit depths: yes
+16:03:25:  * Point Sprites: yes
+16:03:25:  * Extended point parameters: yes
+16:03:25:  * Max Point Size: 60
+16:03:25:  * Vertex texture fetch: yes
+16:03:25:  * Number of world matrices: 0
+16:03:25:  * Number of texture units: 8
+16:03:25:  * Stencil buffer depth: 0
+16:03:25:  * Number of vertex blend matrices: 0
+16:03:25:    - Max vertex textures: 8
+16:03:25:    - Vertex textures shared: yes
+16:03:25:  * Render to Vertex Buffer : no
+16:03:25:  * GL 1.5 without VBO workaround: no
+16:03:25:  * Frame Buffer objects: yes
+16:03:25:  * Frame Buffer objects (ARB extension): no
+16:03:25:  * Frame Buffer objects (ATI extension): no
+16:03:25:  * PBuffer support: yes
+16:03:25:  * GL 1.5 without HW-occlusion workaround: no
+16:03:25:  * Separate shader objects: no
+16:03:25: DefaultWorkQueue('Root') initialising on thread 7ff7a2ba4700.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff65737c700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff6308ab700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff6300aa700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62f8a9700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62f0a8700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62e8a7700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62e0a6700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62d8a5700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62d0a4700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff62c8a3700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff61ffff700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff61f7fe700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff61effd700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff61e7fc700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff61dffb700 starting.
+16:03:25: DefaultWorkQueue('Root')::WorkerFunc - thread 7ff61d7fa700 starting.
+16:03:25: Particle Renderer Type 'billboard' registered
+16:03:25: SceneManagerFactory for type 'OctreeSceneManager' registered.
+16:03:26: Creating resource group HandRenderer Scene Resources
+16:03:26: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:03:26: Initialising resource group HandRenderer Scene Resources
+16:03:26: Parsing scripts for resource group HandRenderer Scene Resources
+16:03:26: Parsing script skin.material
+16:03:26: Parsing script blackness.material
+16:03:26: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:03:26: Creating resources for group HandRenderer Scene Resources
+16:03:26: All done
+16:03:26: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:03:26: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:03:26: Finished loading resource group HandRenderer Scene Resources
+16:03:26: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:03:26: Mesh: Loading hand.mesh.
+16:03:26: Skeleton: Loading hand.skeleton
+16:03:26: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:03:26: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:07:35: Destroying resource group HandRenderer Scene Resources
+16:07:35: Unloading resource group HandRenderer Scene Resources
+16:07:35: Finished unloading resource group HandRenderer Scene Resources
+16:07:35: Creating resource group HandRenderer Scene Resources
+16:07:35: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:07:35: Initialising resource group HandRenderer Scene Resources
+16:07:35: Parsing scripts for resource group HandRenderer Scene Resources
+16:07:35: Parsing script skin.material
+16:07:35: Parsing script blackness.material
+16:07:35: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:07:35: Creating resources for group HandRenderer Scene Resources
+16:07:35: All done
+16:07:35: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:07:35: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:07:35: Finished loading resource group HandRenderer Scene Resources
+16:07:35: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:07:35: Mesh: Loading hand.mesh.
+16:07:35: Skeleton: Loading hand.skeleton
+16:07:35: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:07:35: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:07:51: Destroying resource group HandRenderer Scene Resources
+16:07:51: Unloading resource group HandRenderer Scene Resources
+16:07:51: Finished unloading resource group HandRenderer Scene Resources
+16:07:51: Creating resource group HandRenderer Scene Resources
+16:07:51: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:07:51: Initialising resource group HandRenderer Scene Resources
+16:07:51: Parsing scripts for resource group HandRenderer Scene Resources
+16:07:51: Parsing script skin.material
+16:07:51: Parsing script blackness.material
+16:07:51: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:07:51: Creating resources for group HandRenderer Scene Resources
+16:07:51: All done
+16:07:51: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:07:51: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:07:51: Finished loading resource group HandRenderer Scene Resources
+16:07:51: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:07:51: Mesh: Loading hand.mesh.
+16:07:51: Skeleton: Loading hand.skeleton
+16:07:51: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:07:51: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:08:04: Destroying resource group HandRenderer Scene Resources
+16:08:04: Unloading resource group HandRenderer Scene Resources
+16:08:04: Finished unloading resource group HandRenderer Scene Resources
+16:08:04: Creating resource group HandRenderer Scene Resources
+16:08:04: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:08:04: Initialising resource group HandRenderer Scene Resources
+16:08:04: Parsing scripts for resource group HandRenderer Scene Resources
+16:08:04: Parsing script skin.material
+16:08:04: Parsing script blackness.material
+16:08:04: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:08:04: Creating resources for group HandRenderer Scene Resources
+16:08:04: All done
+16:08:04: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:08:04: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:08:04: Finished loading resource group HandRenderer Scene Resources
+16:08:04: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:08:04: Mesh: Loading hand.mesh.
+16:08:04: Skeleton: Loading hand.skeleton
+16:08:04: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:08:04: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:08:19: Destroying resource group HandRenderer Scene Resources
+16:08:19: Unloading resource group HandRenderer Scene Resources
+16:08:19: Finished unloading resource group HandRenderer Scene Resources
+16:08:19: Creating resource group HandRenderer Scene Resources
+16:08:19: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:08:19: Initialising resource group HandRenderer Scene Resources
+16:08:19: Parsing scripts for resource group HandRenderer Scene Resources
+16:08:19: Parsing script skin.material
+16:08:19: Parsing script blackness.material
+16:08:19: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:08:19: Creating resources for group HandRenderer Scene Resources
+16:08:19: All done
+16:08:19: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:08:19: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:08:19: Finished loading resource group HandRenderer Scene Resources
+16:08:19: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:08:19: Mesh: Loading hand.mesh.
+16:08:19: Skeleton: Loading hand.skeleton
+16:08:19: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:08:19: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:08:36: Destroying resource group HandRenderer Scene Resources
+16:08:36: Unloading resource group HandRenderer Scene Resources
+16:08:36: Finished unloading resource group HandRenderer Scene Resources
+16:08:36: Creating resource group HandRenderer Scene Resources
+16:08:36: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:08:36: Initialising resource group HandRenderer Scene Resources
+16:08:36: Parsing scripts for resource group HandRenderer Scene Resources
+16:08:36: Parsing script skin.material
+16:08:36: Parsing script blackness.material
+16:08:36: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:08:36: Creating resources for group HandRenderer Scene Resources
+16:08:36: All done
+16:08:36: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:08:36: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:08:36: Finished loading resource group HandRenderer Scene Resources
+16:08:36: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:08:36: Mesh: Loading hand.mesh.
+16:08:36: Skeleton: Loading hand.skeleton
+16:08:36: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:08:36: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:08:53: Destroying resource group HandRenderer Scene Resources
+16:08:53: Unloading resource group HandRenderer Scene Resources
+16:08:53: Finished unloading resource group HandRenderer Scene Resources
+16:08:53: Creating resource group HandRenderer Scene Resources
+16:08:53: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:08:53: Initialising resource group HandRenderer Scene Resources
+16:08:53: Parsing scripts for resource group HandRenderer Scene Resources
+16:08:53: Parsing script skin.material
+16:08:53: Parsing script blackness.material
+16:08:53: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:08:53: Creating resources for group HandRenderer Scene Resources
+16:08:53: All done
+16:08:53: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:08:53: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:08:53: Finished loading resource group HandRenderer Scene Resources
+16:08:53: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:08:53: Mesh: Loading hand.mesh.
+16:08:53: Skeleton: Loading hand.skeleton
+16:08:53: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:08:53: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:09:09: Destroying resource group HandRenderer Scene Resources
+16:09:09: Unloading resource group HandRenderer Scene Resources
+16:09:09: Finished unloading resource group HandRenderer Scene Resources
+16:09:09: Creating resource group HandRenderer Scene Resources
+16:09:09: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:09:09: Initialising resource group HandRenderer Scene Resources
+16:09:09: Parsing scripts for resource group HandRenderer Scene Resources
+16:09:09: Parsing script skin.material
+16:09:09: Parsing script blackness.material
+16:09:09: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:09:09: Creating resources for group HandRenderer Scene Resources
+16:09:09: All done
+16:09:09: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:09:09: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:09:09: Finished loading resource group HandRenderer Scene Resources
+16:09:09: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:09:09: Mesh: Loading hand.mesh.
+16:09:09: Skeleton: Loading hand.skeleton
+16:09:09: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:09:09: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:09:26: Destroying resource group HandRenderer Scene Resources
+16:09:26: Unloading resource group HandRenderer Scene Resources
+16:09:26: Finished unloading resource group HandRenderer Scene Resources
+16:09:26: Creating resource group HandRenderer Scene Resources
+16:09:26: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:09:26: Initialising resource group HandRenderer Scene Resources
+16:09:26: Parsing scripts for resource group HandRenderer Scene Resources
+16:09:26: Parsing script skin.material
+16:09:26: Parsing script blackness.material
+16:09:26: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:09:26: Creating resources for group HandRenderer Scene Resources
+16:09:26: All done
+16:09:26: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:09:26: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:09:26: Finished loading resource group HandRenderer Scene Resources
+16:09:26: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:09:26: Mesh: Loading hand.mesh.
+16:09:26: Skeleton: Loading hand.skeleton
+16:09:26: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:09:26: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:09:48: Destroying resource group HandRenderer Scene Resources
+16:09:48: Unloading resource group HandRenderer Scene Resources
+16:09:48: Finished unloading resource group HandRenderer Scene Resources
+16:09:48: Creating resource group HandRenderer Scene Resources
+16:09:48: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:09:48: Initialising resource group HandRenderer Scene Resources
+16:09:48: Parsing scripts for resource group HandRenderer Scene Resources
+16:09:48: Parsing script skin.material
+16:09:48: Parsing script blackness.material
+16:09:48: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:09:48: Creating resources for group HandRenderer Scene Resources
+16:09:48: All done
+16:09:48: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:09:49: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:09:49: Finished loading resource group HandRenderer Scene Resources
+16:09:49: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:09:49: Mesh: Loading hand.mesh.
+16:09:49: Skeleton: Loading hand.skeleton
+16:09:49: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:09:49: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:10:07: Destroying resource group HandRenderer Scene Resources
+16:10:07: Unloading resource group HandRenderer Scene Resources
+16:10:07: Finished unloading resource group HandRenderer Scene Resources
+16:10:07: Creating resource group HandRenderer Scene Resources
+16:10:07: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:10:07: Initialising resource group HandRenderer Scene Resources
+16:10:07: Parsing scripts for resource group HandRenderer Scene Resources
+16:10:07: Parsing script skin.material
+16:10:07: Parsing script blackness.material
+16:10:07: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:10:07: Creating resources for group HandRenderer Scene Resources
+16:10:07: All done
+16:10:07: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:10:07: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:10:07: Finished loading resource group HandRenderer Scene Resources
+16:10:07: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:10:07: Mesh: Loading hand.mesh.
+16:10:07: Skeleton: Loading hand.skeleton
+16:10:07: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:10:07: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:10:27: Destroying resource group HandRenderer Scene Resources
+16:10:27: Unloading resource group HandRenderer Scene Resources
+16:10:27: Finished unloading resource group HandRenderer Scene Resources
+16:10:27: Creating resource group HandRenderer Scene Resources
+16:10:27: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:10:27: Initialising resource group HandRenderer Scene Resources
+16:10:27: Parsing scripts for resource group HandRenderer Scene Resources
+16:10:27: Parsing script skin.material
+16:10:27: Parsing script blackness.material
+16:10:27: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:10:27: Creating resources for group HandRenderer Scene Resources
+16:10:27: All done
+16:10:27: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:10:27: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:10:27: Finished loading resource group HandRenderer Scene Resources
+16:10:27: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:10:27: Mesh: Loading hand.mesh.
+16:10:27: Skeleton: Loading hand.skeleton
+16:10:27: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:10:27: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+16:40:30: Destroying resource group HandRenderer Scene Resources
+16:40:30: Unloading resource group HandRenderer Scene Resources
+16:40:30: Finished unloading resource group HandRenderer Scene Resources
+16:40:30: Creating resource group HandRenderer Scene Resources
+16:40:30: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+16:40:30: Initialising resource group HandRenderer Scene Resources
+16:40:30: Parsing scripts for resource group HandRenderer Scene Resources
+16:40:30: Parsing script skin.material
+16:40:30: Parsing script blackness.material
+16:40:30: Finished parsing scripts for resource group HandRenderer Scene Resources
+16:40:30: Creating resources for group HandRenderer Scene Resources
+16:40:30: All done
+16:40:30: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+16:40:31: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+16:40:31: Finished loading resource group HandRenderer Scene Resources
+16:40:31: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+16:40:31: Mesh: Loading hand.mesh.
+16:40:31: Skeleton: Loading hand.skeleton
+16:40:31: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+16:40:31: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+17:33:44: Destroying resource group HandRenderer Scene Resources
+17:33:44: Unloading resource group HandRenderer Scene Resources
+17:33:44: Finished unloading resource group HandRenderer Scene Resources
+17:33:44: Creating resource group HandRenderer Scene Resources
+17:33:44: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+17:33:44: Initialising resource group HandRenderer Scene Resources
+17:33:44: Parsing scripts for resource group HandRenderer Scene Resources
+17:33:44: Parsing script skin.material
+17:33:44: Parsing script blackness.material
+17:33:44: Finished parsing scripts for resource group HandRenderer Scene Resources
+17:33:44: Creating resources for group HandRenderer Scene Resources
+17:33:44: All done
+17:33:44: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+17:33:44: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+17:33:44: Finished loading resource group HandRenderer Scene Resources
+17:33:44: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+17:33:44: Mesh: Loading hand.mesh.
+17:33:44: Skeleton: Loading hand.skeleton
+17:33:44: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+17:33:44: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+17:34:18: Destroying resource group HandRenderer Scene Resources
+17:34:18: Unloading resource group HandRenderer Scene Resources
+17:34:18: Finished unloading resource group HandRenderer Scene Resources
+17:34:18: Creating resource group HandRenderer Scene Resources
+17:34:18: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+17:34:18: Initialising resource group HandRenderer Scene Resources
+17:34:18: Parsing scripts for resource group HandRenderer Scene Resources
+17:34:18: Parsing script skin.material
+17:34:18: Parsing script blackness.material
+17:34:18: Finished parsing scripts for resource group HandRenderer Scene Resources
+17:34:18: Creating resources for group HandRenderer Scene Resources
+17:34:18: All done
+17:34:18: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+17:34:18: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+17:34:18: Finished loading resource group HandRenderer Scene Resources
+17:34:18: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+17:34:18: Mesh: Loading hand.mesh.
+17:34:18: Skeleton: Loading hand.skeleton
+17:34:18: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+17:34:18: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+17:40:40: Destroying resource group HandRenderer Scene Resources
+17:40:40: Unloading resource group HandRenderer Scene Resources
+17:40:40: Finished unloading resource group HandRenderer Scene Resources
+17:40:40: Creating resource group HandRenderer Scene Resources
+17:40:40: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+17:40:40: Initialising resource group HandRenderer Scene Resources
+17:40:40: Parsing scripts for resource group HandRenderer Scene Resources
+17:40:40: Parsing script skin.material
+17:40:40: Parsing script blackness.material
+17:40:40: Finished parsing scripts for resource group HandRenderer Scene Resources
+17:40:40: Creating resources for group HandRenderer Scene Resources
+17:40:40: All done
+17:40:40: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+17:40:40: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+17:40:40: Finished loading resource group HandRenderer Scene Resources
+17:40:40: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+17:40:40: Mesh: Loading hand.mesh.
+17:40:40: Skeleton: Loading hand.skeleton
+17:40:40: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+17:40:40: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+17:41:32: Destroying resource group HandRenderer Scene Resources
+17:41:32: Unloading resource group HandRenderer Scene Resources
+17:41:32: Finished unloading resource group HandRenderer Scene Resources
+17:41:32: Creating resource group HandRenderer Scene Resources
+17:41:32: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+17:41:32: Initialising resource group HandRenderer Scene Resources
+17:41:32: Parsing scripts for resource group HandRenderer Scene Resources
+17:41:32: Parsing script skin.material
+17:41:32: Parsing script blackness.material
+17:41:32: Finished parsing scripts for resource group HandRenderer Scene Resources
+17:41:32: Creating resources for group HandRenderer Scene Resources
+17:41:32: All done
+17:41:32: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+17:41:32: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+17:41:32: Finished loading resource group HandRenderer Scene Resources
+17:41:32: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+17:41:32: Mesh: Loading hand.mesh.
+17:41:32: Skeleton: Loading hand.skeleton
+17:41:32: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+17:41:32: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+17:43:10: Destroying resource group HandRenderer Scene Resources
+17:43:10: Unloading resource group HandRenderer Scene Resources
+17:43:10: Finished unloading resource group HandRenderer Scene Resources
+17:43:10: Creating resource group HandRenderer Scene Resources
+17:43:10: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+17:43:10: Initialising resource group HandRenderer Scene Resources
+17:43:10: Parsing scripts for resource group HandRenderer Scene Resources
+17:43:10: Parsing script skin.material
+17:43:10: Parsing script blackness.material
+17:43:10: Finished parsing scripts for resource group HandRenderer Scene Resources
+17:43:10: Creating resources for group HandRenderer Scene Resources
+17:43:10: All done
+17:43:10: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+17:43:10: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+17:43:10: Finished loading resource group HandRenderer Scene Resources
+17:43:11: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+17:43:11: Mesh: Loading hand.mesh.
+17:43:11: Skeleton: Loading hand.skeleton
+17:43:11: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+17:43:11: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+17:43:24: Destroying resource group HandRenderer Scene Resources
+17:43:24: Unloading resource group HandRenderer Scene Resources
+17:43:24: Finished unloading resource group HandRenderer Scene Resources
+17:43:24: Creating resource group HandRenderer Scene Resources
+17:43:24: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+17:43:24: Initialising resource group HandRenderer Scene Resources
+17:43:24: Parsing scripts for resource group HandRenderer Scene Resources
+17:43:24: Parsing script skin.material
+17:43:24: Parsing script blackness.material
+17:43:24: Finished parsing scripts for resource group HandRenderer Scene Resources
+17:43:24: Creating resources for group HandRenderer Scene Resources
+17:43:24: All done
+17:43:24: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+17:43:24: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+17:43:24: Finished loading resource group HandRenderer Scene Resources
+17:43:24: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+17:43:24: Mesh: Loading hand.mesh.
+17:43:24: Skeleton: Loading hand.skeleton
+17:43:24: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+17:43:24: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+18:04:28: Destroying resource group HandRenderer Scene Resources
+18:04:28: Unloading resource group HandRenderer Scene Resources
+18:04:28: Finished unloading resource group HandRenderer Scene Resources
+18:04:28: Creating resource group HandRenderer Scene Resources
+18:04:28: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+18:04:28: Initialising resource group HandRenderer Scene Resources
+18:04:28: Parsing scripts for resource group HandRenderer Scene Resources
+18:04:28: Parsing script skin.material
+18:04:28: Parsing script blackness.material
+18:04:28: Finished parsing scripts for resource group HandRenderer Scene Resources
+18:04:28: Creating resources for group HandRenderer Scene Resources
+18:04:28: All done
+18:04:28: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+18:04:28: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+18:04:28: Finished loading resource group HandRenderer Scene Resources
+18:04:28: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+18:04:28: Mesh: Loading hand.mesh.
+18:04:28: Skeleton: Loading hand.skeleton
+18:04:29: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+18:04:29: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+18:04:58: Destroying resource group HandRenderer Scene Resources
+18:04:58: Unloading resource group HandRenderer Scene Resources
+18:04:58: Finished unloading resource group HandRenderer Scene Resources
+18:04:58: Creating resource group HandRenderer Scene Resources
+18:04:58: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+18:04:58: Initialising resource group HandRenderer Scene Resources
+18:04:58: Parsing scripts for resource group HandRenderer Scene Resources
+18:04:58: Parsing script skin.material
+18:04:58: Parsing script blackness.material
+18:04:58: Finished parsing scripts for resource group HandRenderer Scene Resources
+18:04:58: Creating resources for group HandRenderer Scene Resources
+18:04:58: All done
+18:04:58: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+18:04:59: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+18:04:59: Finished loading resource group HandRenderer Scene Resources
+18:04:59: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+18:04:59: Mesh: Loading hand.mesh.
+18:04:59: Skeleton: Loading hand.skeleton
+18:04:59: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+18:04:59: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+18:16:18: Destroying resource group HandRenderer Scene Resources
+18:16:18: Unloading resource group HandRenderer Scene Resources
+18:16:18: Finished unloading resource group HandRenderer Scene Resources
+18:16:18: Creating resource group HandRenderer Scene Resources
+18:16:18: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+18:16:18: Initialising resource group HandRenderer Scene Resources
+18:16:18: Parsing scripts for resource group HandRenderer Scene Resources
+18:16:18: Parsing script skin.material
+18:16:18: Parsing script blackness.material
+18:16:18: Finished parsing scripts for resource group HandRenderer Scene Resources
+18:16:18: Creating resources for group HandRenderer Scene Resources
+18:16:18: All done
+18:16:18: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+18:16:18: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+18:16:18: Finished loading resource group HandRenderer Scene Resources
+18:16:18: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+18:16:18: Mesh: Loading hand.mesh.
+18:16:18: Skeleton: Loading hand.skeleton
+18:16:18: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+18:16:18: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+18:39:59: Destroying resource group HandRenderer Scene Resources
+18:39:59: Unloading resource group HandRenderer Scene Resources
+18:39:59: Finished unloading resource group HandRenderer Scene Resources
+18:39:59: Creating resource group HandRenderer Scene Resources
+18:39:59: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+18:39:59: Initialising resource group HandRenderer Scene Resources
+18:39:59: Parsing scripts for resource group HandRenderer Scene Resources
+18:39:59: Parsing script skin.material
+18:39:59: Parsing script blackness.material
+18:39:59: Finished parsing scripts for resource group HandRenderer Scene Resources
+18:39:59: Creating resources for group HandRenderer Scene Resources
+18:39:59: All done
+18:39:59: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+18:39:59: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+18:39:59: Finished loading resource group HandRenderer Scene Resources
+18:39:59: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+18:39:59: Mesh: Loading hand.mesh.
+18:39:59: Skeleton: Loading hand.skeleton
+18:39:59: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+18:39:59: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+18:40:17: Destroying resource group HandRenderer Scene Resources
+18:40:17: Unloading resource group HandRenderer Scene Resources
+18:40:17: Finished unloading resource group HandRenderer Scene Resources
+18:40:17: Creating resource group HandRenderer Scene Resources
+18:40:17: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+18:40:17: Initialising resource group HandRenderer Scene Resources
+18:40:17: Parsing scripts for resource group HandRenderer Scene Resources
+18:40:17: Parsing script skin.material
+18:40:17: Parsing script blackness.material
+18:40:17: Finished parsing scripts for resource group HandRenderer Scene Resources
+18:40:17: Creating resources for group HandRenderer Scene Resources
+18:40:17: All done
+18:40:17: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+18:40:18: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+18:40:18: Finished loading resource group HandRenderer Scene Resources
+18:40:18: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+18:40:18: Mesh: Loading hand.mesh.
+18:40:18: Skeleton: Loading hand.skeleton
+18:40:18: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+18:40:18: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+18:47:30: Destroying resource group HandRenderer Scene Resources
+18:47:30: Unloading resource group HandRenderer Scene Resources
+18:47:30: Finished unloading resource group HandRenderer Scene Resources
+18:47:30: Creating resource group HandRenderer Scene Resources
+18:47:30: Added resource location 'hand_model/ogre' of type 'FileSystem' to resource group 'HandRenderer Scene Resources'
+18:47:30: Initialising resource group HandRenderer Scene Resources
+18:47:30: Parsing scripts for resource group HandRenderer Scene Resources
+18:47:30: Parsing script skin.material
+18:47:30: Parsing script blackness.material
+18:47:30: Finished parsing scripts for resource group HandRenderer Scene Resources
+18:47:30: Creating resources for group HandRenderer Scene Resources
+18:47:30: All done
+18:47:30: Loading resource group 'HandRenderer Scene Resources' - Resources: 1 World Geometry: 1
+18:47:30: Texture: hand_texture.png: Loading 1 faces(PF_R8G8B8,2048x2048x1) with 11 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,2048x2048x1.
+18:47:30: Finished loading resource group HandRenderer Scene Resources
+18:47:30: [DotSceneLoader] Parsing dotScene file with version 1.0.1
+18:47:30: Mesh: Loading hand.mesh.
+18:47:30: Skeleton: Loading hand.skeleton
+18:47:30: WARNING: hand.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+18:47:30: WARNING: the mesh 'hand.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
