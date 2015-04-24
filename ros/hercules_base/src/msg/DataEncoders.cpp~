@@ -21,7 +21,7 @@ DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp)
 , mRightEncoder(right)
 , mLeftDir(true)
 , mRightDir(true)
-, mTimeStamp(timeStamp) {
+, mTimeStamp(bpt::microsec_clock::local_time()) {
 }
 /*
 DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp){

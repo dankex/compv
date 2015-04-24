@@ -38,7 +38,7 @@ public:
 	void reader();
 	int processData(long *num);
 	Message* requestData(Channel channel, double timeout);
-        DataDifferentialSpeed* getDifferentialSpeed();
+        DataDifferentialSpeed* getDifferentialWheelSpeed();
 
 private:
 	string mPort;

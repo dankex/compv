@@ -20,7 +20,7 @@ private:
 	double encoderToTravel(int enc);
 
 public:
-//	DataEncoders(int left, int right);
+	DataEncoders(int left, int right);
         DataEncoders(int left, int right, bpt::ptime timeStamp);
 //        DataEncoders(DataEncoders const &);
 	virtual ~DataEncoders();

@@ -174,11 +174,11 @@ namespace hercules_base
 */
               delete enc;
 	  }
-/*
+
 	  DataDifferentialSpeed* speed = (DataDifferentialSpeed*)hercules_wilson::requestData(CHANNEL_DIFFERENTIALSPEED, polling_timeout_);
     if (speed)
     {
-
+/*
       for (int i = 0; i < 4; i++)
       {
         if (i % 2 == LEFT)
@@ -190,10 +190,10 @@ namespace hercules_base
 //          joints_[i].velocity = linearToAngular(speed->getRightSpeed());
         }
       }
-
+*/
       delete speed;
     }
-*/
+
   }
 
   /**

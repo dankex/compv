@@ -17,16 +17,12 @@ using namespace std;
 
 #define MAX_LEVEL	100
 #define MAX_SPEED	1		// 10 m/s
-#define MAX_ENCODERDATA 10
 
 Hercules::Hercules()
 {
 	mLeftEncoder = 0;
 	mRightEncoder = 0;
 	countLoop = 0;
-        mEncoderData.reserve(MAX_ENCODERDATA);
-        mLeftDir[0] = mLeftDir[1] = false;
-        mRightDir[0] = mRightDir[1] = false;
 }
 
 Hercules::~Hercules() {
@@ -131,11 +127,6 @@ void Hercules::sendDriveCmd(int leftSpeed, int leftDir, int rightSpeed, int righ
 	char buf[20];
 	snprintf(buf, sizeof(buf), CMD_DRIVE, leftSpeed, rightSpeed, leftDir, rightDir);
 	mSerialPtr->Write(buf);
-        mLeftDir[1] = mLeftDir[0]; // previous
-        mRightDir[1] = mRightDir[0]; // previous
-        mLeftDir[0] = leftDir;
-        mRightDir[0] = rightDir;
-        
 	ROS_DEBUG("Hercules sendDriveCmd:%s \n", buf);
 }
 
@@ -153,86 +144,12 @@ int Hercules::speedToLevel(double speed) {
 	return level;
 }
 
-DataDifferentialSpeed* Hercules::getDifferentialSpeed() {
-        std::vector<DataEncoders>::iterator it;
-/*
-        mMutexEncoderData.lock();
-        if(mEncoderData.empty()) {
-            ROS_DEBUG("EncoderData empty");
-            mMutexEncoderData.unlock();
-            return 0;
-        }
-
-        bpt::ptime fromTime(bpt::microsec_clock::local_time());
-	fromTime -= bpt::time_duration(0,0,1,0);
-
-        int left = 0;
-        int right = 0;
-        int i = 0;
-        for (it=mEncoderData.begin(); it!=mEncoderData.end(); i++) {
-            if(mEncoderData[i].getTimeStamp() > fromTime) {
-                left += mEncoderData[i].getTravel(0);
-                right += mEncoderData[i].getTravel(1);
-                it++;
-            } else {
-                it = mEncoderData.erase(it);
-            }
-        }
-        int num = mEncoderData.size();
-        if(num < 2) {
-            ROS_DEBUG("EncoderData outdated");
-            mMutexEncoderData.unlock();
-            return 0;
-        }
-        ROS_DEBUG("EncoderData num=%d", num);
-        bpt::ptime frontTimeStamp = mEncoderData[0].getTimeStamp();
-        bpt::ptime backTimeStamp = mEncoderData[num-1].getTimeStamp();
-        bpt::time_duration td = backTimeStamp - frontTimeStamp;
-        mMutexEncoderData.unlock();
-        if(td.total_milliseconds()==0.0){
-            ROS_DEBUG("EncoderData timeduration =0");
-            return 0;
-        }        
-*/
-        double leftSpeed = 0.0;//(double) left/td.total_milliseconds()/1000; // m/sec
-        double rightSpeed = 0.0;//(double) right/td.total_milliseconds()/1000;
-        ROS_DEBUG("EncoderData leftAverageSpeed=%lf, rightAverageSpeed=%lf", leftSpeed, rightSpeed);
-        return new DataDifferentialSpeed(leftSpeed, rightSpeed);
-}
-
 Message* Hercules::requestData(Channel channel, double timeout) {
-        if (channel == DIFFERENTIALSPEED) {
-             ROS_DEBUG("DifferentialSpeed requestData");
-             return (Message*) getDifferentialSpeed();
-//              return 0;
-        }else {
-	    return mQueue.waitForMessage(channel, timeout);
-        }
+	return mQueue.waitForMessage(channel, timeout);
 }
 
 void Hercules::enqueue(Message *msg) {
-//	if (msg->isType("DataEncoders")) {
-//		mQueue.enqueueMessage(ODOMETRY, msg);
-//        }
-
 	if (msg->isType("DataEncoders")) {
-//                ((DataEncoders *) msg)->setDir(mLeftDir[1], mRightDir[1]);
 		mQueue.enqueueMessage(ODOMETRY, msg);
-/*                mMutexEncoderData.lock();
-                DataEncoders dataEncoder(*(DataEncoders *) msg);
-                if(mEncoderData.size() < MAX_ENCODERDATA) {
-                    mEncoderData.push_back(dataEncoder);
-                    ROS_DEBUG("EncoderData pushback");
-                }else {
-                    mEncoderData.erase(mEncoderData.begin());
-                    mEncoderData.push_back(dataEncoder);
-                    ROS_DEBUG("EncoderData erase and pushback");
-                }
-
-                mMutexEncoderData.unlock();
-*/
- 	}
-
+	}
 }
-
-
