@@ -25,7 +25,6 @@ add_library(libmsg
    src/msg/Message.cpp
    src/msg/MsgPipe.cpp
    src/msg/DataEncoders.cpp
-   src/msg/DataDifferentialSpeed.cpp
 )
 
 add_executable(hercules_node

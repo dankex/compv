@@ -41,8 +41,7 @@ namespace
 {
   string port_;
   Hercules::Channel channelId[] = {
-		  Hercules::ODOMETRY,
-                  Hercules::DIFFERENTIALSPEED
+		  Hercules::ODOMETRY
   };
 }
 

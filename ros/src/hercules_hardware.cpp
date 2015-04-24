@@ -32,7 +32,6 @@
 #include "hercules_base/hercules_hardware.h"
 #include "hercules_base/hercules_wilson_wrapper.h"
 #include "msg/DataEncoders.h"
-#include "msg/DataDifferentialSpeed.h"
 
 #include <boost/assign/list_of.hpp>
 
@@ -55,8 +54,7 @@ namespace hercules_base
         //safety_status_task_(hercules_status_msg_),
         //software_status_task_(hercules_status_msg_, target_control_freq)
   {
-//    private_nh_.param<double>("wheel_diameter", wheel_diameter_, 0.3555);
-    private_nh_.param<double>("wheel_diameter", wheel_diameter_, 0.08);
+    private_nh_.param<double>("wheel_diameter", wheel_diameter_, 0.3555);
     private_nh_.param<double>("max_accel", max_accel_, 5.0);
     private_nh_.param<double>("max_speed", max_speed_, 1.0);
     private_nh_.param<double>("polling_timeout_", polling_timeout_, 10.0);
@@ -150,12 +148,10 @@ namespace hercules_base
   */
   void HerculesHardware::updateJointsFromHardware()
   {
-
 	  DataEncoders* enc = (DataEncoders*)hercules_wilson::requestData(CHANNEL_ODOM, polling_timeout_);
 	  if (enc)
 	  {
-
-/*		  for (int i = 0; i < 4; i++)
+		  for (int i = 0; i < 4; i++)
 		  {
 			  double new_position = linearToAngular(enc->getTravel(i % 2)) - joints_[i].position_offset;
 			  double delta = new_position - joints_[i].position;
@@ -163,37 +159,32 @@ namespace hercules_base
 			  // detect encoder rollover
 			  if (std::abs(delta) < 1.0)
 			  {
-				  joints_[i].position = new_position;
+//				  joints_[i].position = new_position;
 			  }
 			  else
 			  {
 				  //  rollover has occured, swallow the measurement and update the offset
-				  joints_[i].position_offset = delta;
+//				  joints_[i].position_offset = delta;
 			  }
 		  }
-*/
-              delete enc;
 	  }
-/*
-	  DataDifferentialSpeed* speed = (DataDifferentialSpeed*)hercules_wilson::requestData(CHANNEL_DIFFERENTIALSPEED, polling_timeout_);
+	/*
+    horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::Ptr speed = horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::requestData(polling_timeout_);
     if (speed)
     {
-
       for (int i = 0; i < 4; i++)
       {
         if (i % 2 == LEFT)
         {
-//          joints_[i].velocity = linearToAngular(speed->getLeftSpeed());
+          joints_[i].velocity = linearToAngular(speed->getLeftSpeed());
         }
         else
         { // assume RIGHT
-//          joints_[i].velocity = linearToAngular(speed->getRightSpeed());
+          joints_[i].velocity = linearToAngular(speed->getRightSpeed());
         }
       }
-
-      delete speed;
     }
-*/
+    */
   }
 
   /**

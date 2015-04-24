@@ -18,7 +18,6 @@
 #include "boost/type_traits/is_base_of.hpp"
 
 #define CHANNEL_ODOM	0
-#define CHANNEL_DIFFERENTIALSPEED	0
 
 class Message;
 

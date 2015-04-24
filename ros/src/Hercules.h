@@ -4,7 +4,6 @@
 #include <string>
 
 //#include <boost/function.hpp>
-#include <boost/thread/mutex.hpp>
 #include <boost/thread/thread.hpp>
 
 #include "libserial/SerialStream.h"
@@ -12,8 +11,6 @@
 #include "msg/MsgPipe.h"
 #include "msg/MsgQueue.h"
 #include "msg/Message.h"
-#include "msg/DataEncoders.h"
-#include "msg/DataDifferentialSpeed.h"
 
 using namespace std;
 using namespace LibSerial;
@@ -22,7 +19,6 @@ class Hercules {
 public:
 	enum Channel {
 		ODOMETRY,
-                DIFFERENTIALSPEED,
 		MAX
 	};
 
@@ -37,8 +33,8 @@ public:
 			double accel_left, double accel_right);
 	void reader();
 	int processData(long *num);
+
 	Message* requestData(Channel channel, double timeout);
-        DataDifferentialSpeed* getDifferentialSpeed();
 
 private:
 	string mPort;
@@ -48,12 +44,10 @@ private:
 	long mRightEncoder;
 	int mVoltage;
 	int countLoop;
-        bool mLeftDir[2], mRightDir[2];
-        std::vector<DataEncoders> mEncoderData;
-        boost::mutex mMutexEncoderData;
+
 	MsgPipe mMsgPipe;
 	MsgQueue<Channel,(int)MAX> mQueue;
-        
+
 	void enqueue(Message *msg);
 
 protected:

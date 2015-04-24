@@ -47,6 +47,7 @@ volatile int leftFeedback = 0;
 volatile int rightFeedback = 0;
 volatile int motorSpeed = 0;
 char received[7];
+int testEnc = 12345;
 
 void setup()
 {
@@ -72,6 +73,7 @@ void setup()
 
 void loop()
 {
+//  testEnc++;
   wdt_reset();  //reset watch dog timer
   processSerialData(); //read data from serial and send it to the motors
 }
@@ -182,14 +184,18 @@ void processCmdS(int valueByte) {
       Serial.println(char(valueByte));
 }
 
-void processCmdB(int valueByte) {
+void processCmdB() {
       int millivolt=getBatteryVoltage();
       //confirm the serial request by sending a response
       Serial.print('B');
-      Serial.print(char(valueByte));
-      Serial.print(char(44));
+//      Serial.print(char(valueByte));
+      Serial.print(char(','));
       Serial.print(millivolt);
+      Serial.print(char(','));
       Serial.println();
+
+      Serial.read();
+      Serial.read();
 }
 
 void processCmdD() {
@@ -204,12 +210,13 @@ void processCmdD() {
       interrupts();
 
       // output odometry
-//      Serial.print('D');
-//      Serial.print(char(','));
-//      Serial.print(left, DEC);
-//      Serial.print(char(','));
-//      Serial.print(right, DEC);
-//      Serial.println();
+      Serial.print('D');
+      Serial.print(char(','));
+      Serial.print(left, DEC);
+      Serial.print(char(','));
+      Serial.print(right, DEC);
+      Serial.print(char(','));
+      Serial.println();
 
       // drive the wheels
       int speedL = 0;
@@ -247,10 +254,8 @@ void processSerialData()
 {
   while (Serial.available()>0) {
 
-  received[0] = Serial.read();
-  if (received[0] != 'D')
-      continue;
-  int commandByte = received[0];
+  int commandByte = Serial.read();
+  switch (commandByte) {
 
   // A message has 3 bytes
 
@@ -262,18 +267,22 @@ void processSerialData()
   //   the second byte is the left speed 0 - 99
   //   the third byte is the right speed 0 - 99
 
-  if (commandByte=='D') {
+    case'D':
         processCmdD();
-  } 
+        break;
+    case'B':
+        processCmdB();
+        break;
+    default :
+//        continue;
+        break;
  /*
   else if (commandByte=='M' && (third==10 || third==44)) { // M
     processCmdM(second);
   } else if (commandByte=='S' && (third==10 || third==44)) { // S
     processCmdS(second);
-  } else if (commandByte=='B' && (third==10 || third==44)) { // B
-    processCmdB(second);
-  }
 */
+  }
   delay(25); // this delay can be tweaked or omitted to adjust accuracy. keep it low!
   }
 }
