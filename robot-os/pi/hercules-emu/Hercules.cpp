@@ -12,7 +12,11 @@
 #include <unistd.h>
 #include "Hercules.h"
 
+#define READ_TIME 100
+
 using namespace std;
+
+static int gDebugCount;
 
 Hercules::Hercules(const string &port)
   : mSerial(port)
@@ -40,31 +44,31 @@ void Hercules::setup() {
 }
 
 void Hercules::cmdD() {
-	string leftSpeed = mSerial.ReadLine(100, ',');
-	string rightSpeed = mSerial.ReadLine(100, ',');
-	string leftDir = mSerial.ReadLine(100, ',');
-	string rightDir = mSerial.ReadLine(100, ',');
+	string leftSpeed = mSerial.ReadLine(READ_TIME, ',');
+	string rightSpeed = mSerial.ReadLine(READ_TIME, ',');
+	string leftDir = mSerial.ReadLine(READ_TIME, ',');
+	string rightDir = mSerial.ReadLine(READ_TIME, ',');
 
-	cout << "DEBUG: " << "L=" << leftSpeed << " R=" << rightSpeed <<
+	cout << gDebugCount++ << " DEBUG: " << "L=" << leftSpeed << " R=" << rightSpeed <<
 			" LD=" << leftDir << " RD=" << rightDir << endl;
 
 	ostringstream oss;
 	oss << "D" << leftSpeed << rightSpeed << "\n";
 	mSerial.Write(oss.str());
 
-	cout << "DEBUG: " << "Output: " << oss.str() << endl;
+	cout << gDebugCount++ << " DEBUG: " << "Output: " << oss.str() << endl;
 }
 
 void Hercules::cmdB() {
-	string dummy1 = mSerial.ReadLine(100, ',');
-	string dummy2 = mSerial.ReadLine(100, ',');
+	string dummy1 = mSerial.ReadLine(READ_TIME, ',');
+	string dummy2 = mSerial.ReadLine(READ_TIME, ',');
 }
 
 bool Hercules::loop() {
 	try {
 		// Print serial port
 		while (mSerial.IsDataAvailable()) {
-			char newChar = mSerial.ReadByte(100);
+			char newChar = mSerial.ReadByte(READ_TIME);
 			switch (newChar) {
 				case 'D':
 					cmdD();
@@ -75,7 +79,7 @@ bool Hercules::loop() {
 			}
 		}
 	} catch (exception e) {
-		cout << e.what() << endl;
+		cout << "**** EXCEPTION: " << e.what() << endl;
 	}
 	return true;
 }

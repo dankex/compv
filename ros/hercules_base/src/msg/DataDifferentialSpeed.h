@@ -18,8 +18,10 @@ public:
 	DataDifferentialSpeed(double left, double right);
 	virtual ~DataDifferentialSpeed();
 
-        double getLeftSpeed();
-        double getRightSpeed();
+	double getLeftSpeed();
+	double getRightSpeed();
+
+	virtual void dump();
 };
 
 #endif /* DATADIFFERENTIAL_H_ */

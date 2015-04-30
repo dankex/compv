@@ -32,3 +32,8 @@ double DataDifferentialSpeed::getLeftSpeed() {
 double DataDifferentialSpeed::getRightSpeed() {
 	return mRightSpeed;
 }
+
+void DataDifferentialSpeed::dump() {
+	ROS_INFO_STREAM("DataDifferentialSpeed: leftSpeed=" << mLeftSpeed
+			<< " rightSpeed=" << mLeftSpeed);
+}

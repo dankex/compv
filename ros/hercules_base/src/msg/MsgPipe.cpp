@@ -6,6 +6,7 @@
  */
 
 #include "MsgPipe.h"
+#include <ros/console.h>
 
 MsgPipe::MsgPipe() {
 }
@@ -24,6 +25,7 @@ Message* MsgPipe::readMessage() {
 	string msgType = Message::getMsgType(msgLine);
 
 	if (!msgType.compare("D")) {
+		ROS_INFO("Reading message type 'D'");
 		return DataEncoders::parse(msgLine);
 	} else {
 		// TODO ERROR

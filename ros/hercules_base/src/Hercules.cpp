@@ -12,21 +12,17 @@
 using namespace std;
 
 //#define CMD_DRIVE "D%c%c"
-#define CMD_DRIVE "D%d,%d,%d,%d,"
-#define CMD_BATTERY "B,,"
+#define CMD_DRIVE "D%d,%d,%d,%d,\n"
+#define CMD_BATTERY "B,,\n"
 
 #define MAX_LEVEL	100
 #define MAX_SPEED	1		// 10 m/s
-#define MAX_ENCODERDATA 10
 
 Hercules::Hercules()
 {
 	mLeftEncoder = 0;
 	mRightEncoder = 0;
 	countLoop = 0;
-        mEncoderData.reserve(MAX_ENCODERDATA);
-        mLeftDir[0] = mLeftDir[1] = false;
-        mRightDir[0] = mRightDir[1] = false;
 }
 
 Hercules::~Hercules() {
@@ -83,6 +79,9 @@ void Hercules::reader() {
 			Message *msg = mMsgPipe.readMessage();
 			if (msg) {
 				enqueue(msg);
+
+				// Debug
+				msg->dump();
 			}
 
 			usleep(100);
@@ -90,20 +89,6 @@ void Hercules::reader() {
 
 		}
 	}
-}
-
-int Hercules::processData(long *num) {
-	char digit;
-	long value = 0;
-	int i = 0;
-	digit = mSerialPtr->ReadByte(100);
-	while (digit != ',') {
-		value = value*10 + atoi(&digit);
-		digit = mSerialPtr->ReadByte(100);
-		i++;
-	}
-	if(i) *num = value;
-	return i;
 }
 
 void Hercules::configureLimits(double max_speed, double max_accel) {
