@@ -1,0 +1,9 @@
+Hercules PC Emu
+---------------
+
+Emulates a hercules on PC.
+
+Create a pair of pseudo serial ports:
+
+socat -d -d pty,raw,echo=0 pty,raw,echo=0
+
