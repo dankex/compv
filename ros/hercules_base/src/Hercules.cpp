@@ -141,63 +141,60 @@ int Hercules::speedToLevel(double speed) {
 }
 
 DataDifferentialSpeed* Hercules::getDifferentialSpeed() {
-        std::vector<DataEncoders>::iterator it;
-/*
-        mMutexEncoderData.lock();
-        if(mEncoderData.empty()) {
-            ROS_DEBUG("EncoderData empty");
-            mMutexEncoderData.unlock();
-            return 0;
-        }
+	std::vector<DataEncoders>::iterator it;
 
-        bpt::ptime fromTime(bpt::microsec_clock::local_time());
+	mMutexEncoderData.lock();
+	if(mEncoderData.empty()) {
+		ROS_DEBUG("EncoderData empty");
+		mMutexEncoderData.unlock();
+		return 0;
+	}
+
+	bpt::ptime fromTime(bpt::microsec_clock::local_time());
 	fromTime -= bpt::time_duration(0,0,1,0);
 
-        int left = 0;
-        int right = 0;
-        int i = 0;
-        for (it=mEncoderData.begin(); it!=mEncoderData.end(); i++) {
-            if(mEncoderData[i].getTimeStamp() > fromTime) {
-                left += mEncoderData[i].getTravel(0);
-                right += mEncoderData[i].getTravel(1);
-                it++;
-            } else {
-                it = mEncoderData.erase(it);
-            }
-        }
-        int num = mEncoderData.size();
-        if(num < 2) {
-            ROS_DEBUG("EncoderData outdated");
-            mMutexEncoderData.unlock();
-            return 0;
-        }
-        ROS_DEBUG("EncoderData num=%d", num);
-        bpt::ptime frontTimeStamp = mEncoderData[0].getTimeStamp();
-        bpt::ptime backTimeStamp = mEncoderData[num-1].getTimeStamp();
-        bpt::time_duration td = backTimeStamp - frontTimeStamp;
-        mMutexEncoderData.unlock();
-        if(td.total_milliseconds()==0.0){
-            ROS_DEBUG("EncoderData timeduration =0");
-            return 0;
-        }        
-*/
-        double leftSpeed = 0.0;//(double) left/td.total_milliseconds()/1000; // m/sec
-        double rightSpeed = 0.0;//(double) right/td.total_milliseconds()/1000;
-        ROS_DEBUG("EncoderData leftAverageSpeed=%lf, rightAverageSpeed=%lf", leftSpeed, rightSpeed);
-        return new DataDifferentialSpeed(leftSpeed, rightSpeed);
+	int left = 0;
+	int right = 0;
+	int i = 0;
+	for (it=mEncoderData.begin(); it!=mEncoderData.end(); i++) {
+		if(mEncoderData[i].getTimeStamp() > fromTime) {
+			left += mEncoderData[i].getTravel(0);
+			right += mEncoderData[i].getTravel(1);
+			it++;
+		} else {
+			it = mEncoderData.erase(it);
+		}
+	}
+	int num = mEncoderData.size();
+	if(num < 2) {
+		ROS_DEBUG("EncoderData outdated");
+		mMutexEncoderData.unlock();
+		return 0;
+	}
+	ROS_DEBUG("EncoderData num=%d", num);
+	bpt::ptime frontTimeStamp = mEncoderData[0].getTimeStamp();
+	bpt::ptime backTimeStamp = mEncoderData[num-1].getTimeStamp();
+	bpt::time_duration td = backTimeStamp - frontTimeStamp;
+	mMutexEncoderData.unlock();
+	if(td.total_milliseconds()==0.0){
+		ROS_DEBUG("EncoderData timeduration =0");
+		return 0;
+	}
+
+	double leftSpeed = 0.0;//(double) left/td.total_milliseconds()/1000; // m/sec
+	double rightSpeed = 0.0;//(double) right/td.total_milliseconds()/1000;
+	ROS_DEBUG("EncoderData leftAverageSpeed=%lf, rightAverageSpeed=%lf", leftSpeed, rightSpeed);
+	return new DataDifferentialSpeed(leftSpeed, rightSpeed);
 }
 
 Message* Hercules::requestData(Channel channel, double timeout) {
-	    return mQueue.waitForMessage(channel, timeout);
-/*
-        if (channel == DIFFERENTIALSPEED) {
-             ROS_DEBUG("DifferentialSpeed requestData");
-             return (Message*) getDifferentialSpeed();
-//              return 0;
-        }else {
-	    return mQueue.waitForMessage(channel, timeout);
-        }
-*/
+	if (channel == DIFFERENTIALSPEED) {
+		ROS_DEBUG("DifferentialSpeed requestData");
+		return (Message*) getDifferentialSpeed();
+		//              return 0;
+	} else {
+		return mQueue.waitForMessage(channel, timeout);
+	}
 }
 
 void Hercules::enqueue(Message *msg) {

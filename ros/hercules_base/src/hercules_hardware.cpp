@@ -184,6 +184,8 @@ namespace hercules_base
 			  { // assume RIGHT
 				  joints_[i].velocity = linearToAngular(speed->getRightSpeed());
 			  }
+
+			  ROS_INFO_STREAM("joint[" << i << "]=" << joints_[i].velocity);
 		  }
 		  delete speed;
 	  }

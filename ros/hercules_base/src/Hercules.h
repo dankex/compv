@@ -22,7 +22,7 @@ class Hercules {
 public:
 	enum Channel {
 		ODOMETRY,
-                DIFFERENTIALSPEED,
+		DIFFERENTIALSPEED,
 		MAX
 	};
 

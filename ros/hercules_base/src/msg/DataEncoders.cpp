@@ -46,6 +46,10 @@ void DataEncoders::setDir(bool left, bool right) {
 	mRightDir = right;
 }
 
+bpt::ptime DataEncoders::getTimeStamp() {
+	return mTimeStamp;
+}
+
 DataEncoders* DataEncoders::parse(const string &msg) {
 	// Pass the line to a subclass of Message based on header
 	istringstream iss(msg);
