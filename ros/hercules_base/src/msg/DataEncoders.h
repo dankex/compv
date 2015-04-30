@@ -20,15 +20,15 @@ private:
 	double encoderToTravel(int enc);
 
 public:
-//	DataEncoders(int left, int right);
-        DataEncoders(int left, int right, bpt::ptime timeStamp);
-//        DataEncoders(DataEncoders const &);
+	//	DataEncoders(int left, int right);
+	DataEncoders(int left, int right, bpt::ptime timeStamp);
+	//        DataEncoders(DataEncoders const &);
 	virtual ~DataEncoders();
 
 	double getTravel(int encoderId);
-        double getSpeed(int encoderId);
-        bpt::ptime getTimeStamp();
-        void setDir(bool left, bool right);
+	double getSpeed(int encoderId);
+	bpt::ptime getTimeStamp();
+	void setDir(bool left, bool right);
 	static DataEncoders* parse(const string &msg);
 
 	virtual void dump();
