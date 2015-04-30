@@ -170,23 +170,23 @@ namespace hercules_base
 			  }
 		  }
 	  }
-	/*
-    horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::Ptr speed = horizon_legacy::Channel<clearpath::DataDifferentialSpeed>::requestData(polling_timeout_);
-    if (speed)
-    {
-      for (int i = 0; i < 4; i++)
-      {
-        if (i % 2 == LEFT)
-        {
-          joints_[i].velocity = linearToAngular(speed->getLeftSpeed());
-        }
-        else
-        { // assume RIGHT
-          joints_[i].velocity = linearToAngular(speed->getRightSpeed());
-        }
-      }
-    }
-    */
+
+	  DataDifferentialSpeed* speed = (DataDifferentialSpeed*)hercules_wilson::requestData(CHANNEL_DIFFERENTIALSPEED, polling_timeout_);
+	  if (speed)
+	  {
+		  for (int i = 0; i < 4; i++)
+		  {
+			  if (i % 2 == LEFT)
+			  {
+				  joints_[i].velocity = linearToAngular(speed->getLeftSpeed());
+			  }
+			  else
+			  { // assume RIGHT
+				  joints_[i].velocity = linearToAngular(speed->getRightSpeed());
+			  }
+		  }
+		  delete speed;
+	  }
   }
 
   /**

@@ -18,6 +18,8 @@ using namespace std;
 #define MAX_LEVEL	100
 #define MAX_SPEED	1		// 10 m/s
 
+#define MAX_ENCODERDATA 10
+
 Hercules::Hercules()
 {
 	mLeftEncoder = 0;
@@ -116,11 +118,11 @@ void Hercules::sendDriveCmd(int leftSpeed, int leftDir, int rightSpeed, int righ
 	char buf[20];
 	snprintf(buf, sizeof(buf), CMD_DRIVE, leftSpeed, rightSpeed, leftDir, rightDir);
 	mSerialPtr->Write(buf);
-        mLeftDir[1] = mLeftDir[0]; // previous
-        mRightDir[1] = mRightDir[0]; // previous
-        mLeftDir[0] = leftDir;
-        mRightDir[0] = rightDir;
-        
+	mLeftDir[1] = mLeftDir[0]; // previous
+	mRightDir[1] = mRightDir[0]; // previous
+	mLeftDir[0] = leftDir;
+	mRightDir[0] = rightDir;
+
 	ROS_DEBUG("Hercules sendDriveCmd:%s \n", buf);
 }
 
@@ -200,27 +202,21 @@ Message* Hercules::requestData(Channel channel, double timeout) {
 
 void Hercules::enqueue(Message *msg) {
 	if (msg->isType("DataEncoders")) {
+		((DataEncoders *) msg)->setDir(mLeftDir[1], mRightDir[1]);
 		mQueue.enqueueMessage(ODOMETRY, msg);
-        }
-/*
-	if (msg->isType("DataEncoders")) {
-                ((DataEncoders *) msg)->setDir(mLeftDir[1], mRightDir[1]);
-		mQueue.enqueueMessage(ODOMETRY, msg);
-                mMutexEncoderData.lock();
-                DataEncoders dataEncoder(*(DataEncoders *) msg);
-                if(mEncoderData.size() < MAX_ENCODERDATA) {
-                    mEncoderData.push_back(dataEncoder);
-                    ROS_DEBUG("EncoderData pushback");
-                }else {
-                    mEncoderData.erase(mEncoderData.begin());
-                    mEncoderData.push_back(dataEncoder);
-                    ROS_DEBUG("EncoderData erase and pushback");
-                }
 
-                mMutexEncoderData.unlock();
+		mMutexEncoderData.lock();
 
- 	}
-*/
+		DataEncoders dataEncoder(*(DataEncoders *) msg);
+		if (mEncoderData.size() < MAX_ENCODERDATA) {
+			mEncoderData.push_back(dataEncoder);
+			ROS_DEBUG("EncoderData pushback");
+		} else {
+			mEncoderData.erase(mEncoderData.begin());
+			mEncoderData.push_back(dataEncoder);
+			ROS_DEBUG("EncoderData erase and pushback");
+		}
+
+		mMutexEncoderData.unlock();
+	}
 }
-
-

@@ -20,12 +20,7 @@ DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp)
 , mRightDir(true)
 , mTimeStamp(timeStamp) {
 }
-/*
-DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp){
-        DataEncoders(left,right);
-        mTimeStamp = timeStamp;
-}
-*/
+
 DataEncoders::~DataEncoders() {
 
 }
@@ -33,7 +28,7 @@ DataEncoders::~DataEncoders() {
 double DataEncoders::getTravel(int encoderId) {
 	switch (encoderId) {
 	case 0:
-                //Todo : position
+		//Todo : position
 		return encoderToTravel(mLeftEncoder) * (mLeftDir ? -1 : 1);
 	case 1:
 		return encoderToTravel(mRightEncoder) * (mRightDir ? -1 : 1);
@@ -44,6 +39,11 @@ double DataEncoders::getTravel(int encoderId) {
 
 double DataEncoders::encoderToTravel(int enc) {
 	return (double)enc * ENC_TO_TRAVEL;
+}
+
+void DataEncoders::setDir(bool left, bool right) {
+	mLeftDir = left;
+	mRightDir = right;
 }
 
 DataEncoders* DataEncoders::parse(const string &msg) {
