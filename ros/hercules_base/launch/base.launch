@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <include file="$(find hercules_description)/launch/description.launch"/>
 
     <!-- Hercules hardware driver -->
-    <node pkg="hercules_base" type="hercules_node" name="hercules_node">
+    <node pkg="hercules_base" type="hercules_node" name="hercules_node" output="screen">
         <rosparam subst_value="true">
             port: $(arg port)
 

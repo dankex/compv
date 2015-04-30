@@ -14,9 +14,9 @@ namespace bpt = boost::posix_time;
 class DataEncoders : public Message {
 private:
 	int mLeftEncoder, mRightEncoder;
-        double mLeftSpeed, mRightSpeed;
-        bool mLeftDir, mRightDir;
-        bpt::ptime mTimeStamp;
+	double mLeftSpeed, mRightSpeed;
+	bool mLeftDir, mRightDir;
+	bpt::ptime mTimeStamp;
 	double encoderToTravel(int enc);
 
 public:
@@ -30,6 +30,8 @@ public:
         bpt::ptime getTimeStamp();
         void setDir(bool left, bool right);
 	static DataEncoders* parse(const string &msg);
+
+	virtual void dump();
 };
 
 #endif /* DATAENCODERS_H_ */

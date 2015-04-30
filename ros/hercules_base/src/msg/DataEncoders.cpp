@@ -10,9 +10,6 @@
 #include <ros/console.h>
 #include "DataEncoders.h"
 
-
-
-
 #define ENC_TO_TRAVEL 0.01f
 
 DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp)
@@ -49,19 +46,12 @@ double DataEncoders::encoderToTravel(int enc) {
 	return (double)enc * ENC_TO_TRAVEL;
 }
 
-void DataEncoders::setDir(bool left, bool right) {
-        mLeftDir = left;
-        mRightDir = right;
-}
-bpt::ptime DataEncoders::getTimeStamp() {
-        return mTimeStamp;
-}
 DataEncoders* DataEncoders::parse(const string &msg) {
 	// Pass the line to a subclass of Message based on header
 	istringstream iss(msg);
 
-	string msgType;
-	getline(iss, msgType, DELIMITER);
+	char msgType;
+	msgType = iss.get();
 
 	string strLeftEncoder, strRightEncoder;
 	getline(iss, strLeftEncoder, DELIMITER);
@@ -74,7 +64,15 @@ DataEncoders* DataEncoders::parse(const string &msg) {
 	istringstream issRight(strRightEncoder);
 	int rightEncoder;
 	issRight >> rightEncoder;
-	ROS_DEBUG("DataEncoders::parse leftEncoder=%d, rightEncoder=%d", leftEncoder, rightEncoder);
-        bpt::ptime timeStamp(bpt::microsec_clock::local_time());
+
+	ROS_INFO("DataEncoders::parse leftEncoder=%d, rightEncoder=%d",
+			leftEncoder, rightEncoder);
+	bpt::ptime timeStamp(bpt::microsec_clock::local_time());
+
 	return new DataEncoders(leftEncoder, rightEncoder, timeStamp);
+}
+
+void DataEncoders::dump() {
+	ROS_INFO_STREAM("DataEncoders: left=" << mLeftEncoder
+			<< " right=" << mRightEncoder << " time=" << mTimeStamp);
 }

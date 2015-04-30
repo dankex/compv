@@ -52,7 +52,7 @@ namespace hercules_wilson
 
   void reconnect()
   {
-    ROS_INFO_STREAM("Connecting to Hercules on port " << port_ << "...");
+    ROS_INFO_STREAM("Reconnecting to Hercules on port " << port_ << "...");
 
     gHercules.reconnect();
 
@@ -66,17 +66,21 @@ namespace hercules_wilson
 		  throw std::logic_error("Can't reconnect when port is not configured");
 	  }
 
+	  ROS_INFO_STREAM("Connecting to Hercules on port " << port_ << "...");
+
 	  gHercules.connect(port);
+
+	  ROS_INFO("Connected");
   }
 
   void configureLimits(double max_speed, double max_accel) {
 	  gHercules.configureLimits(max_speed, max_accel);
-          ROS_DEBUG("configureLimits max_speed=%lf, max_accel=%lf", max_speed, max_accel);
+      ROS_DEBUG("configureLimits max_speed=%lf, max_accel=%lf", max_speed, max_accel);
   }
 
   void controlSpeed(double speed_left, double speed_right, double accel_left, double accel_right) {
-    ROS_DEBUG("controlSpeed speed_left=%lf, speed_right=%lf", speed_left, speed_right);
-    ROS_DEBUG("controlspeed accel_left=%lf, accel_right=%lf", accel_left, accel_right);
+	  ROS_DEBUG("controlSpeed speed_left=%lf, speed_right=%lf", speed_left, speed_right);
+	  ROS_DEBUG("controlspeed accel_left=%lf, accel_right=%lf", accel_left, accel_right);
 	  gHercules.controlSpeed(speed_left, speed_right, accel_left, accel_right);
   }
 

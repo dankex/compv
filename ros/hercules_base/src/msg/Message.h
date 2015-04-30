@@ -25,6 +25,8 @@ public:
 
 	static const string getMsgType(const string &msg);
 	static Message* parse(const string &msg);
+
+	virtual void dump();
 };
 
 #endif /* MESSAGE_H_ */
