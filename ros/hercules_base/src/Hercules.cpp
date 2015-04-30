@@ -191,7 +191,6 @@ Message* Hercules::requestData(Channel channel, double timeout) {
 	if (channel == DIFFERENTIALSPEED) {
 		ROS_DEBUG("DifferentialSpeed requestData");
 		return (Message*) getDifferentialSpeed();
-		//              return 0;
 	} else {
 		return mQueue.waitForMessage(channel, timeout);
 	}
