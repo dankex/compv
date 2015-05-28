@@ -29,6 +29,7 @@ private:
 
 	void cmdD();
 	void cmdB();
+	int stringToNum(string &str);
 };
 
 #endif /* HERCULES_H_ */

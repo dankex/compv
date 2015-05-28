@@ -211,7 +211,6 @@ void processCmdD() {
 
       // output odometry
       Serial.print('D');
-      Serial.print(char(','));
       Serial.print(left, DEC);
       Serial.print(char(','));
       Serial.print(right, DEC);

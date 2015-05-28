@@ -43,6 +43,13 @@ void Hercules::setup() {
 			SerialPort::FLOW_CONTROL_DEFAULT);
 }
 
+int Hercules::stringToNum(string &str) {
+	istringstream iss(str);
+	int num;
+	iss >> num;
+	return num;
+}
+
 void Hercules::cmdD() {
 	string leftSpeed = mSerial.ReadLine(READ_TIME, ',');
 	string rightSpeed = mSerial.ReadLine(READ_TIME, ',');
@@ -52,8 +59,11 @@ void Hercules::cmdD() {
 	cout << gDebugCount++ << " DEBUG: " << "L=" << leftSpeed << " R=" << rightSpeed <<
 			" LD=" << leftDir << " RD=" << rightDir << endl;
 
+	int lspeed = stringToNum(leftSpeed);
+	int rspeed = stringToNum(rightSpeed);
+
 	ostringstream oss;
-	oss << "D" << leftSpeed << rightSpeed << "\n";
+	oss << "D" << lspeed << "," << rspeed << ",\n";
 	mSerial.Write(oss.str());
 
 	cout << gDebugCount++ << " DEBUG: " << "Output: " << oss.str() << endl;
