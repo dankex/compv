@@ -56,7 +56,7 @@ void DataEncoders::setDir(bool left, bool right) {
 void DataEncoders::setOrigin(int left, int right) {
 	mLeftEncoder += left;
 	mRightEncoder += right;
-
+/*
 	mLeftEncoder %= ENCODER_MAX;
 	if (mLeftEncoder < 0)
 		mLeftEncoder += ENCODER_MAX;
@@ -64,6 +64,7 @@ void DataEncoders::setOrigin(int left, int right) {
 	mRightEncoder %= ENCODER_MAX;
 	if (mRightEncoder < 0)
 		mRightEncoder += ENCODER_MAX;
+*/
 }
 
 void DataEncoders::getData(int &left, int &right) {
