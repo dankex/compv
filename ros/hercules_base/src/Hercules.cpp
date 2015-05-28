@@ -52,34 +52,10 @@ void Hercules::connect(const string &port) {
 void Hercules::reader() {
 	long value = 0;
 	while (true) {
-		try { /*
-			while (mSerialPtr->IsDataAvailable()>0) {
-				char dataName = mSerialPtr->ReadByte(100);
-				if (dataName == 'D') {
-					char delimeter = mSerialPtr->ReadByte(100);
-					if(delimeter == ',')
-						if (processData(&value) != 0) {
-							mLeftEncoder = value;
-							ROS_DEBUG("mLeftEncoder received=%ld", mLeftEncoder);
-						}
-					if (processData(&value) != 0) {
-						mRightEncoder = value;
-						ROS_DEBUG("mRightEncoder received=%ld", mRightEncoder);
-					}
-					else
-						continue;
-				} else if (dataName == 'B') {
-					char delimeter = mSerialPtr->ReadByte(100);
-					if(delimeter == ',')
-						if (processData(&value) != 0) {
-							mVoltage = value;
-							ROS_DEBUG("millivolt =%ld", mVoltage);
-						}
-
-				}
-			} */
+		try {
 			Message *msg = mMsgPipe.readMessage();
 			if (msg) {
+				processMsg(msg);
 				enqueue(msg);
 
 				// Debug
@@ -198,7 +174,6 @@ Message* Hercules::requestData(Channel channel, double timeout) {
 
 void Hercules::enqueue(Message *msg) {
 	if (msg->isType("DataEncoders")) {
-		((DataEncoders *) msg)->setDir(mLeftDir[1], mRightDir[1]);
 		mQueue.enqueueMessage(ODOMETRY, msg);
 
 		mMutexEncoderData.lock();
@@ -214,5 +189,16 @@ void Hercules::enqueue(Message *msg) {
 		}
 
 		mMutexEncoderData.unlock();
+	}
+}
+
+void Hercules::processMsg(Message *msg) {
+	if (msg->isType("DataEncoders")) {
+		DataEncoders *enc = (DataEncoders*) msg;
+		enc->setDir(mLeftDir[1], mRightDir[1]);
+		enc->setOrigin(mLeftEncoder, mRightEncoder);
+
+		// update origin
+		enc->getData(mLeftEncoder, mRightEncoder);
 	}
 }
