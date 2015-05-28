@@ -10,7 +10,8 @@
 #include <ros/console.h>
 #include "DataEncoders.h"
 
-#define ENC_TO_TRAVEL 0.01f
+#define ENC_TO_TRAVEL 		0.01f
+#define ENCODER_MAX 		40
 
 DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp)
 : Message("DataEncoders")
@@ -29,9 +30,9 @@ double DataEncoders::getTravel(int encoderId) {
 	switch (encoderId) {
 	case 0:
 		//Todo : position
-		return encoderToTravel(mLeftEncoder) * (mLeftDir ? -1 : 1);
+		return encoderToTravel(mLeftEncoder);
 	case 1:
-		return encoderToTravel(mRightEncoder) * (mRightDir ? -1 : 1);
+		return encoderToTravel(mRightEncoder);
 	default:
 		return 0;
 	}
@@ -44,6 +45,30 @@ double DataEncoders::encoderToTravel(int enc) {
 void DataEncoders::setDir(bool left, bool right) {
 	mLeftDir = left;
 	mRightDir = right;
+
+	if (left)
+		mLeftEncoder = -mLeftEncoder;
+
+	if (right)
+		mRightEncoder = -mRightEncoder;
+}
+
+void DataEncoders::setOrigin(int left, int right) {
+	mLeftEncoder += left;
+	mRightEncoder += right;
+
+	mLeftEncoder %= ENCODER_MAX;
+	if (mLeftEncoder < 0)
+		mLeftEncoder += ENCODER_MAX;
+
+	mRightEncoder %= ENCODER_MAX;
+	if (mRightEncoder < 0)
+		mRightEncoder += ENCODER_MAX;
+}
+
+void DataEncoders::getData(int &left, int &right) {
+	left = mLeftEncoder;
+	right = mRightEncoder;
 }
 
 bpt::ptime DataEncoders::getTimeStamp() {

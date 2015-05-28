@@ -29,6 +29,8 @@ public:
 	double getSpeed(int encoderId);
 	bpt::ptime getTimeStamp();
 	void setDir(bool left, bool right);
+	void setOrigin(int left, int right);
+	void getData(int &left, int &right);
 	static DataEncoders* parse(const string &msg);
 
 	virtual void dump();

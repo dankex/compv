@@ -44,17 +44,18 @@ private:
 	string mPort;
 	SerialPort *mSerialPtr;
 	boost::thread* mThread;
-	long mLeftEncoder;
-	long mRightEncoder;
+	int mLeftEncoder;
+	int mRightEncoder;
 	int mVoltage;
 	int countLoop;
-        bool mLeftDir[2], mRightDir[2];
-        std::vector<DataEncoders> mEncoderData;
-        boost::mutex mMutexEncoderData;
+	bool mLeftDir[2], mRightDir[2];
+	std::vector<DataEncoders> mEncoderData;
+	boost::mutex mMutexEncoderData;
 	MsgPipe mMsgPipe;
 	MsgQueue<Channel,(int)MAX> mQueue;
-        
+
 	void enqueue(Message *msg);
+	void processMsg(Message *msg);
 
 protected:
 	void sendDriveCmd(int left, int right, int dirL, int dirR);
