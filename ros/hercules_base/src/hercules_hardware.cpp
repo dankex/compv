@@ -171,8 +171,9 @@ namespace hercules_base
 				  joints_[i].position_offset = delta;
 			  }
 		  }
+		delete enc;
 	  }
-
+/*
 	  DataDifferentialSpeed* speed = (DataDifferentialSpeed*)hercules_wilson::requestData(CHANNEL_DIFFERENTIALSPEED, polling_timeout_);
 	  if (speed)
 	  {
@@ -194,6 +195,7 @@ namespace hercules_base
 		  }
 		  delete speed;
 	  }
+*/
   }
 
   /**
