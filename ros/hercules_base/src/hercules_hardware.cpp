@@ -161,7 +161,8 @@ namespace hercules_base
 			  ROS_INFO_STREAM("pos[" << i << "]=" << new_position + joints_[i].position_offset << endl);
 
 			  // detect encoder rollover
-			  if (std::abs(delta) < 1.0)
+//			  if (std::abs(delta) < 1.0)
+			  if (std::abs(delta) < 6.28)
 			  {
 				  joints_[i].position = new_position;
 			  }
