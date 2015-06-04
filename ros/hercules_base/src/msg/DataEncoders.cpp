@@ -10,8 +10,8 @@
 #include <ros/console.h>
 #include "DataEncoders.h"
 
-#define ENC_TO_TRAVEL 		0.01f
-#define ENCODER_MAX 		40
+#define ENC_TO_TRAVEL 		0.0036f //0.01f
+#define ENCODER_MAX 		70 //40
 
 DataEncoders::DataEncoders(int left, int right, bpt::ptime timeStamp)
 : Message("DataEncoders")
