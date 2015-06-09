@@ -15,7 +15,7 @@ using namespace std;
 #define CMD_DRIVE "D%d,%d,%d,%d,\n"
 #define CMD_BATTERY "B,,\n"
 
-#define MAX_LEVEL	100
+#define MAX_LEVEL	50 //100
 #define MAX_SPEED	1		// 10 m/s
 
 #define MAX_ENCODERDATA 10
@@ -111,7 +111,7 @@ void Hercules::sendGetBatteryCmd() {
 
 int Hercules::speedToLevel(double speed) {
 	int level = speed * MAX_LEVEL / MAX_SPEED;
-	if (level == 100)
+	if (level == MAX_LEVEL)
 		level--;
 	return level;
 }
@@ -157,18 +157,21 @@ DataDifferentialSpeed* Hercules::getDifferentialSpeed() {
 		return 0;
 	}
 
-	double leftSpeed = 0.0;//(double) left/td.total_milliseconds()/1000; // m/sec
-	double rightSpeed = 0.0;//(double) right/td.total_milliseconds()/1000;
-	ROS_DEBUG("EncoderData leftAverageSpeed=%lf, rightAverageSpeed=%lf", leftSpeed, rightSpeed);
-	return new DataDifferentialSpeed(leftSpeed, rightSpeed);
+//	double leftSpeed =(double) left/td.total_milliseconds()/1000; // m/sec
+//	double rightSpeed =(double) right/td.total_milliseconds()/1000;
+	ROS_DEBUG("EncoderData Traveled left=%lf, right=%lf", left, right);
+	return new DataDifferentialSpeed(left, right);
 }
 
 Message* Hercules::requestData(Channel channel, double timeout) {
 	if (channel == DIFFERENTIALSPEED) {
 		ROS_DEBUG("DifferentialSpeed requestData");
-		return (Message*) getDifferentialSpeed();
-	} else {
+//		return (Message*) getDifferentialSpeed();
+                return 0;
+	} else if (channel == ODOMETRY) {
 		return mQueue.waitForMessage(channel, timeout);
+	} else {
+               return 0;
 	}
 }
 
@@ -196,7 +199,7 @@ void Hercules::processMsg(Message *msg) {
 	if (msg->isType("DataEncoders")) {
 		DataEncoders *enc = (DataEncoders*) msg;
 		enc->setDir(mLeftDir[1], mRightDir[1]);
-		enc->setOrigin(mLeftEncoder, mRightEncoder);
+		//enc->setOrigin(mLeftEncoder, mRightEncoder);
 
 		// update origin
 		enc->getData(mLeftEncoder, mRightEncoder);
