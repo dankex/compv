@@ -65,6 +65,7 @@ void DataEncoders::setOrigin(int left, int right) {
 	if (mRightEncoder < 0)
 		mRightEncoder += ENCODER_MAX;
 */
+
 }
 
 void DataEncoders::getData(int &left, int &right) {
