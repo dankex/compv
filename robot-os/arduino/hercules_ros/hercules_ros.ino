@@ -55,8 +55,11 @@ void setup()
   pinMode(PINVS, INPUT);
 
   // initialize interrupts
-  attachInterrupt(0, leftInterruptHandler, CHANGE);
-  attachInterrupt(1, rightInterruptHandler, CHANGE);
+//  attachInterrupt(0, leftInterruptHandler, CHANGE);
+//  attachInterrupt(1, rightInterruptHandler, CHANGE);
+//swapped left and right
+  attachInterrupt(1, leftInterruptHandler, CHANGE);
+  attachInterrupt(0, rightInterruptHandler, CHANGE);
 
   // initialize serial port
   Serial.begin(19200);
