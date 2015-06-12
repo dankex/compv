@@ -67,6 +67,24 @@ void setup()
   
   // initialize watch dog timer and set it to 2 seconds
   wdt_enable(WDTO_2S);
+  
+  // speed test
+  speedTest();
+}
+
+void speedTest() {
+  resetFeedback();
+  
+  motorSetSpeed(99);
+  motorForward();
+  
+  // run for 10 secs
+  delay(5*1000);
+  
+  motorStop();
+  
+  printData();
+  resetFeedback();  
 }
 
 void loop()
