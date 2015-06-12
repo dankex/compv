@@ -17,8 +17,6 @@
 //  S0..S9  Speed (0=stop,.., 9=fast)      -returns S*,speedL,speedR\n
 //  B?      Query battery voltage          -returns B?,millivolts\n
 //
-//  DLR     Drive two wheels at speeds L/R -return D,cntL,cntR\n
-//
 //  the comma is used to separate commands when more are following
 //  the newline is used to terminate one or more commands
 //  eg:
@@ -42,52 +40,60 @@
 #define PINPWMB         10          // PWM channel B (motor B speed)
 #define PINVS           A6          // voltage/battery sensor
 
+
+
 //global vars
 volatile int leftFeedback = 0;
 volatile int rightFeedback = 0;
-volatile int motorSpeed = 0;
+int motorSpeed=0;
+
 
 void setup()
 {
-  MOTOR.begin();
-  pinMode(PINVS, INPUT);
 
-  // initialize interrupts
+  MOTOR.begin();
+  pinMode(PINVS,  INPUT);
+
+  //initialize interrupts
   attachInterrupt(0, leftInterruptHandler, CHANGE);
   attachInterrupt(1, rightInterruptHandler, CHANGE);
 
-  // initialize serial port
+  //initialize serial port
   Serial.begin(19200);
-  Serial.println("//HERCULES 4WD ROBOTFIRMWARE V1.0");
+  Serial.println("//MECHANIC APE HERCULES 4WD ROBOTFIRMWARE V1.0");
   Serial.print("//Battery=");
   Serial.print(getBatteryVoltage());
   Serial.print("mV");
   Serial.println();
   Serial.println("OK");
 
-  // initialize watch dog timer and set it to 2 seconds
+  //initialize watch dog timer and set it to 2 seconds
   wdt_enable(WDTO_2S);
 }
+
 
 void loop()
 {
   wdt_reset();  //reset watch dog timer
   processSerialData(); //read data from serial and send it to the motors
+  //resetFeedback();  //reset speed sensors
 }
 
-/**** INTERRUPT HANDLERS ****/
+
+//**** INTERRUPT HANDLER ******************************************************************************
+
 
 void leftInterruptHandler()
 {
   leftFeedback++;
 }
 
+
 void rightInterruptHandler()
 {
   rightFeedback++;
 }
 
-/**** MOTOR CONTROLLER ****/
 
 void resetFeedback()
 {
@@ -95,42 +101,98 @@ void resetFeedback()
   rightFeedback=0;
 }
 
+
+//**** MOTOR CONTROLLER *******************************************************************************
+
+
 void motorSetSpeed(int power)
 {
   motorSpeed=power;
+//  MOTOR.setSpeed1(motorSpeed);
+//  MOTOR.setSpeed2(motorSpeed);
+//  analogWrite(PINPWMA,motorSpeed);
+//  analogWrite(PINPWMB,motorSpeed);
 }
+
 
 void motorStop()
 {
   MOTOR.setStop1();
   MOTOR.setStop2();
+//  digitalWrite(PINCS,LOW);
+//  digitalWrite(PINM1R,LOW);
+//  digitalWrite(PINM1F,LOW);
+//  digitalWrite(PINM2F,LOW);
+//  digitalWrite(PINM2R,LOW); 
 }
+
 
 void motorForward()
 {
   MOTOR.setSpeedDir(motorSpeed, DIRF);
+//  digitalWrite(PINM1R,HIGH);
+//  digitalWrite(PINM1F,LOW);
+//  digitalWrite(PINM2F,HIGH);
+//  digitalWrite(PINM2R,LOW);
+//  digitalWrite(PINCS,HIGH);
 }
 
 void motorReverse()
 {
   MOTOR.setSpeedDir(motorSpeed, DIRR);
+//  digitalWrite(PINM1R,LOW);
+//  digitalWrite(PINM1F,HIGH);
+//  digitalWrite(PINM2F,LOW);
+//  digitalWrite(PINM2R,HIGH);
+//  digitalWrite(PINCS,HIGH);
 }
 
-void motorTurnRight()
-{
-  MOTOR.setSpeedDir1(motorSpeed-(motorSpeed >> 1), DIRF);
-  MOTOR.setSpeedDir2(motorSpeed, DIRF);
-}
 
 void motorTurnLeft()
 {
-  MOTOR.setSpeedDir1(motorSpeed, DIRF);
-  MOTOR.setSpeedDir2(motorSpeed- (motorSpeed >>1), DIRF);
+  
+  MOTOR.setSpeedDir1(motorSpeed-(motorSpeed >> 2), DIRF);
+  MOTOR.setSpeedDir2(motorSpeed, DIRF);
+//  digitalWrite(PINM1R,LOW);
+//  digitalWrite(PINM1F,HIGH);
+//  digitalWrite(PINM2F,HIGH);
+//  digitalWrite(PINM2R,LOW);
+//  digitalWrite(PINCS,HIGH);
 }
 
-/**** MESSAGE HANDLING ****/
 
-void processCmdM(int valueByte) {
+void motorTurnRight()
+{
+  MOTOR.setSpeedDir1(motorSpeed, DIRF);
+  MOTOR.setSpeedDir2(motorSpeed- (motorSpeed >>2), DIRF);
+//  digitalWrite(PINM1R,HIGH);
+//  digitalWrite(PINM1F,LOW);
+//  digitalWrite(PINM2F,LOW);
+//  digitalWrite(PINM2R,HIGH);
+//  digitalWrite(PINCS,HIGH);
+
+}
+
+
+//**** MESSAGE HANDLING ******************************************************************************
+
+
+void processSerialData()
+{
+  if (Serial.available()>2)
+  {
+    int commandByte= Serial.read();
+    int valueByte  = Serial.read();
+    int endofline  = Serial.read();
+    //a message has 3 bytes
+    //this first byte is always M (Motor) or S (Speed)
+    //the second byte is a number (0|1|2|3|4|..|9) 
+    //the third byte is a comma or a newline (,|\n)
+    
+    
+    //handle the motor request
+    if (commandByte==77 && (endofline==10 || endofline==44)) //M
+    {
       //incoming data is correct and conform specs  
       motorSetSpeed(motorSpeed);      
       switch (valueByte)
@@ -141,130 +203,86 @@ void processCmdM(int valueByte) {
         break;       //M0\n
       case 48+1: 
         motorForward(); 
-        break;       //M1\n
+        break;      //M1\n
       case 48+2: 
         motorReverse(); 
-        break;       //M2\n
+        break;      //M2\n
       case 48+3: 
         motorTurnLeft(); 
-        break;       //M3\n
+        break;     //M3\n
       case 48+4: 
         motorTurnRight(); 
-        break;       //M4\n
+        break;     //M4\n
       case 84:
         motorTest(); //MT\n
         break;
       default: 
         motorStop();  
-        break;       // fail safe
+        break;    //fail safe
       } //end-switch
 
       //confirm the serial request by sending a response
-      Serial.print('M');
+      Serial.print(char(commandByte));
       Serial.print(char(valueByte));
       Serial.print(char(44));
       Serial.print(leftFeedback, DEC);
       Serial.print(char(44));
       Serial.print(rightFeedback, DEC);
       Serial.println();
-}
-
-void processCmdS(int valueByte) {
+    } 
+  
+    //handle the motorspeed request
+    if (commandByte==83 && (endofline==10 || endofline==44)) //S
+    {
       //incoming data is correct and conform specs        
       if (valueByte>47 && valueByte<59)
-      {
+      { 
+        //set the motorspeed
+//        int motorNewSpeed=(valueByte-48)*26;
         int motorNewSpeed=(valueByte-48)*10;
         motorSetSpeed(motorNewSpeed);
+
       }
       //confirm the serial request by sending a response
-      Serial.print('S');
+      Serial.print(char(commandByte));
       Serial.println(char(valueByte));
-}
+    } 
 
-void processCmdB(int valueByte) {
+    //handle the battery voltage request
+    if (commandByte==66 && (endofline==10 || endofline==44)) //B
+    {
+      
       int millivolt=getBatteryVoltage();
       //confirm the serial request by sending a response
-      Serial.print('B');
+      Serial.print(char(commandByte));
       Serial.print(char(valueByte));
       Serial.print(char(44));
       Serial.print(millivolt);
       Serial.println();
-}
+    } 
 
-void processCmdD(int valueByte) {
-      int left, right;
-
-      noInterrupts();
-      left = leftFeedback;
-      leftFeedback = 0;
-
-      right = rightFeedback;
-      rightFeedback = 0;
-      interrupts();
-
-      // output odometry
-      Serial.print('D');
-      Serial.print(char(valueByte));
-      Serial.print(char(','));
-      Serial.print(left, DEC);
-      Serial.print(char(','));
-      Serial.print(right, DEC);
-      Serial.println();
-
-      // drive the wheels
-      int speedL = left & 0x7F;
-      int dirL = !!(left & 0x80);
-      int speedR = right & 0x7F;
-      int dirR = !!(right & 0x80);
-
-      MOTOR.setSpeedDir1(speedL, dirL ? DIRR : DIRF);
-      MOTOR.setSpeedDir2(speedR, dirR ? DIRR : DIRF);
-}
-
-void processSerialData()
-{
-  if (Serial.available() < 3) {
-    // no data
-    return;
   }
+  else
+  {
+    //no data
+    motorStop();  //fail safe
 
-  int commandByte = Serial.read();
-  int second      = Serial.read();
-  int third       = Serial.read();
-
-  // A message has 3 bytes
-
-  // If the first byte is M (Motor) or S (Speed)
-  //   the second byte is a number (0|1|2|3|4|..|9) 
-  //   the third byte is a comma or a newline (,|\n)
-
-  // If the first byte is D (Drive)
-  //   the second byte is the left speed 0 - 99
-  //   the third byte is the right speed 0 - 99
-
-  if (commandByte=='D') {
-    processCmdD(second, third);
-  } else if (commandByte=='M' && (third==10 || third==44)) { // M
-    processCmdM(second);
-  } else if (commandByte=='S' && (third==10 || third==44)) { // S
-    processCmdS(second);
-  } else if (commandByte=='B' && (third==10 || third==44)) { // B
-    processCmdB(second);
   }
-
-  delay(25); // this delay can be tweaked or omitted to adjust accuracy. keep it low!
+  delay(100); //this delay can be tweaked or omitted to adjust accuracy. keep it low!
 }
 
-/**** SENSOR HANDLING ****/
+
+
+//***** SENSOR HANDLING ******************************************************************************
 
 int getBatteryVoltage()
 {
+
   int value=analogRead(PINVS);
   int millivolt=round((float)(value)/0.037479); //guess
   return millivolt;
 }
-
-/**** SYSTEM TEST ****/
+//***** SYSTEM TEST **********************************************************************************
 
 void motorTest()
 {
@@ -284,5 +302,10 @@ void motorTest()
   }
   motorStop();
 }
+//*****************************************************************************************************
+// * END FILE
+// *****************************************************************************************************
+
+
 
 
