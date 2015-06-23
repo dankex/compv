@@ -63,13 +63,14 @@ void setup()
 
   // initialize serial port
   Serial.begin(19200);
+/*
   Serial.println("//HERCULES 4WD ROBOTFIRMWARE V1.0");
   Serial.print("//Battery=");
   Serial.print(getBatteryVoltage());
   Serial.print("mV");
   Serial.println();
   Serial.println("OK");
-
+*/
   // initialize watch dog timer and set it to 2 seconds
   wdt_enable(WDTO_2S);
 }
@@ -249,8 +250,8 @@ void processCmdD() {
 */          
 //      speedL = 20;
 //      speedR = 10;
-      MOTOR.setSpeedDir1(speedL, dirL ? DIRR : DIRF);
-      MOTOR.setSpeedDir2(speedR, dirR ? DIRR : DIRF);
+      MOTOR.setSpeedDir1(speedL, dirL ? DIRF : DIRR);
+      MOTOR.setSpeedDir2(speedR, dirR ? DIRF : DIRR);
 }
 void processSerialData()
 {

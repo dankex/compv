@@ -75,11 +75,11 @@ void setup()
 void speedTest() {
   resetFeedback();
   
-  motorSetSpeed(99);
+  motorSetSpeed(50);
   motorForward();
   
   // run for 10 secs
-  delay(5*1000);
+  delay(2*1000);
   
   motorStop();
   
@@ -90,7 +90,7 @@ void speedTest() {
 void loop()
 {
   wdt_reset();  //reset watch dog timer
-  printData();
+  //printData();
 }
 
 void printData() {
