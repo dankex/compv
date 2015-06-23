@@ -37,20 +37,20 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <property name="M_PI" value="3.14159"/>
 
   <!-- Base Size -->
-  <property name="base_x_size" value="0.98740000" />
-  <property name="base_y_size" value="0.57090000" />
-  <property name="base_z_size" value="0.24750000" />
+  <property name="base_x_size" value="0.200" />
+  <property name="base_y_size" value="0.135" />
+  <property name="base_z_size" value="0.035" />
 
   <!-- Wheel Mounting Positions -->
-  <xacro:property name="wheelbase" value="0.5120" />
-  <xacro:property name="track" value="0.5708" />
-  <xacro:property name="wheel_vertical_offset" value="0.03282" />
+  <xacro:property name="wheelbase" value="0.172" />
+  <xacro:property name="track" value="0.172" />
+  <xacro:property name="wheel_vertical_offset" value="0.025" />
 
   <!-- Wheel Properties -->
   <!-- <xacro:property name="wheel_length" value="0.1143" /> -->
   <!--<xacro:property name="wheel_radius" value="0.17775" /> -->
-  <xacro:property name="wheel_length" value="1.6" />
-  <xacro:property name="wheel_radius" value="0.425" />
+  <xacro:property name="wheel_length" value="0.03" />
+  <xacro:property name="wheel_radius" value="0.04" />
 
   <xacro:macro name="hercules_robot">
 
