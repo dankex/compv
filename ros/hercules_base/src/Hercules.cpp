@@ -15,8 +15,11 @@ using namespace std;
 #define CMD_DRIVE "D%d,%d,%d,%d,\n"
 #define CMD_BATTERY "B,,\n"
 
-#define MAX_LEVEL	50 //100
-#define MAX_SPEED	1		// 10 m/s
+#define MAX_LEVEL			50
+#define ENC_PER_SEC_AT_MAX_LEVEL	215
+#define ENC_PER_TURN			70
+#define WHEEL_DIAMETER_METER		.08
+#define SPEED_AT_MAX_LEVEL		(((float)ENC_PER_SEC_AT_MAX_LEVEL) / ENC_PER_TURN * WHEEL_DIAMETER_METER * 3.14159)
 
 #define MAX_ENCODERDATA 10
 
@@ -110,7 +113,7 @@ void Hercules::sendGetBatteryCmd() {
 }
 
 int Hercules::speedToLevel(double speed) {
-	int level = speed * MAX_LEVEL / MAX_SPEED;
+	int level = speed / SPEED_AT_MAX_LEVEL * MAX_LEVEL;
 	if (level == MAX_LEVEL)
 		level--;
 	return level;
@@ -129,17 +132,21 @@ DataDifferentialSpeed* Hercules::getDifferentialSpeed() {
 	bpt::ptime fromTime(bpt::microsec_clock::local_time());
 	fromTime -= bpt::time_duration(0,0,1,0);
 
-	int left = 0;
-	int right = 0;
+	double left = 0, right=0;
+	int lefti = 0, righti=0;
 	int i = 0;
 	for (it=mEncoderData.begin(); it!=mEncoderData.end(); i++) {
 		if(mEncoderData[i].getTimeStamp() > fromTime) {
+			mEncoderData[i].getData(lefti, righti);
+//	                ROS_DEBUG("EncoderData i=%d lefti=%d, right=%d", i, lefti, righti);
 			left += mEncoderData[i].getTravel(0);
 			right += mEncoderData[i].getTravel(1);
 			it++;
 		} else {
 			it = mEncoderData.erase(it);
 		}
+
+		
 	}
 	int num = mEncoderData.size();
 	if(num < 2) {
@@ -157,17 +164,18 @@ DataDifferentialSpeed* Hercules::getDifferentialSpeed() {
 		return 0;
 	}
 
-//	double leftSpeed =(double) left/td.total_milliseconds()/1000; // m/sec
-//	double rightSpeed =(double) right/td.total_milliseconds()/1000;
+	double leftSpeed = (left/td.total_milliseconds())*(1000); // m/s
+	double rightSpeed = (right/td.total_milliseconds())*(1000);
 	ROS_DEBUG("EncoderData Traveled left=%lf, right=%lf", left, right);
-	return new DataDifferentialSpeed(left, right);
+	ROS_DEBUG("EncoderData leftspeed=%lf, rightspeed=%lf", leftSpeed, rightSpeed);
+	return new DataDifferentialSpeed(leftSpeed, rightSpeed);
 }
 
 Message* Hercules::requestData(Channel channel, double timeout) {
 	if (channel == DIFFERENTIALSPEED) {
 		ROS_DEBUG("DifferentialSpeed requestData");
-//		return (Message*) getDifferentialSpeed();
-                return 0;
+		return (Message*) getDifferentialSpeed();
+//                return 0;
 	} else if (channel == ODOMETRY) {
 		return mQueue.waitForMessage(channel, timeout);
 	} else {
@@ -188,7 +196,9 @@ void Hercules::enqueue(Message *msg) {
 		} else {
 			mEncoderData.erase(mEncoderData.begin());
 			mEncoderData.push_back(dataEncoder);
-			ROS_DEBUG("EncoderData erase and pushback");
+                        int left, right;
+                        mEncoderData.back().getData(left, right);
+			ROS_DEBUG("EncoderData erase and pushback, l=%d, r=%d", left, right);
 		}
 
 		mMutexEncoderData.unlock();
