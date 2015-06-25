@@ -57,6 +57,7 @@ void DataEncoders::setOrigin(int left, int right) {
 	mLeftEncoder += left;
 	mRightEncoder += right;
 /*
+ *  TODO: limit the range below, and process rewinding at hercules_hardware.cpp
 	mLeftEncoder %= ENCODER_MAX;
 	if (mLeftEncoder < 0)
 		mLeftEncoder += ENCODER_MAX;

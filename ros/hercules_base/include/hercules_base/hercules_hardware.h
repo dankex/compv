@@ -102,7 +102,7 @@ namespace hercules_base
     struct Joint
     {
       double position;
-      double position_offset;
+      // double position_offset;
       double velocity;
       double effort;
       double velocity_command;

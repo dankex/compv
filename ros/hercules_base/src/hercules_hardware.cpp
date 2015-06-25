@@ -66,6 +66,9 @@ namespace hercules_base
 
     hercules_wilson::connect(port);
     hercules_wilson::configureLimits(max_speed_, max_accel_);
+
+    ROS_INFO("ROS max_speed=%f max_acce=%f\n", max_speed_, max_accel_);
+
     resetTravelOffset();
     initializeDiagnostics();
     registerControlInterfaces();
@@ -76,7 +79,14 @@ namespace hercules_base
   */
   void HerculesHardware::resetTravelOffset()
   {
+	  for (int i = 0; i < 4; i++)
+	  {
+		joints_[i].position = 0.0;
+	  }
+
 	/*
+	 * Commented out because it is only needed for absolute encoders
+	 *
     horizon_legacy::Channel<clearpath::DataEncoders>::Ptr enc = horizon_legacy::Channel<clearpath::DataEncoders>::requestData(polling_timeout_);
     if (enc)
     {
@@ -155,27 +165,12 @@ namespace hercules_base
 	  {
 		  for (int i = 0; i < 4; i++)
 		  {
-/*
-			  double new_position = linearToAngular(enc->getTravel(i % 2)) - joints_[i].position_offset;
-			  double delta = new_position - joints_[i].position;
+			  // For relative encoders
+			  double delta = linearToAngular(enc->getTravel(i%2));
 
-
-			  // detect encoder rollover
-			  if (std::abs(delta) < 1.0)
-			  {
-				  joints_[i].position = new_position;
-			  }
-			  else
-			  {
-				  //  rollover has occured, swallow the measurement and update the offset
-				  joints_[i].position_offset = delta;
-			  }
-*/
-
-	                  joints_[i].position += linearToAngular(enc->getTravel(i%2));
+			  joints_[i].position += delta;
 
 			  ROS_INFO_STREAM("posistion[" << i << "]=" << joints_[i].position << endl);
-//			  ROS_INFO_STREAM("posistion_offset[" << i << "]=" << joints_[i].position_offset << endl);
 		  }
 		delete enc;
 	  }
