@@ -5,7 +5,7 @@
  *      Author: danke
  */
 
-#include <iostream>
+#include <cstdio>
 #include <sstream>
 #include <string>
 #include <stdio.h>
@@ -56,8 +56,8 @@ void Hercules::cmdD() {
 	string leftDir = mSerial.ReadLine(READ_TIME, ',');
 	string rightDir = mSerial.ReadLine(READ_TIME, ',');
 
-	cout << gDebugCount++ << " DEBUG: " << "L=" << leftSpeed << " R=" << rightSpeed <<
-			" LD=" << leftDir << " RD=" << rightDir << endl;
+	printf("%d DEBUG: L=%s R=%s LD=%s RD=%s\n", 
+		gDebugCount++, leftSpeed.c_str(), rightSpeed.c_str(), leftDir.c_str(), rightDir.c_str());
 
 	int lspeed = stringToNum(leftSpeed);
 	int rspeed = stringToNum(rightSpeed);
@@ -66,7 +66,7 @@ void Hercules::cmdD() {
 	oss << "D" << lspeed << "," << rspeed << ",\n";
 	mSerial.Write(oss.str());
 
-	cout << gDebugCount++ << " DEBUG: " << "Output: " << oss.str() << endl;
+	printf("%d DEBUG: Output: %s\n", gDebugCount++, oss.str().c_str());
 }
 
 void Hercules::cmdB() {
@@ -89,7 +89,7 @@ bool Hercules::loop() {
 			}
 		}
 	} catch (exception e) {
-		cout << "**** EXCEPTION: " << e.what() << endl;
+		printf("**** EXCEPTION: %s\n", e.what());
 	}
 	return true;
 }
