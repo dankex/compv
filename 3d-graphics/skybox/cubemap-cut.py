@@ -11,7 +11,8 @@ if len(sys.argv) < 2:
     sys.exit(-1)
 
 infile = sys.argv[1]
-filename, file_extension = os.path.splitext(infile)
+filename, original_extension = os.path.splitext(infile)
+file_extension = ".png"
 
 name_map = [ \
      ["", "", "posy", ""],
