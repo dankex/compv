@@ -4,6 +4,7 @@ from __future__ import print_function
 import sys
 import os.path
 from PIL import Image
+import zipfile
 
 if len(sys.argv) < 2:
     print("Usage: cubemap-cut.py <filename.jpg|png>")
@@ -25,15 +26,26 @@ try:
 
     cube_size = width / 6
 
-    print("%dx%d cube %d" % (width, height, cube_size))
+    filelist = []
     for row in range(3):
         for col in range(4):
             if name_map[row][col] != "":
                 sx = cube_size * col
                 sy = cube_size * row
                 fn = name_map[row][col] + file_extension
+                filelist.append(fn)
                 print("%s --> %s" % (str((sx, sy, sx + cube_size, sy + cube_size)), fn))
                 im.crop((sx, sy, sx + cube_size, sy + cube_size)).save(fn) 
+
+    zfname = filename + '.zip'
+    print("Creating zipfile: " + zfname)
+    zf = zipfile.ZipFile(zfname, mode='w')
+    try:
+        for fn in filelist:
+            zf.write(fn)
+        print("done")
+    finally:
+        zf.close()
 
 except IOError:
     pass
