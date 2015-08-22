@@ -16,7 +16,7 @@ file_extension = ".png"
 
 name_map = [ \
      ["", "", "posy", ""],
-     ["posz", "negx", "negz", "posx"],
+     ["negz", "negx", "posz", "posx"],
      ["", "", "negy", ""]]
 
 try:
@@ -25,7 +25,7 @@ try:
 
     width, height = im.size
 
-    cube_size = width / 6
+    cube_size = width / 4
 
     filelist = []
     for row in range(3):

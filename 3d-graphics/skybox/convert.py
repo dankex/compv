@@ -79,5 +79,5 @@ imgIn = Image.open(sys.argv[1])
 inSize = imgIn.size
 imgOut = Image.new("RGB",(inSize[0],inSize[0]*3/4),"black")
 convertBack(imgIn,imgOut)
-imgOut.save(sys.argv[1].split('.')[0]+"Out2.png")
+imgOut.save(sys.argv[1].split('.')[0]+"_cubemap.png")
 imgOut.show()
