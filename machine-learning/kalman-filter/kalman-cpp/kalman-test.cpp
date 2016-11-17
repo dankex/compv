@@ -11,6 +11,8 @@
 
 #include "kalman.hpp"
 
+#define FORMAT 2
+
 int main(int argc, char* argv[]) {
 
   int n = 3; // Number of states
@@ -68,8 +70,13 @@ int main(int argc, char* argv[]) {
     t += dt;
     y << measurements[i];
     kf.update(y);
+#if FORMAT == 1
     std::cout << "t = " << t << ", " << "y[" << i << "] = " << y.transpose()
         << ", x_hat[" << i << "] = " << kf.state().transpose() << std::endl;
+#else
+    std::cout << t << "\t" << i << "\t" << y.transpose() << "\t"
+        << "\t" << i << "\t" << kf.state().transpose() << std::endl;
+#endif
   }
 
   return 0;
