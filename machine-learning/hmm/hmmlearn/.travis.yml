@@ -1,0 +1,16 @@
+sudo: false
+
+language: python
+
+env:
+  global:
+    - TEST_DIR=/tmp/hmmlearn
+  matrix:
+    - PYTHON_VERSION="2.6"
+    - PYTHON_VERSION="2.7" COVERAGE="true"
+    - PYTHON_VERSION="3.4"
+    - PYTHON_VERSION="3.5"
+
+install: source continuous_integration/travis/install.sh
+script: bash continuous_integration/travis/test_script.sh
+after_success: source continuous_integration/travis/after_success.sh
