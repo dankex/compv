@@ -26,6 +26,16 @@ hold on;
 scatter(Xb(:,1), Xb(:,2), 'g');
 hold off;
 
+% verify
+global verify = 0;
+if verify
+  % expecting pr = 1.00
+  identity_test = pdf_point_cloud_2d(X, X(1,:))
+  identity_test = pdf_point_cloud_2d(X, X(2,:))
+  identity_test = pdf_point_cloud_2d(X, X(3,:))
+  identity_test = pdf_point_cloud_2d(X, X(4,:))
+endif
+
 Ts = solve_unmatched(X, Xb, R, P);
 fprintf("Solved Transform\n")
 Ts

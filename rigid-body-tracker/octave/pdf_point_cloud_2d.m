@@ -8,7 +8,7 @@ function sumP = pdf_point_cloud_2d(X, x)
   sumP = 0;
   for i = 1:size(X,1)
     mu = X(i, :);
-    sumP = sumP + exp(-norm(x - mu) / S) / Z;
+    sumP = sumP + exp(-norm(x - mu)^2 / S) * Z;
   endfor
   
   sumP = sumP / size(X,1);
