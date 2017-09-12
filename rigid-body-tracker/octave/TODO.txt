@@ -1,4 +1,4 @@
 TODO list
 
 - Visualize the optimization process
-- 
+- Check how this looks like: 0.70375   0.70375   8.14183  -0.80255

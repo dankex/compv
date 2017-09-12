@@ -21,10 +21,11 @@ Xb = (P * Y')';
 
 Xb = Xb ./ Xb(:,3);
 
+figure(1);
+hold off;
 scatter(X(:,1), X(:,2), 'b');
 hold on;
 scatter(Xb(:,1), Xb(:,2), 'g');
-hold off;
 
 % verify
 global verify = 0;
@@ -40,8 +41,12 @@ Ts = solve_unmatched(X, Xb, R, P);
 fprintf("Solved Transform\n")
 Ts
 
+Yf = (Ts * [X ones(size(X,1),1)]')';
+Xf = (P * Yf')';
+Xf = Xf ./ Xf(:,3);
+figure(1);
+hold on;
+scatter(Xf(:,1), Xf(:,2), 'r');
+
 fprintf("Applied Transform\n")
 T
-
-#fprintf("MSE\n")
-#MSE = sum(sum((Ts-T).*(Ts-T))) / prod(size(T))

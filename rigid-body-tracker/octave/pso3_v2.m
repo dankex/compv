@@ -13,7 +13,11 @@ if nargin<2,   Num_iterations=20;  end
 if nargin<1,   n=25;          end
 
 % range=[xmin xmax ymin ymax zmin zmax];
-range=[init(1)-1 init(1)+1 init(2)-1 init(2)+1 init(3)-10 init(3) + 10];
+Rx = 1;
+Ry = 1;
+Rz = 1;
+
+range=[init(1)-Rx init(1)+Rx init(2)-Ry init(2)+Ry init(3)-Rz init(3)+Rz];
 
 % ----------------------------------------------------
 % Setting the parameters: alpha, beta
@@ -24,7 +28,7 @@ beta=0.5;
 % ----------------------------------------------------
 % Grid values of the objective function
 % These values are used for visualization only
-Ngrid=20;
+Ngrid=30;
 dx=(range(2)-range(1))/Ngrid;
 dy=(range(4)-range(3))/Ngrid;
 dz=(range(6)-range(5))/Ngrid;
@@ -51,7 +55,7 @@ best=zeros(Num_iterations,4);   % initialize history
 %figure(2);
 % Start iterations
 for i=1:Num_iterations,
-figure(i);
+%figure(i);
 % Show the contour of the function
   %contour(x,y,u(:,:,1),15); hold on;
 % Find the current best location (xo,yo)
@@ -63,14 +67,14 @@ zo=min(zn(un==un_min));
 uo=min(un(un==un_min));
 % Trace the paths of all roaming particles
 % Display these roaming particles
-plot(xn,yn,'.',xo,yo,'*'); axis(range);
+%plot(xn,yn,'.',xo,yo,'*'); axis(range);
 % The accelerated PSO with alpha=gamma^t
 gamma=0.7; alpha=gamma.^i;
 % Move all the particles to new locations
 [xn,yn,zn]=pso_move(xn,yn,zn,xo,yo,zo,alpha,beta,range);
-drawnow;
+%drawnow;
 % Use "hold on" to display paths of particles
-hold off;
+%hold off;
 % History
 best(i,1)=xo; best(i,2)=yo; best(i,3)=zo; best(i,4)=uo;
 end   %%%%% end of iterations

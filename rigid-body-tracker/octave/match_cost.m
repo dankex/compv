@@ -9,16 +9,16 @@ function L = match_cost(x, y, z)
 
   X = gX;
   Y = gY;
-  
+
   sizes = size(x);
   len = prod(sizes);
-  
+
   xv = reshape(x, len, 1);
   yv = reshape(y, len, 1);
   zv = reshape(z, len, 1);
-  
+
   L = zeros(len, 1);
-  
+
   for i = 1:len
     if mod(i, 1000) == 1
       fprintf("cell %d/%d\n", i, len);
@@ -33,15 +33,24 @@ function L = match_cost(x, y, z)
     Xbt = (gP * Yt')';
     Xbt = Xbt ./ Xbt(:,3);
 
-    prob = 0;
+    prob = 1;
+    logProb = 0;
     for q = size(Xbt, 1)
       r = Xbt(q, :);
       pr = pdf_point_cloud_2d(X, r);
-      prob = prob + pr;
+      prob = prob * pr;
+      logProb = logProb + log(pr);
     endfor
-    loss = -prob;
+    
+    global verify
+    if verify
+      error = norm(X - Xbt)
+      prob
+    endif
+    
+    loss = -logProb;
     L(i) = loss;
   endfor
-  
+
   L = reshape(L, sizes);
 endfunction

@@ -1,7 +1,7 @@
 % X: observed points
 % x: point to test
 function sumP = pdf_point_cloud_2d(X, x)
-  sigma = 1;
+  sigma = .01;
   Z = 1 / sqrt(2 * pi * sigma ^ 2);
   S = 2 * sigma ^ 2;
   

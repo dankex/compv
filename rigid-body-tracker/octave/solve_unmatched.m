@@ -61,9 +61,9 @@ function T = solve_unmatched(X, Xb, R, P)
       solution_cost = match_cost(X0, Y0, Z0)
       return
     endif
-    
-    gBest = pso3_v2(30, 50, [X0, Y0, Z0]);
-    
+
+    gBest = pso3_v2(50, 100, [X0, Y0, Z0]);
+
     gBest
     gBest = gBest(size(gBest)(1), :);
   endif
