@@ -51,6 +51,7 @@ imgpoints = [] # 2d points in image plane.
 
 cap = cv2.VideoCapture(0)
 found = 0
+
 while(found < 10):  # Here, 10 can be changed to whatever number you like to choose
     ret, img = cap.read() # Capture frame-by-frame
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -92,4 +93,11 @@ with open("calibration.yaml", "w") as f:
 #     loadeddict = yaml.load(f)
 # mtxloaded = loadeddict.get('camera_matrix')
 # distloaded = loadeddict.get('dist_coeff')
+
+# Generate calibration.npy
+h,  w = img.shape[:2]
+print("Image size", h, ",", w)
+newcameramtx, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1,(w,h))
+mapx,mapy = cv2.initUndistortRectifyMap(mtx,dist,None,newcameramtx,(w,h),5)
+np.save("calibration.npy", np.array([mapx, mapy]))
 
